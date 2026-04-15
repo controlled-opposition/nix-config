@@ -1,0 +1,2 @@
+WRN 2026-04-13T00:11:40.593 ?.28687    vim_mktempdir:3322: $TMPDIR tempdir not a directory (or does not exist): "/private/tmp/nix-shell-1346-718133975"
+WRN 2026-04-13T00:11:40.594 ?.28687    server_start:197: Failed to start server: operation not permitted: /tmp/nvim.everick/MbXPxA/nvim.28687.0
