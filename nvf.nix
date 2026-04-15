@@ -4,8 +4,7 @@
     enable = true;
     settings = {
       vim = {
-        viAlias = true;
-        vimAlias = true;
+        syntaxHighlighting = true;
         lsp = {
           enable = true;
           formatOnSave = true;
@@ -24,11 +23,13 @@
             lsp.servers = [ "nixd" ];
             format.type = [ "nixfmt" ];
             extraDiagnostics.enable = true;
+            treesitter.enable = true;
           };
         };
         treesitter = {
           enable = true;
-          fold = true;
+          textobjects.enable = true;
+          context.enable = true;
         };
         statusline = {
           lualine.enable = true;
@@ -36,12 +37,20 @@
         autopairs.nvim-autopairs.enable = true;
         theme = {
           enable = true;
-          name = "gruvbox";
-          style = "dark";
+          name = "rose-pine";
+          style = "main";
         };
         telescope.enable = true;
-        utility.motion.precognition.enable = true;
-
+        utility = {
+          yazi-nvim.enable = true;
+          surround.enable = true;
+        };
+        binds.whichKey.enable = true;
+        clipboard.enable = true;
+        visuals = {
+          rainbow-delimiters.enable = true;
+          nvim-web-devicons.enable = true;
+        };
       };
     };
   };
