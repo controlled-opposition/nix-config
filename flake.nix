@@ -6,8 +6,8 @@
 
     nixos-nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    darwin.url = "github:nix-darwin/nix-darwin/master";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -21,8 +21,6 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
-
-    den.url = "github:vic/den";
 
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
@@ -38,75 +36,77 @@
   outputs =
     inputs@{
       nixpkgs,
+      nix-darwin,
+      home-manager,
+      nvf,
       ...
     }:
     let
-      systems = [
-        "aarch64-darwin"
-        "x86_64-linux"
-      ];
+      darwinSystem = "aarch64-darwin";
+      wslSystem = "x86_64-linux";
+      username = "everick";
+      hostname = "Evericks-MacBook-Air";
 
-      forAllSystems = nixpkgs.lib.genAttrs systems;
+      pkgs = import nixpkgs {
+        system = darwinSystem;
+        config.allowUnfree = true;
+      };
 
-      pkgsFor =
-        system:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
+      preCommitCheck = inputs.git-hooks.lib.${darwinSystem}.run {
+        src = ./.;
+        hooks = {
+          nixfmt.enable = true;
+          deadnix.enable = true;
+          statix.enable = true;
+          check-merge-conflicts.enable = true;
+          end-of-file-fixer.enable = true;
+          trim-trailing-whitespace.enable = true;
         };
-
-      denConfig =
-        (nixpkgs.lib.evalModules {
-          modules = [ ./modules/den.nix ];
-          specialArgs = { inherit inputs; };
-        }).config;
-
-      preCommitChecks = forAllSystems (
-        system:
-        inputs.git-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {
-            nixfmt.enable = true;
-            deadnix.enable = true;
-            statix.enable = true;
-            check-merge-conflicts.enable = true;
-            end-of-file-fixer.enable = true;
-            trim-trailing-whitespace.enable = true;
-          };
-        }
-      );
+      };
     in
-    builtins.removeAttrs denConfig.flake [ "denful" ]
-    // {
-      checks = nixpkgs.lib.mapAttrs (_: preCommitCheck: {
-        pre-commit-check = preCommitCheck;
-      }) preCommitChecks;
+    {
+      checks.${darwinSystem}.pre-commit-check = preCommitCheck;
 
-      formatter = forAllSystems (
-        system:
+      formatter.${darwinSystem} =
         let
-          pkgs = pkgsFor system;
-          preCommitCheck = preCommitChecks.${system};
           inherit (preCommitCheck) config;
           inherit (config) package configFile;
         in
         pkgs.writeShellScriptBin "pre-commit-run" ''
           ${pkgs.lib.getExe package} run --all-files --config ${configFile}
-        ''
-      );
+        '';
 
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = pkgsFor system;
-          preCommitCheck = preCommitChecks.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            inherit (preCommitCheck) shellHook;
-            buildInputs = preCommitCheck.enabledPackages;
-          };
-        }
-      );
+      devShells.${darwinSystem}.default = pkgs.mkShell {
+        inherit (preCommitCheck) shellHook;
+        buildInputs = preCommitCheck.enabledPackages;
+      };
+
+      darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+        system = darwinSystem;
+
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./configuration.nix
+          ./homebrew.nix
+        ];
+      };
+
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          nvf.homeManagerModules.default
+          ./home.nix
+        ];
+      };
+
+      nixosConfigurations.nixos = inputs.nixos-nixpkgs.lib.nixosSystem {
+        system = wslSystem;
+        modules = [
+          inputs.nixos-wsl.nixosModules.default
+          ./nixos/wslConfiguration.nix
+        ];
+      };
     };
 }
