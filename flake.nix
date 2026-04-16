@@ -86,8 +86,8 @@
 
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
-          ./homebrew.nix
+          ./hosts/darwin/darwinConfiguration.nix
+          ./hosts/darwin/homebrew.nix
         ];
       };
 
@@ -97,7 +97,7 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           nvf.homeManagerModules.default
-          ./home.nix
+          ./hosts/darwin/home.nix
         ];
       };
 
@@ -105,7 +105,7 @@
         system = wslSystem;
         modules = [
           inputs.nixos-wsl.nixosModules.default
-          ./nixos/wslConfiguration.nix
+          ./hosts/nixos/wslConfiguration.nix
         ];
       };
     };
