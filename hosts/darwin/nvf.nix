@@ -36,8 +36,8 @@ _: {
         autopairs.nvim-autopairs.enable = true;
         theme = {
           enable = true;
-          name = "rose-pine";
-          style = "main";
+          name = "catppuccin";
+          style = "mocha";
         };
         telescope.enable = true;
         utility = {
