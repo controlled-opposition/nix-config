@@ -38,5 +38,6 @@
     uv
     python3
     alejandra
+    statix
   ];
 }
