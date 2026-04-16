@@ -41,12 +41,19 @@
       ...
     }:
     let
-      darwinSystem = "aarch64-darwin";
+      systems = [
+        "aarch64-darwin"
+        "x86_64-linux"
+      ];
 
-      pkgs = import nixpkgs {
-        system = darwinSystem;
-        config.allowUnfree = true;
-      };
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      pkgsFor =
+        system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
 
       denConfig =
         (nixpkgs.lib.evalModules {
@@ -54,34 +61,52 @@
           specialArgs = { inherit inputs; };
         }).config;
 
-      preCommitCheck = inputs.git-hooks.lib.${darwinSystem}.run {
-        src = ./.;
-        hooks = {
-          nixfmt.enable = true;
-          deadnix.enable = true;
-          statix.enable = true;
-          check-merge-conflicts.enable = true;
-          end-of-file-fixer.enable = true;
-          trim-trailing-whitespace.enable = true;
-        };
-      };
+      preCommitChecks = forAllSystems (
+        system:
+        inputs.git-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            nixfmt.enable = true;
+            deadnix.enable = true;
+            statix.enable = true;
+            check-merge-conflicts.enable = true;
+            end-of-file-fixer.enable = true;
+            trim-trailing-whitespace.enable = true;
+          };
+        }
+      );
     in
     builtins.removeAttrs denConfig.flake [ "denful" ]
     // {
-      checks.${darwinSystem}.pre-commit-check = preCommitCheck;
+      checks = nixpkgs.lib.mapAttrs (_: preCommitCheck: {
+        pre-commit-check = preCommitCheck;
+      }) preCommitChecks;
 
-      formatter.${darwinSystem} =
+      formatter = forAllSystems (
+        system:
         let
+          pkgs = pkgsFor system;
+          preCommitCheck = preCommitChecks.${system};
           inherit (preCommitCheck) config;
           inherit (config) package configFile;
         in
         pkgs.writeShellScriptBin "pre-commit-run" ''
           ${pkgs.lib.getExe package} run --all-files --config ${configFile}
-        '';
+        ''
+      );
 
-      devShells.${darwinSystem}.default = pkgs.mkShell {
-        inherit (preCommitCheck) shellHook;
-        buildInputs = preCommitCheck.enabledPackages;
-      };
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = pkgsFor system;
+          preCommitCheck = preCommitChecks.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            inherit (preCommitCheck) shellHook;
+            buildInputs = preCommitCheck.enabledPackages;
+          };
+        }
+      );
     };
 }
