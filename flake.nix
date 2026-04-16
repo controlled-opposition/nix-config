@@ -4,8 +4,15 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    nixos-nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixos-nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -35,16 +42,17 @@
       ...
     }:
     let
-      system = "aarch64-darwin";
+      darwinSystem = "aarch64-darwin";
+      wslSystem = "x86_64-linux";
       username = "everick";
       hostname = "Evericks-MacBook-Air";
 
       pkgs = import nixpkgs {
-        inherit system;
+        system = darwinSystem;
         config.allowUnfree = true;
       };
 
-      preCommitCheck = inputs.git-hooks.lib.${system}.run {
+      preCommitCheck = inputs.git-hooks.lib.${darwinSystem}.run {
         src = ./.;
         hooks = {
           nixfmt.enable = true;
@@ -57,9 +65,9 @@
       };
     in
     {
-      checks.${system}.pre-commit-check = preCommitCheck;
+      checks.${darwinSystem}.pre-commit-check = preCommitCheck;
 
-      formatter.${system} =
+      formatter.${darwinSystem} =
         let
           inherit (preCommitCheck) config;
           inherit (config) package configFile;
@@ -68,13 +76,13 @@
           ${pkgs.lib.getExe package} run --all-files --config ${configFile}
         '';
 
-      devShells.${system}.default = pkgs.mkShell {
+      devShells.${darwinSystem}.default = pkgs.mkShell {
         inherit (preCommitCheck) shellHook;
         buildInputs = preCommitCheck.enabledPackages;
       };
 
       darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
-        inherit system;
+        system = darwinSystem;
 
         specialArgs = { inherit inputs; };
         modules = [
@@ -90,6 +98,14 @@
         modules = [
           nvf.homeManagerModules.default
           ./home.nix
+        ];
+      };
+
+      nixosConfigurations.nixos = inputs.nixos-nixpkgs.lib.nixosSystem {
+        system = wslSystem;
+        modules = [
+          inputs.nixos-wsl.nixosModules.default
+          ./nixos/wslConfiguration.nix
         ];
       };
     };
