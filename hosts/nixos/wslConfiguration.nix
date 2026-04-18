@@ -22,6 +22,7 @@
     fzf
     nh
     uv
+    nixd
   ];
 
   nixpkgs.config.allowUnfree = true;

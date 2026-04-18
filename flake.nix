@@ -20,7 +20,7 @@
     };
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
@@ -39,6 +39,7 @@
       nix-darwin,
       home-manager,
       nvf,
+      determinate,
       ...
     }:
     let
@@ -105,7 +106,10 @@
         system = wslSystem;
         modules = [
           inputs.nixos-wsl.nixosModules.default
+	        nvf.nixosModules.default
           ./hosts/nixos/wslConfiguration.nix
+          ./hosts/darwin/nvf.nix
+          determinate.nixosModules.default
         ];
       };
     };
