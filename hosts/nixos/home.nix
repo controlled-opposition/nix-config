@@ -1,8 +1,8 @@
 { ... }:
 {
   home = {
-    username = "everick";
-    homeDirectory = "/Users/everick";
+    username = "nixos";
+    homeDirectory = "/home/nixos";
     stateVersion = "26.05";
   };
 
@@ -10,4 +10,5 @@
     ../../modules/jujutsu.nix
   ];
 
+  programs.home-manager.enable = true;
 }

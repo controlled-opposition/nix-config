@@ -46,7 +46,8 @@
     let
       darwinSystem = "aarch64-darwin";
       wslSystem = "x86_64-linux";
-      username = "everick";
+      darwinUsername = "everick";
+      wslUsername = "nixos";
       hostname = "Evericks-MacBook-Air";
 
       pkgs = import nixpkgs {
@@ -93,14 +94,13 @@
         ];
       };
 
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${darwinUsername} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         extraSpecialArgs = { inherit inputs; };
         modules = [
           nvf.homeManagerModules.default
           ./hosts/darwin/home.nix
-          ./hosts/nixos/home.nix
           ./modules/nvf.nix
         ];
       };
@@ -109,10 +109,21 @@
         system = wslSystem;
         modules = [
           inputs.nixos-wsl.nixosModules.default
-          nvf.nixosModules.default
+          home-manager.nixosModules.home-manager
           ./hosts/nixos/wslConfiguration.nix
-          ./modules/nvf.nix
           determinate.nixosModules.default
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit inputs; };
+              users.${wslUsername}.imports = [
+                nvf.homeManagerModules.default
+                ./hosts/nixos/home.nix
+                ./modules/nvf.nix
+              ];
+            };
+          }
         ];
       };
     };
