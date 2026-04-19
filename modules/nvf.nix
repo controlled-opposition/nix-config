@@ -41,7 +41,7 @@ _: {
         };
         telescope.enable = true;
         utility = {
-          yazi-nvim.enable = true;
+          oil-nvim.enable = true;
           surround.enable = true;
         };
         binds.whichKey.enable = true;

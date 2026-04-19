@@ -6,10 +6,6 @@
     stateVersion = "26.05";
   };
 
-  imports = [
-    ./nvf.nix
-  ];
-
   programs = {
     home-manager.enable = true;
     discord.enable = true;

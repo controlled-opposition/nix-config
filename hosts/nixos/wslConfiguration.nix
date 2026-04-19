@@ -23,6 +23,7 @@
     nh
     uv
     nixd
+    emacs
   ];
 
   nixpkgs.config.allowUnfree = true;
