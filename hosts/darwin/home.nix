@@ -28,6 +28,7 @@
     micro.enable = true;
     tmux.enable = true;
     yazi.enable = true;
+    jujutsu.enable = true;
   };
 
   home.packages = with pkgs; [
