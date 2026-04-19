@@ -100,6 +100,7 @@
         modules = [
           nvf.homeManagerModules.default
           ./hosts/darwin/home.nix
+          ./hosts/nixos/home.nix
           ./modules/nvf.nix
         ];
       };
