@@ -7,7 +7,7 @@
   };
 
   imports = [
-    ./modules/jujutsu.nix
+    ../../modules/jujutsu.nix
   ];
 
   programs = {
