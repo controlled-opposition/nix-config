@@ -9,7 +9,11 @@ _: {
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
-    brews = [ ];
+    brews = [
+      "libvterm"
+      "libtool"
+    ];
+
     casks = [
       "google-chrome"
       "codex-app"

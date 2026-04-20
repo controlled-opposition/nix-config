@@ -77,4 +77,9 @@
 
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
+
+(use-package vterm
+  :ensure t
+  :config
+  )
 ;;; init.el ends here
