@@ -39,5 +39,6 @@
     python3
     alejandra
     statix
+    texliveFull
   ];
 }
