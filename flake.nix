@@ -50,8 +50,13 @@
       wslUsername = "nixos";
       hostname = "Evericks-MacBook-Air";
 
-      pkgs = import nixpkgs {
+      darwinPkgs = import nixpkgs {
         system = darwinSystem;
+        config.allowUnfree = true;
+      };
+
+      wslPkgs = import inputs.nixos-nixpkgs {
+        system = wslSystem;
         config.allowUnfree = true;
       };
 
@@ -75,11 +80,11 @@
           inherit (preCommitCheck) config;
           inherit (config) package configFile;
         in
-        pkgs.writeShellScriptBin "pre-commit-run" ''
-          ${pkgs.lib.getExe package} run --all-files --config ${configFile}
+        darwinPkgs.writeShellScriptBin "pre-commit-run" ''
+          ${darwinPkgs.lib.getExe package} run --all-files --config ${configFile}
         '';
 
-      devShells.${darwinSystem}.default = pkgs.mkShell {
+      devShells.${darwinSystem}.default = darwinPkgs.mkShell {
         inherit (preCommitCheck) shellHook;
         buildInputs = preCommitCheck.enabledPackages;
       };
@@ -95,7 +100,7 @@
       };
 
       homeConfigurations.${darwinUsername} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = darwinPkgs;
 
         extraSpecialArgs = { inherit inputs; };
         modules = [
@@ -105,25 +110,23 @@
         ];
       };
 
+      homeConfigurations.${wslUsername} = home-manager.lib.homeManagerConfiguration {
+        pkgs = wslPkgs;
+
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          nvf.homeManagerModules.default
+          ./hosts/nixos/home.nix
+          ./modules/nvf.nix
+        ];
+      };
+
       nixosConfigurations.nixos = inputs.nixos-nixpkgs.lib.nixosSystem {
         system = wslSystem;
         modules = [
           inputs.nixos-wsl.nixosModules.default
-          home-manager.nixosModules.home-manager
           ./hosts/nixos/wslConfiguration.nix
           determinate.nixosModules.default
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.${wslUsername}.imports = [
-                nvf.homeManagerModules.default
-                ./hosts/nixos/home.nix
-                ./modules/nvf.nix
-              ];
-            };
-          }
         ];
       };
     };
