@@ -11,8 +11,6 @@ _: {
         globals = {
           mapleader = " ";
         };
-      };
-      vim = {
         autocomplete = {
           blink-cmp.enable = true;
         };
@@ -27,28 +25,28 @@ _: {
         };
         treesitter = {
           enable = true;
-          textobjects.enable = true;
-          context.enable = true;
         };
-        statusline = {
-          lualine.enable = true;
-        };
-        autopairs.nvim-autopairs.enable = true;
         theme = {
           enable = true;
-          name = "catppuccin";
-          style = "mocha";
+          name = "tokyonight";
+          style = "night";
         };
         telescope.enable = true;
         utility = {
           oil-nvim.enable = true;
-          surround.enable = true;
         };
         binds.whichKey.enable = true;
         clipboard.enable = true;
         visuals = {
           rainbow-delimiters.enable = true;
-          nvim-web-devicons.enable = true;
+        };
+        filetree = {
+          neo-tree.enable = true;
+        };
+        mini = {
+          icons.enable = true;
+          statusline.enable = true;
+          pairs.enable = true;
         };
       };
     };

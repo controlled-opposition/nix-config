@@ -32,6 +32,13 @@
     micro.enable = true;
     tmux.enable = true;
     yazi.enable = true;
+    helix = {
+      enable = true;
+      settings = {
+        theme = "modus_vivendi";
+      };
+    };
+    fish.enable = true;
   };
 
   home.packages = with pkgs; [
