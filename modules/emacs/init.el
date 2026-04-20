@@ -82,4 +82,5 @@
   :ensure t
   :config
   )
+(select-frame-set-input-focus (selected-frame))
 ;;; init.el ends here
