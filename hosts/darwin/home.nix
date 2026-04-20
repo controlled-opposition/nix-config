@@ -7,6 +7,7 @@
   };
 
   imports = [
+    ../../modules/emacs.nix
     ../../modules/jujutsu.nix
   ];
 
@@ -19,7 +20,6 @@
       macos_option_as_alt yes
       ";
     };
-    emacs.enable = true;
     zoxide.enable = true;
     git.enable = true;
     nh.enable = true;

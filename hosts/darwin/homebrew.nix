@@ -16,6 +16,7 @@ _: {
       "anki"
       "visual-studio-code"
       "finetune"
+      "emacs-app"
     ];
   };
 }
