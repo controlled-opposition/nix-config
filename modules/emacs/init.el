@@ -57,7 +57,7 @@
   (evil-mode 1))
 
 (setq inhibit-startup-screen t)
-(load-theme 'modus-vivendi t)
+(load-theme 'modus-operandi t)
 
 (electric-pair-mode 1)
 (setq electric-pair-pairs
@@ -83,4 +83,31 @@
   :config
   )
 (select-frame-set-input-focus (selected-frame))
+
+(use-package tex
+  :ensure auctex)
+
+(use-package cdlatex
+  :ensure t
+  :hook ((LaTeX-mode . turn-on-cdlatex)
+         (org-mode   . turn-on-org-cdlatex)))
+
+;; Enable LaTeX previews in Org
+(use-package org
+  :config
+  (setq org-startup-with-latex-preview t))
+
+;; Optional: auto-toggle previews when moving cursor
+(use-package org-fragtog
+  :ensure t
+  :hook (org-mode . org-fragtog-mode))
+
+;; Magit needs a newer Transient than the one bundled with this Emacs build.
+(use-package transient
+  :ensure (:wait t))
+
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
+
 ;;; init.el ends here
