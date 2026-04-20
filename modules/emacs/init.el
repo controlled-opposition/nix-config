@@ -78,6 +78,22 @@
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
 
+(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode))
+
+(use-package eglot
+  :ensure nil
+  :commands (eglot eglot-ensure)
+  :config
+  (setf (alist-get 'nix-mode eglot-server-programs) '("nixd")))
+
+(use-package nix-mode
+  :ensure t
+  :mode "\\.nix\\'"
+  :hook (nix-mode . eglot-ensure))
+
 (use-package vterm
   :ensure t
   :config
