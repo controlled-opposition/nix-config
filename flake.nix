@@ -23,11 +23,6 @@
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,35 +54,9 @@
         system = wslSystem;
         config.allowUnfree = true;
       };
-
-      preCommitCheck = inputs.git-hooks.lib.${darwinSystem}.run {
-        src = ./.;
-        hooks = {
-          nixfmt.enable = true;
-          deadnix.enable = true;
-          statix.enable = true;
-          check-merge-conflicts.enable = true;
-          end-of-file-fixer.enable = true;
-          trim-trailing-whitespace.enable = true;
-        };
-      };
     in
     {
-      checks.${darwinSystem}.pre-commit-check = preCommitCheck;
-
-      formatter.${darwinSystem} =
-        let
-          inherit (preCommitCheck) config;
-          inherit (config) package configFile;
-        in
-        darwinPkgs.writeShellScriptBin "pre-commit-run" ''
-          ${darwinPkgs.lib.getExe package} run --all-files --config ${configFile}
-        '';
-
-      devShells.${darwinSystem}.default = darwinPkgs.mkShell {
-        inherit (preCommitCheck) shellHook;
-        buildInputs = preCommitCheck.enabledPackages;
-      };
+      devShells.${darwinSystem}.default = darwinPkgs.mkShell { };
 
       darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
         system = darwinSystem;
