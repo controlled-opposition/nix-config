@@ -50,14 +50,8 @@
 
 ;;; Code:
 
-(use-package evil
-  :ensure t
-  :demand t
-  :config
-  (evil-mode 1))
-
 (setq inhibit-startup-screen t)
-(load-theme 'modus-operandi t)
+(load-theme 'modus-vivendi t)
 
 (electric-pair-mode 1)
 (setq electric-pair-pairs
@@ -125,5 +119,18 @@
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status)))
+
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 
 ;;; init.el ends here
