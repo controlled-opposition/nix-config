@@ -8,6 +8,7 @@
 
   imports = [
     ../../modules/jujutsu.nix
+    ../../modules/emacs.nix
   ];
 
   programs.home-manager.enable = true;
