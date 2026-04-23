@@ -23,7 +23,6 @@
     zoxide.enable = true;
     git.enable = true;
     nh.enable = true;
-    codex.enable = true;
     bat.enable = true;
     fd.enable = true;
     fzf.enable = true;
