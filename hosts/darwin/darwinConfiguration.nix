@@ -41,4 +41,8 @@
     statix
     texliveFull
   ];
+  fonts.packages = with pkgs; [
+    iosevka
+  ];
+
 }

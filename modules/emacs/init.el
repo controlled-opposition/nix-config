@@ -45,12 +45,14 @@
 (elpaca `(,@elpaca-order))
 
 (elpaca elpaca-use-package
- (elpaca-use-package-mode))
+  (elpaca-use-package-mode))
 (elpaca-wait)
 
 ;;; Code:
 
-(setq inhibit-startup-screen t)
+(setq inhibit-startup-screen t
+      inhibit-startup-echo-area-message t)
+
 (load-theme 'modus-vivendi t)
 
 (electric-pair-mode 1)
@@ -64,10 +66,16 @@
         ))
 
 (show-paren-mode 1)
-
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
 (tool-bar-mode -1)
+(global-visual-line-mode 1)
+
+(setq kill-buffer-query-functions
+      (remq 'process-kill-buffer-query-function
+            kill-buffer-query-functions))
+
+(setq use-short-answers t)
 
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
@@ -132,5 +140,19 @@
   :ensure t
   :config
   (evil-collection-init))
+
+(use-package apheleia
+  :ensure t
+  :config
+  (apheleia-global-mode 1))
+
+(use-package org-modern
+  :ensure t
+  :config
+  (global-org-modern-mode 1))
+
+(set-face-attribute 'default nil :family "Iosevka")
+(set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
+;;(set-face-attribute 'org-modern-symbol nil :family "Iosevka")
 
 ;;; init.el ends here

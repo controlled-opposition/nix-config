@@ -21,6 +21,7 @@ _: {
       "visual-studio-code"
       "finetune"
       "emacs-app"
+      "codex"
     ];
   };
 }
