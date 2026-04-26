@@ -53,7 +53,7 @@
 (setq inhibit-startup-screen t
       inhibit-startup-echo-area-message t)
 
-(load-theme 'modus-vivendi t)
+(load-theme 'modus-operandi t)
 
 (electric-pair-mode 1)
 (setq electric-pair-pairs
@@ -99,7 +99,18 @@
 (use-package vterm
   :ensure t
   :config
+  (setq vterm-term-environment-variable "xterm-256color")
   )
+(with-eval-after-load 'vterm
+  (add-hook 'vterm-mode-hook
+            (lambda ()
+              (setq-local process-environment
+                          (append
+                           '("COLORTERM=truecolor"
+                             "TERM=xterm-256color")
+                           process-environment)))))
+
+
 (select-frame-set-input-focus (selected-frame))
 
 (use-package tex
@@ -154,5 +165,8 @@
 (set-face-attribute 'default nil :family "Iosevka")
 (set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
 ;;(set-face-attribute 'org-modern-symbol nil :family "Iosevka")
+
+(use-package ein
+  :ensure t)
 
 ;;; init.el ends here

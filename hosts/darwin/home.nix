@@ -8,7 +8,6 @@
 
   imports = [
     ../../modules/emacs.nix
-    ../../modules/jujutsu.nix
   ];
 
   programs = {
