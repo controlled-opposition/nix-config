@@ -7,7 +7,6 @@
   };
 
   imports = [
-    ../../modules/jujutsu.nix
     ../../modules/emacs.nix
   ];
 

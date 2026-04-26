@@ -22,6 +22,7 @@ _: {
       "finetune"
       "emacs-app"
       "codex"
+      "zed"
     ];
   };
 }
