@@ -15,7 +15,6 @@
     git
     neovim
     wget
-    claude-code
     texliveFull
     nixfmt
     fd
@@ -23,7 +22,12 @@
     nh
     uv
     nixd
+    zoxide
     emacs
+    zellij
+    nodejs
+    python3
+
   ];
 
   nixpkgs.config.allowUnfree = true;
