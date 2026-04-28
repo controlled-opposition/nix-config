@@ -40,6 +40,11 @@
     alejandra
     statix
     texliveFull
+      (python3.withPackages (python-pkgs: with python-pkgs; [
+      torch
+      datasets
+      transformers
+  ]))
   ];
   fonts.packages = with pkgs; [
     iosevka
