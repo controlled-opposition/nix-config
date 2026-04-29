@@ -21,7 +21,7 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+ 
 
     nvf = {
       url = "github:NotAShelf/nvf";
@@ -35,7 +35,6 @@
       nix-darwin,
       home-manager,
       nvf,
-      determinate,
       ...
     }:
     let
@@ -95,7 +94,6 @@
         modules = [
           inputs.nixos-wsl.nixosModules.default
           ./hosts/nixos/wslConfiguration.nix
-          determinate.nixosModules.default
         ];
       };
     };
