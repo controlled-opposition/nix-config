@@ -2,7 +2,6 @@
 
 {
   imports = [
-    inputs.determinate.darwinModules.default
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
@@ -19,7 +18,6 @@
   users.users.everick.home = "/Users/everick";
   system.primaryUser = "everick";
 
-  determinateNix.enable = true;
 
   system = {
     stateVersion = 6;
