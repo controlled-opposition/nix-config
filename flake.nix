@@ -21,8 +21,6 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
- 
-
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
