@@ -20,7 +20,6 @@ _: {
             lsp.servers = [ "nixd" ];
             format.type = [ "nixfmt" ];
             extraDiagnostics.enable = true;
-            treesitter.enable = true;
           };
         };
         treesitter = {
