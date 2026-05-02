@@ -12,21 +12,10 @@
   wsl.defaultUser = "nixos";
 
   environment.systemPackages = with pkgs; [
-    git
-    neovim
     wget
-    texliveFull
     nixfmt
-    fd
-    fzf
-    nh
-    uv
     nixd
-    zoxide
     emacs
-    zellij
-    nodejs
-    python3
 
   ];
 
