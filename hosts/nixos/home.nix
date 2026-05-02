@@ -10,5 +10,19 @@
     ../../modules/emacs.nix
   ];
 
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+    };
+
+    fzf.enable = true;
+    fd.enable = true;
+    nh.enable = true;
+    zellij.enable = true;
+    uv.enable = true;
+    bash.enable = true;
+  };
 }
