@@ -8,16 +8,23 @@
 { pkgs, ... }:
 
 {
-  wsl.enable = true;
-  wsl.defaultUser = "nixos";
+  wsl = {
+    enable = true;
+    defaultUser = "nixos";
+    startMenuLaunchers = true;
+    useWindowsDriver = true;
+  };
+
 
   environment.systemPackages = with pkgs; [
     wget
     nixfmt
     nixd
-    emacs
+    cmake
 
   ];
+  
+  services.pulseaudio.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   programs.nix-ld.enable = true;
