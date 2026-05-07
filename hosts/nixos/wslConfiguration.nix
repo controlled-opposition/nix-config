@@ -15,15 +15,16 @@
     useWindowsDriver = true;
   };
 
-
   environment.systemPackages = with pkgs; [
     wget
     nixfmt
     nixd
     cmake
+    gcc
+    gnumake
 
   ];
-  
+
   services.pulseaudio.enable = true;
 
   nixpkgs.config.allowUnfree = true;
