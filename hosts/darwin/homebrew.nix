@@ -23,6 +23,7 @@ _: {
       "emacs-app"
       "codex"
       "zed"
+      "spotify"
     ];
   };
 }

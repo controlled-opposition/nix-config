@@ -18,7 +18,6 @@
   users.users.everick.home = "/Users/everick";
   system.primaryUser = "everick";
 
-
   system = {
     stateVersion = 6;
     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
@@ -39,7 +38,7 @@
     statix
   ];
   fonts.packages = with pkgs; [
-    iosevka
+    iosevka-bin
   ];
 
 }
