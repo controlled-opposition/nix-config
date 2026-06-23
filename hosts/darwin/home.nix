@@ -36,12 +36,10 @@
         theme = "modus_vivendi";
       };
     };
-    fish.enable = true;
   };
 
   home.packages = with pkgs; [
     zoom-us
-    spotify
   ];
 
 }
