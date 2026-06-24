@@ -83,6 +83,10 @@
     nixd
     nixfmt
     kitty
+    discord
+    google-chrome
+    lutris
+    bottles
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -105,6 +109,7 @@
   # networking.firewall.enable = false;
 
   hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
@@ -113,7 +118,18 @@
     open = true;
   };
 
+  programs.steam.enable = true;
+
+  services.flatpak.enable = true;
+
   programs.firefox.enable = true;
+
+services.udev.extraRules = ''
+  # Pulsar Mice WebHID support
+  SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3710", MODE="0666", TAG+="uaccess", ENV{ID_MM_DEVICE_IGNORE}="1"
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="3710", ATTR{bInterfaceClass}=="03", MODE="0666", TAG+="uaccess", ENV{libsane_matched}="yes"
+'';
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
