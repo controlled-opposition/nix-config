@@ -41,6 +41,8 @@
       darwinUsername = "everick";
       wslUsername = "nixos";
       hostname = "Evericks-MacBook-Air";
+      nixosSystem = "x86_64-linux";
+      nixosUsername = "rick";
 
       darwinPkgs = import nixpkgs {
         system = darwinSystem;
@@ -51,6 +53,12 @@
         system = wslSystem;
         config.allowUnfree = true;
       };
+
+      nixosPkgs = import nixpkgs {
+        system = nixosSystem;
+        config.allowUnfree = true;
+      };
+
     in
     {
       devShells.${darwinSystem}.default = darwinPkgs.mkShell { };
@@ -94,5 +102,27 @@
           ./hosts/nixos/wslConfiguration.nix
         ];
       };
+
+      nixosConfigurations.lemon = inputs.nixos-nixpkgs.lib.nixosSystem {
+        system = nixosSystem;
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/rick/configuration.nix
+          ./hosts/rick/hardware-configuration.nix
+        ];
+      };
+
+      homeConfigurations.${nixosUsername} = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixosPkgs;
+
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          nvf.homeManagerModules.default
+          ./hosts/rick/home.nix
+          ./modules/nvf.nix
+        ];
+      };
+
     };
+
 }
