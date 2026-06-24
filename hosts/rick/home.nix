@@ -15,11 +15,14 @@
     git.enable = true;
     zoxide = {
       enable = true;
+      enableBashIntegration = true;
     };
     eza = {
       enable = true;
+      enableBashIntegration = true;
     };
 
+    bash.enable = true;
     fzf.enable = true;
     fd.enable = true;
     nh.enable = true;
