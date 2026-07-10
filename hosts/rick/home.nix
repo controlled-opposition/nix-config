@@ -21,11 +21,10 @@
       enable = true;
       enableBashIntegration = true;
     };
-
+    discord.enable = true;
     bash.enable = true;
     fzf.enable = true;
     fd.enable = true;
-    nh.enable = true;
     zellij.enable = true;
     uv.enable = true;
     obsidian.enable = true;
@@ -33,5 +32,10 @@
     spotify-player.enable = true;
     tmux.enable = true;
     vscode.enable = true;
+    #mangohud = {
+     # enable = true;
+    #  enableSessionWide = false;
+    #};
   };
+
 }
