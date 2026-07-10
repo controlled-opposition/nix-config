@@ -25,6 +25,7 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs =
@@ -35,47 +36,20 @@
       nvf,
       ...
     }:
-    let
-      darwinSystem = "aarch64-darwin";
-      wslSystem = "x86_64-linux";
-      darwinUsername = "everick";
-      wslUsername = "nixos";
-      hostname = "Evericks-MacBook-Air";
-      nixosSystem = "x86_64-linux";
-      nixosUsername = "rick";
-
-      darwinPkgs = import nixpkgs {
-        system = darwinSystem;
-        config.allowUnfree = true;
-      };
-
-      wslPkgs = import inputs.nixos-nixpkgs {
-        system = wslSystem;
-        config.allowUnfree = true;
-      };
-
-      nixosPkgs = import nixpkgs {
-        system = nixosSystem;
-        config.allowUnfree = true;
-      };
-
-    in
     {
-      devShells.${darwinSystem}.default = darwinPkgs.mkShell { };
-
-      darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
-        system = darwinSystem;
-
+      darwinConfigurations."Evericks-MacBook-Air" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/darwin/darwinConfiguration.nix
           ./hosts/darwin/homebrew.nix
         ];
       };
-
-      homeConfigurations.${darwinUsername} = home-manager.lib.homeManagerConfiguration {
-        pkgs = darwinPkgs;
-
+      homeConfigurations.everick = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          config.allowUnfree = true;
+        };
         extraSpecialArgs = { inherit inputs; };
         modules = [
           nvf.homeManagerModules.default
@@ -84,9 +58,18 @@
         ];
       };
 
-      homeConfigurations.${wslUsername} = home-manager.lib.homeManagerConfiguration {
-        pkgs = wslPkgs;
-
+      nixosConfigurations.nixos = inputs.nixos-nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          inputs.nixos-wsl.nixosModules.default
+          ./hosts/nixos/wslConfiguration.nix
+        ];
+      };
+      homeConfigurations.nixos = home-manager.lib.homeManagerConfiguration {
+        pkgs = import inputs.nixos-nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
         extraSpecialArgs = { inherit inputs; };
         modules = [
           nvf.homeManagerModules.default
@@ -95,26 +78,21 @@
         ];
       };
 
-      nixosConfigurations.nixos = inputs.nixos-nixpkgs.lib.nixosSystem {
-        system = wslSystem;
-        modules = [
-          inputs.nixos-wsl.nixosModules.default
-          ./hosts/nixos/wslConfiguration.nix
-        ];
-      };
-
       nixosConfigurations.lemon = inputs.nixos-nixpkgs.lib.nixosSystem {
-        system = nixosSystem;
+        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/rick/configuration.nix
           ./hosts/rick/hardware-configuration.nix
+          ./hosts/rick/nvidia.nix
+          ./hosts/rick/peripherals.nix
         ];
       };
-
-      homeConfigurations.${nixosUsername} = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixosPkgs;
-
+      homeConfigurations.rick = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
         extraSpecialArgs = { inherit inputs; };
         modules = [
           nvf.homeManagerModules.default
