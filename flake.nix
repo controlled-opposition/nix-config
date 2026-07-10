@@ -2,16 +2,16 @@
   description = "a great flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixos-nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixos-nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -58,15 +58,16 @@
         ];
       };
 
-      nixosConfigurations.nixos = inputs.nixos-nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           inputs.nixos-wsl.nixosModules.default
           ./hosts/nixos/wslConfiguration.nix
         ];
       };
       homeConfigurations.nixos = home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixos-nixpkgs {
+        pkgs = import nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
         };
@@ -78,7 +79,7 @@
         ];
       };
 
-      nixosConfigurations.lemon = inputs.nixos-nixpkgs.lib.nixosSystem {
+      nixosConfigurations.lemon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
