@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home = {
     username = "rick";
@@ -25,17 +25,20 @@
     bash.enable = true;
     fzf.enable = true;
     fd.enable = true;
-    zellij.enable = true;
-    uv.enable = true;
     obsidian.enable = true;
     emacs.enable = true;
-    spotify-player.enable = true;
     tmux.enable = true;
     vscode.enable = true;
+    kitty.enable = true;
     #mangohud = {
      # enable = true;
     #  enableSessionWide = false;
     #};
   };
+
+
+  home.packages = with pkgs; [
+    spotify
+  ];
 
 }

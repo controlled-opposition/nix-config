@@ -25,11 +25,10 @@ _: {
         treesitter = {
           enable = true;
         };
-        theme = {
-          enable = true;
-          name = "tokyonight";
-          style = "night";
-        };
+        #theme = {
+        #  enable = true;
+        #  style = "night";
+       # };
         telescope.enable = true;
         utility = {
           oil-nvim.enable = true;
