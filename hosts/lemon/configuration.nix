@@ -6,8 +6,6 @@
 
 {
 
-  nix.package = pkgs.lixPackageSets.stable.lix;
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -60,6 +58,8 @@
     packages = with pkgs; [ ];
   };
 
+  services.lact.enable = true;
+
   services = {
     desktopManager.plasma6.enable = true;
     displayManager.plasma-login-manager.enable = true;
@@ -71,10 +71,6 @@
   ];
   nixpkgs.config.allowUnfree = true;
   programs.git.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 
   programs.nh = {
     enable = true;
@@ -91,13 +87,8 @@
     wget
     nixd
     nixfmt
-    kitty
     google-chrome
     faugus-launcher
-    bottles
-    kdePackages.oxygen-sounds
-    kdePackages.oxygen-icons
-    kdePackages.oxygen
   ];
 
   services.crossmacro.enable = true;
@@ -108,16 +99,15 @@
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
-  #hardware.amdgpu.overdrive.enable = true;
-  #hardware.amdgpu.initrd.enable = true;
+  hardware.amdgpu.overdrive.enable = true;
+  hardware.amdgpu.initrd.enable = true;
 
+  programs.firefox.enable = true;
   nix.settings.auto-optimise-store = true;
 
   programs.steam.enable = true;
 
   services.flatpak.enable = true;
-
-  programs.firefox.enable = true;
 
   system.stateVersion = "26.05";
 

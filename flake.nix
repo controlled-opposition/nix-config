@@ -4,9 +4,13 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    dnixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "dnixpkgs";
     };
 
     nixos-wsl = {
@@ -31,9 +35,11 @@
   outputs =
     inputs@{
       nixpkgs,
+      dnixpkgs,
       nix-darwin,
       home-manager,
       nvf,
+      determinate,
       ...
     }:
     {
@@ -46,7 +52,7 @@
         ];
       };
       homeConfigurations.everick = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
+        pkgs = import dnixpkgs {
           system = "aarch64-darwin";
           config.allowUnfree = true;
         };
@@ -83,10 +89,10 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/rick/configuration.nix
-          ./hosts/rick/hardware-configuration.nix
-          ./hosts/rick/nvidia.nix
-          ./hosts/rick/peripherals.nix
+          determinate.nixosModules.default
+          ./hosts/lemon/configuration.nix
+          ./hosts/lemon/hardware-configuration.nix
+          ./hosts/lemon/peripherals.nix
         ];
       };
       homeConfigurations.rick = home-manager.lib.homeManagerConfiguration {
@@ -97,7 +103,7 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           nvf.homeManagerModules.default
-          ./hosts/rick/home.nix
+          ./hosts/lemon/home.nix
           ./modules/nvf.nix
         ];
       };
