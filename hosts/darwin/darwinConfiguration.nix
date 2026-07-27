@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.nix-homebrew.darwinModules.nix-homebrew
+  
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -36,7 +37,26 @@
     python3
     alejandra
     statix
+
+  #MIGRATED FROM HOME MANAGER
+    discord
+    kitty
+    zoxide
+    git
+    nh
+    bat
+    fd
+    fzf
+    obsidian
+    zellij
+    micro
+    tmux
+    yazi
+    helix
+    zoom-us
+
   ];
+  
   fonts.packages = with pkgs; [
     iosevka-bin
   ];
