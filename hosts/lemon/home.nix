@@ -6,9 +6,8 @@
     stateVersion = "26.05";
   };
 
-
   imports = [
-    ../../modules/emacs.nix
+    ../../modules/emacs
   ];
 
   programs = {

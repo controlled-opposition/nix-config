@@ -7,7 +7,7 @@
   };
 
   imports = [
-    ../../modules/emacs.nix
+    ../../modules/emacs
   ];
 
   programs = {
