@@ -4,13 +4,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    dnixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
-      inputs.nixpkgs.follows = "dnixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-wsl = {
@@ -30,16 +28,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
   };
 
   outputs =
     inputs@{
       nixpkgs,
-      dnixpkgs,
       nix-darwin,
       home-manager,
       nvf,
       determinate,
+      nix-flatpak,
       ...
     }:
     {
@@ -47,67 +47,77 @@
         system = "aarch64-darwin";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/darwin/darwinConfiguration.nix
-          ./hosts/darwin/homebrew.nix
-        ];
-      };
-      homeConfigurations.everick = home-manager.lib.homeManagerConfiguration {
-        pkgs = import dnixpkgs {
-          system = "aarch64-darwin";
-          config.allowUnfree = true;
-        };
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          nvf.homeManagerModules.default
-          ./hosts/darwin/home.nix
-          ./modules/nvf.nix
+          ./hosts/darwin
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit inputs; };
+              users.everick = {
+                imports = [
+                  nvf.homeManagerModules.default
+                  ./hosts/darwin/home.nix
+                  ./modules/nvf.nix
+                ];
+              };
+            };
+          }
         ];
       };
 
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          inputs.nixos-wsl.nixosModules.default
-          ./hosts/nixos/wslConfiguration.nix
-        ];
-      };
-      homeConfigurations.nixos = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
+      nixosConfigurations = {
+
+        lemon = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          config.allowUnfree = true;
+          specialArgs = { inherit inputs; };
+          modules = [
+            determinate.nixosModules.default
+            nix-flatpak.nixosModules.nix-flatpak
+            ./hosts/lemon
+            home-manager.nixosModules.default
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.rick = {
+                  imports = [
+                    nvf.homeManagerModules.default
+                    ./hosts/lemon/home.nix
+                    ./modules/nvf.nix
+                  ];
+                };
+              };
+            }
+          ];
         };
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          nvf.homeManagerModules.default
-          ./hosts/nixos/home.nix
-          ./modules/nvf.nix
-        ];
-      };
 
-      nixosConfigurations.lemon = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          determinate.nixosModules.default
-          ./hosts/lemon/configuration.nix
-          ./hosts/lemon/hardware-configuration.nix
-          ./hosts/lemon/peripherals.nix
-        ];
-      };
-      homeConfigurations.rick = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
+        wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          config.allowUnfree = true;
+          specialArgs = { inherit inputs; };
+          modules = [
+            inputs.nixos-wsl.nixosModules.default
+            ./hosts/wsl/wslConfiguration.nix
+            home-manager.nixosModules.default
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.nixos = {
+                  imports = [
+                    nvf.homeManagerModules.default
+                    ./hosts/wsl/home.nix
+                    ./modules/nvf.nix
+                  ];
+                };
+              };
+            }
+          ];
         };
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          nvf.homeManagerModules.default
-          ./hosts/lemon/home.nix
-          ./modules/nvf.nix
-        ];
-      };
 
+      };
     };
 
 }

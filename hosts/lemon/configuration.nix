@@ -7,8 +7,21 @@
 {
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.limine = {
+    extraEntries = ''
+      /Windows
+      protocol: efi
+      path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+    '';
+    style.wallpapers = [ 
+      ../../wallpapers/wallhaven-42xge6.png
+      ../../wallpapers/wallhaven-qr3mk7.png
+    ];
+    
+
+  };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -55,6 +68,7 @@
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs.fish;
     packages = with pkgs; [ ];
   };
 
@@ -96,6 +110,8 @@
     "rick"
   ];
 
+  programs.fish.enable = true;
+
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
@@ -106,8 +122,6 @@
   nix.settings.auto-optimise-store = true;
 
   programs.steam.enable = true;
-
-  services.flatpak.enable = true;
 
   system.stateVersion = "26.05";
 

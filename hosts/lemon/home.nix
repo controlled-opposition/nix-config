@@ -6,6 +6,7 @@
     stateVersion = "26.05";
   };
 
+
   imports = [
     ../../modules/emacs.nix
   ];
@@ -15,14 +16,14 @@
     git.enable = true;
     zoxide = {
       enable = true;
-      enableBashIntegration = true;
+      enableFishIntegration = true;
     };
     eza = {
       enable = true;
-      enableBashIntegration = true;
+      enableFishIntegration = true;
     };
     discord.enable = true;
-    bash.enable = true;
+    fish.enable = true;
     fzf.enable = true;
     fd.enable = true;
     obsidian.enable = true;
@@ -30,12 +31,12 @@
     tmux.enable = true;
     vscode.enable = true;
     kitty.enable = true;
+    kitty.shellIntegration.enableFishIntegration = true;
     #mangohud = {
-     # enable = true;
+    # enable = true;
     #  enableSessionWide = false;
     #};
   };
-
 
   home.packages = with pkgs; [
     spotify
