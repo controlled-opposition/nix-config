@@ -6,7 +6,6 @@
 
 {
 
-
   # Bootloader.
   boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -70,23 +69,10 @@
       "wheel"
     ];
     shell = pkgs.fish;
-    packages = with pkgs; [ 
-      #MIGRATED FROM HOME MANAGER
-      zoxide
-      eza
-      discord
-      fzf
-      fd
-      obsidian
-      emacs
-      tmux
-      kitty
-      spotify
-      vscode
-    ];
+    packages = with pkgs; [ ];
   };
 
- # services.lact.enable = true;
+  services.lact.enable = true;
 
   services = {
     desktopManager.plasma6.enable = true;

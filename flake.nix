@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
     nvf = {
@@ -31,6 +36,7 @@
     inputs@{
       nixpkgs,
       nix-darwin,
+      home-manager,
       nvf,
       determinate,
       nix-flatpak,
@@ -42,6 +48,21 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/darwin
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit inputs; };
+              users.everick = {
+                imports = [
+                  nvf.homeManagerModules.default
+                  ./hosts/darwin/home.nix
+                  ./modules/nvf.nix
+                ];
+              };
+            };
+          }
         ];
       };
 
@@ -54,6 +75,21 @@
             determinate.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
             ./hosts/lemon
+            home-manager.nixosModules.default
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.rick = {
+                  imports = [
+                    nvf.homeManagerModules.default
+                    ./hosts/lemon/home.nix
+                    ./modules/nvf.nix
+                  ];
+                };
+              };
+            }
           ];
         };
 
@@ -62,7 +98,22 @@
           specialArgs = { inherit inputs; };
           modules = [
             inputs.nixos-wsl.nixosModules.default
-            ./hosts/wsl
+            ./hosts/wsl/wslConfiguration.nix
+            home-manager.nixosModules.default
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.nixos = {
+                  imports = [
+                    nvf.homeManagerModules.default
+                    ./hosts/wsl/home.nix
+                    ./modules/nvf.nix
+                  ];
+                };
+              };
+            }
           ];
         };
 
