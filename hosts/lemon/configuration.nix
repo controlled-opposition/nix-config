@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
 
@@ -87,7 +92,6 @@
 
   programs.nh = {
     enable = true;
-    flake = "/home/rick/.config/nix-config";
     clean = {
       enable = true;
       extraArgs = "--keep 3";
@@ -95,7 +99,13 @@
 
   };
 
+  environment.variables = {
+    NH_FILE = "/home/rick/.config/nix-config/default.nix";
+    NH_ATTRP = "nixosConfigurations.lemon";
+  };
+
   environment.systemPackages = with pkgs; [
+    inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
     vim
     wget
     nixd

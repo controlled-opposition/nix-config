@@ -1,2 +1,49 @@
 * nix-config
-idk what to put here
+
+NixOS, WSL, and nix-darwin configurations pinned with
+[[https://github.com/manic-systems/tack][Tack]].
+
+** Configurations
+
+- =nixosConfigurations.lemon=
+- =nixosConfigurations.wsl=
+- =darwinConfigurations."Evericks-MacBook-Air"=
+
+** Rebuild
+
+Tack's resolver uses Nix's =fetchTree= builtin, so the =flakes= evaluator
+feature remains enabled even though this repository no longer uses a
+=flake.nix= or =flake.lock=. For the first Lemon rebuild from a configuration
+where that feature is disabled, enable it for the bootstrap command:
+
+#+begin_src shell
+nh os switch --option experimental-features 'nix-command flakes' \
+  -f ./default.nix nixosConfigurations.lemon
+#+end_src
+
+The activated configuration exports =NH_FILE= and =NH_ATTRP=, so later Lemon
+rebuilds are simply:
+
+#+begin_src shell
+nh os switch
+#+end_src
+
+The other configurations can be selected explicitly:
+
+#+begin_src shell
+nh os switch -f ./default.nix nixosConfigurations.wsl
+nh darwin switch -f ./default.nix 'darwinConfigurations.Evericks-MacBook-Air'
+#+end_src
+
+** Update pins
+
+Tack is itself pinned and installed by each system configuration.
+
+#+begin_src shell
+tack look
+tack update
+tack update nixpkgs home-manager
+#+end_src
+
+Pin declarations live in =.tack/pins.toml=. Resolved revisions and hashes live
+in =.tack/pins.lock.json=.

@@ -20,10 +20,10 @@
 
   system = {
     stateVersion = 6;
-    configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   };
 
   environment.systemPackages = with pkgs; [
+    inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
     gcc
     gnumake
     cmake

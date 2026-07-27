@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   wsl = {
@@ -9,6 +9,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
     wget
     nixfmt
     nixd
@@ -28,6 +29,5 @@
     "flakes"
   ];
 
-
-  system.stateVersion = "25.11"; 
+  system.stateVersion = "25.11";
 }
