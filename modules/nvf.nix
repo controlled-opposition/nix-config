@@ -25,10 +25,11 @@ _: {
         treesitter = {
           enable = true;
         };
-        #theme = {
-        #  enable = true;
-        #  style = "night";
-       # };
+        theme = {
+          name = "everforest";
+          enable = true;
+          style = "medium";
+        };
         telescope.enable = true;
         utility = {
           oil-nvim.enable = true;
