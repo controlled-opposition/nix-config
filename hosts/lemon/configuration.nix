@@ -15,11 +15,10 @@
       protocol: efi
       path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
     '';
-    style.wallpapers = [ 
+    style.wallpapers = [
       ../../wallpapers/wallhaven-42xge6.png
       ../../wallpapers/wallhaven-qr3mk7.png
     ];
-    
 
   };
 
@@ -72,7 +71,7 @@
     packages = with pkgs; [ ];
   };
 
-  services.lact.enable = true;
+  #services.lact.enable = true;
 
   services = {
     desktopManager.plasma6.enable = true;
