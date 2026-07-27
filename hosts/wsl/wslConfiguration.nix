@@ -28,31 +28,6 @@
     "flakes"
   ];
 
-users.users.nixos = {
-  isNormalUser = true;
-  extraGroups = [ "wheel" ];
-
-  packages = with pkgs; [
-    eza
-    fzf
-    fd
-    nh
-    zellij
-    uv
-    obsidian
-    emacs
-    spotify-player
-  ];
-};
-
-programs.git.enable = true;
-programs.zoxide.enable = true;
-programs.tmux.enable = true;
-
-
-
-
-
 
   system.stateVersion = "25.11"; 
 }
