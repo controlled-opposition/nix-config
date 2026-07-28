@@ -1,15 +1,5 @@
 { ... }:
 {
-  home = {
-    username = "nixos";
-    homeDirectory = "/home/nixos";
-    stateVersion = "26.05";
-  };
-
-  imports = [
-    ../../modules/emacs
-  ];
-
   programs = {
     home-manager.enable = true;
     git.enable = true;

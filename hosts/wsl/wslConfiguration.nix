@@ -1,9 +1,9 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   wsl = {
     enable = true;
-    defaultUser = "nixos";
+    defaultUser = "weasel";
     startMenuLaunchers = true;
     useWindowsDriver = true;
   };

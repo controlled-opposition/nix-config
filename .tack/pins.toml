@@ -6,7 +6,7 @@
 # shorturl schemes
 # scheme rest expands rest into {path}
 [shorturls]
-# gh = "github:{path}"
+gh = "github:{path}"
 
 # all_follow maps input names to the top-level pin they follow
 # opt out per-input with exclude_follow
