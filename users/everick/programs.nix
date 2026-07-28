@@ -1,15 +1,5 @@
 { pkgs, ... }:
 {
-  home = {
-    username = "everick";
-    homeDirectory = "/Users/everick";
-    stateVersion = "26.05";
-  };
-
-  imports = [
-    ../../modules/emacs
-  ];
-
   programs = {
     home-manager.enable = true;
     discord.enable = true;
@@ -41,5 +31,4 @@
   home.packages = with pkgs; [
     zoom-us
   ];
-
 }

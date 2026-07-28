@@ -1,15 +1,5 @@
 { pkgs, ... }:
 {
-  home = {
-    username = "rick";
-    homeDirectory = "/home/rick";
-    stateVersion = "26.05";
-  };
-
-  imports = [
-    ../../modules/emacs
-  ];
-
   programs = {
     home-manager.enable = true;
     git.enable = true;
@@ -40,5 +30,4 @@
   home.packages = with pkgs; [
     spotify
   ];
-
 }
