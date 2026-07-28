@@ -12,7 +12,7 @@ let
       useUserPackages = true;
       extraSpecialArgs = { inherit inputs; };
       users.${user}.imports = [
-        ./users/${user}
+        ./home/${user}
       ];
     };
   };
