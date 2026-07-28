@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   pkgs,
@@ -11,34 +7,7 @@
 
 {
 
-  # Bootloader.
-  boot.loader.limine.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.limine = {
-    extraEntries = ''
-      /Windows
-      protocol: efi
-      path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
-    '';
-    style.wallpapers = [
-      ../../wallpapers/wallhaven-42xge6.png
-      ../../wallpapers/wallhaven-qr3mk7.png
-    ];
 
-  };
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  networking.hostName = "lemon"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -62,18 +31,6 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."rick" = {
-    isNormalUser = true;
-    description = "rick";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    shell = pkgs.fish;
-    packages = with pkgs; [ ];
   };
 
   #services.lact.enable = true;
