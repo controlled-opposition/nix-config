@@ -8,7 +8,7 @@
 
   imports = [
     ../../modules/emacs
-    ../../modules/nvf.nix
+    ../../modules/nvf
     ./programs.nix
   ];
 

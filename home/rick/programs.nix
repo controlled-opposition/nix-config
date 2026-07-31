@@ -25,6 +25,12 @@
     # enable = true;
     #  enableSessionWide = false;
     #};
+    helix = {
+      enable = true;
+      settings = {
+        theme = "modus_vivendi";
+      };
+    };
   };
 
   home.packages = with pkgs; [
