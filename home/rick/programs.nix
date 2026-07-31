@@ -1,39 +1,18 @@
 { pkgs, ... }:
 {
-  programs = {
-    home-manager.enable = true;
-    git.enable = true;
-    zoxide = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-    eza = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-    discord.enable = true;
-    fish.enable = true;
-    fzf.enable = true;
-    fd.enable = true;
-    obsidian.enable = true;
-    emacs.enable = true;
-    tmux.enable = true;
-    vscode.enable = true;
-    kitty.enable = true;
-    kitty.shellIntegration.enableFishIntegration = true;
-    #mangohud = {
-    # enable = true;
-    #  enableSessionWide = false;
-    #};
-    helix = {
-      enable = true;
-      settings = {
-        theme = "modus_vivendi";
-      };
-    };
-  };
-
-  home.packages = with pkgs; [
+  packages = with pkgs; [
+    discord
+    eza
+    fd
+    fish
+    fzf
+    git
+    helix
+    kitty
+    obsidian
     spotify
+    tmux
+    vscode
+    zoxide
   ];
 }

@@ -1,19 +1,20 @@
 let
   inputs = import ./.tack;
-  
+
   inherit (inputs)
     nix-darwin
     nixpkgs
     ;
 
-  mkHome = user: {
-    home-manager = {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      extraSpecialArgs = { inherit inputs; };
-      users.${user}.imports = [
-        ./home/${user}
-      ];
+  mkHjem = user: {
+    hjem = {
+      specialArgs = { inherit inputs; };
+      users.${user} = {
+        enable = true;
+        imports = [
+          ./home/${user}
+        ];
+      };
     };
   };
 
@@ -24,6 +25,9 @@ in
     specialArgs = { inherit inputs; };
     modules = [
       ./hosts/darwin
+      inputs.hjem.darwinModules.default
+      inputs.nix-homebrew.darwinModules.nix-homebrew
+      (mkHjem "everick")
     ];
   };
 
@@ -33,7 +37,9 @@ in
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/lemon
-        (mkHome "rick")
+        inputs.hjem.nixosModules.default
+        inputs.nix-flatpak.nixosModules.nix-flatpak
+        (mkHjem "rick")
       ];
     };
 
@@ -42,7 +48,9 @@ in
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/wsl
-        (mkHome "weasel")
+        inputs.nixos-wsl.nixosModules.default
+        inputs.hjem.nixosModules.default
+        (mkHjem "weasel")
       ];
     };
   };

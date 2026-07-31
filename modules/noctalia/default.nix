@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
   # The Noctalia flake module has the recommended-services integration that
   # this configuration uses, so prefer it over the module bundled in nixpkgs.
@@ -15,8 +15,4 @@
     recommendedServices.enable = true;
   };
 
-  home-manager.sharedModules = [
-    inputs.noctalia.homeModules.default
-    ./home.nix
-  ];
 }

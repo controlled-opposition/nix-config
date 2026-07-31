@@ -2,6 +2,8 @@
 
 NixOS, WSL, and nix-darwin configurations pinned with
 [[https://github.com/manic-systems/tack][Tack]].
+Per-user packages and files are managed with
+[[https://github.com/feel-co/hjem][Hjem]].
 
 ** Configurations
 
@@ -42,7 +44,7 @@ Tack is itself pinned and installed by each system configuration.
 #+begin_src shell
 tack look
 tack update
-tack update nixpkgs home-manager
+tack update nixpkgs hjem
 #+end_src
 
 Pin declarations live in =.tack/pins.toml=. Resolved revisions and hashes live
