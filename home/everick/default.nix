@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
   home = {
     username = "everick";
@@ -7,6 +7,7 @@
   };
 
   imports = [
+    inputs.nvf.homeManagerModules.default
     ../../modules/emacs
     ../../modules/nvf
     ./programs.nix

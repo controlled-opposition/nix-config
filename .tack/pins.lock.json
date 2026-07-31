@@ -7,13 +7,21 @@
     "narHash": "sha256-p+AD3rx7jsoSWIUkexums+IjK6E/5njDlRTJ3ofl5TA=",
     "lastModified": 1785461417
   },
+  "hjem": {
+    "type": "github",
+    "owner": "feel-co",
+    "repo": "hjem",
+    "rev": "a065ac188fcd61a9d33349110dc99598a1b5e988",
+    "narHash": "sha256-IesjwM46rsaLRiHebqGdSy0vDuD6Yf7b6IME9LJOS8A=",
+    "lastModified": 1785520341
+  },
   "home-manager": {
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "2e6715977106c498355a70bcefd2c78a33c94558",
-    "narHash": "sha256-xU44Kgp7RPedzBjyRf+z7j97BgZ2R1J4fiqWUl/JNxI=",
-    "lastModified": 1785472055
+    "rev": "e8827fbbb12015a8dd9f66285aec79d655bcb9f6",
+    "narHash": "sha256-EASdusMYLuPhOCrE3LmsAGOvGhX3vnKBLxFvj9lI8tU=",
+    "lastModified": 1785496534
   },
   "nix-darwin": {
     "type": "github",
@@ -51,25 +59,25 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "0954f7ee2f6bb3dc7d4e3d0d8bcb8fd4bde4cfc5",
-    "narHash": "sha256-dN6Ou5x/+23FZLEpYP3IffO+NyJFzUlGumt1uu3MMaY=",
-    "lastModified": 1785318670
+    "rev": "1559d3daa3ecc813a650b79375ea61b6741b8746",
+    "narHash": "sha256-LQy14TZp77TwbQf40gg1V3jo8FwJG0jGDkAH+zRHqg8=",
+    "lastModified": 1785454630
   },
   "noctalia": {
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "eaa207e7d62d8a57458d2caece7c86b994ebf153",
-    "narHash": "sha256-8Ka0oAUN7SxIVufrZaDcuMFLQeJNJC5z5AG9NqX00fk=",
-    "lastModified": 1785466746
+    "rev": "a7d2cad442172f7e2c2862935b6bfd2dfe2b1303",
+    "narHash": "sha256-qc5PefUCV5rIhGs+dr+0tmSW9MYOAN4cwwncjiXwqIA=",
+    "lastModified": 1785521092
   },
   "nvf": {
     "type": "github",
     "owner": "NotAShelf",
     "repo": "nvf",
-    "rev": "712598d41ad0ca87de84ad37a2fec745d7580700",
-    "narHash": "sha256-6oYV6KtN1ZotFTRNrSqIeDl69Kvf/B2LLmVz4MB99Gw=",
-    "lastModified": 1785340309
+    "rev": "a7987e9650cfbefd9c59b203c35e8573f83d0a6b",
+    "narHash": "sha256-qgGuNVfxYliVtRRzxfT4zDr0ZjI7RZtFC0ZngHExTLk=",
+    "lastModified": 1785521230
   },
   "tack": {
     "type": "github",
