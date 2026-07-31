@@ -30,18 +30,11 @@
     variant = "";
   };
 
-  #services.lact.enable = true;
-
   services = {
     desktopManager.plasma6.enable = true;
     displayManager.plasma-login-manager.enable = true;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nixpkgs.config.allowUnfree = true;
   programs.git.enable = true;
 
   programs.nh = {
@@ -52,7 +45,8 @@
     };
 
   };
-
+  nix.package = pkgs.lixPackageSets.stable.lix;
+  documentation.enable = false;
   environment.variables = {
     NH_FILE = "/home/rick/.config/nix-config/default.nix";
     NH_ATTRP = "nixosConfigurations.lemon";
@@ -60,12 +54,18 @@
 
   environment.systemPackages = with pkgs; [
     inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # helium-flake imports nixpkgs separately; pass this host's permitted
+    # Widevine package so its license policy is used.
+    (inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+      widevine-cdm = pkgs.widevine-cdm;
+    })
     vim
     wget
     nixd
     nixfmt
     google-chrome
     faugus-launcher
+
   ];
 
   services.crossmacro.enable = true;
@@ -75,18 +75,9 @@
 
   programs.fish.enable = true;
 
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
-
-  hardware.amdgpu.overdrive.enable = true;
-  hardware.amdgpu.initrd.enable = true;
-
   programs.firefox.enable = true;
-  nix.settings.auto-optimise-store = true;
 
   programs.steam.enable = true;
-
-  system.stateVersion = "26.05";
 
   hardware.i2c.enable = true;
   hardware.bluetooth.enable = true;

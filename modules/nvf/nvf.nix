@@ -1,4 +1,4 @@
-_: {
+{ pkgs, ... }: {
   programs.nvf = {
     enable = true;
     settings = {
@@ -24,11 +24,12 @@ _: {
         };
         treesitter = {
           enable = true;
+          grammars = with pkgs.vimPlugins.nvim-treesitter; [withAllGrammars ];
         };
         theme = {
-          name = "everforest";
+          name = "catppuccin";
           enable = true;
-          style = "medium";
+          style = "mocha";
         };
         telescope.enable = true;
         utility = {
@@ -41,11 +42,6 @@ _: {
         };
         filetree = {
           neo-tree.enable = true;
-        };
-        mini = {
-          icons.enable = true;
-          statusline.enable = true;
-          pairs.enable = true;
         };
       };
     };
