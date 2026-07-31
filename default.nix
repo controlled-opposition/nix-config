@@ -24,7 +24,6 @@ in
     specialArgs = { inherit inputs; };
     modules = [
       ./hosts/darwin
-      (mkHome "everick")
     ];
   };
 

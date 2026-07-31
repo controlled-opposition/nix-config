@@ -13,11 +13,24 @@
     bun
     nixd
     nixfmt
-    nil
     uv
     python3
     alejandra
     statix
+
+    obsidian
+    zoom-us
+    kitty
+    discord
+    zoxide
+    git
+    nh
+    bat
+    fd
+    fzf
+    zellij
+    micro
+    tmux
   ];
   fonts.packages = with pkgs; [
     iosevka-bin
