@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
 
   imports = [
@@ -13,7 +13,5 @@
     ./graphics.nix
     ../../modules/niri
     ../../modules/noctalia
-    inputs.home-manager.nixosModules.default
-    inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
 }

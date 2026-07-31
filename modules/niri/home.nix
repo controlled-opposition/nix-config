@@ -1,3 +1,6 @@
 {
-  home.file.".config/niri/config.kdl".source = ./config.kdl;
+  xdg.config.files."niri/config.kdl" = {
+    source = ./config.kdl;
+    clobber = true;
+  };
 }

@@ -24,9 +24,6 @@ nixpkgs = ["nixos-unstable"]
 #   unpack          fixed-only tarball or file
 [inputs]
 
-[inputs.home-manager]
-url = "github:nix-community/home-manager"
-
 [inputs.nix-darwin]
 url = "github:nix-darwin/nix-darwin/master"
 
@@ -56,5 +53,4 @@ url = "github:noctalia-dev/noctalia"
 
 [inputs.hjem]
 url = "github:feel-co/hjem"
-
 

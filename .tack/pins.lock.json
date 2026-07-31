@@ -15,14 +15,6 @@
     "narHash": "sha256-IesjwM46rsaLRiHebqGdSy0vDuD6Yf7b6IME9LJOS8A=",
     "lastModified": 1785520341
   },
-  "home-manager": {
-    "type": "github",
-    "owner": "nix-community",
-    "repo": "home-manager",
-    "rev": "e8827fbbb12015a8dd9f66285aec79d655bcb9f6",
-    "narHash": "sha256-EASdusMYLuPhOCrE3LmsAGOvGhX3vnKBLxFvj9lI8tU=",
-    "lastModified": 1785496534
-  },
   "nix-darwin": {
     "type": "github",
     "owner": "nix-darwin",
