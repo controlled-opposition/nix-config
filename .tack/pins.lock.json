@@ -11,9 +11,9 @@
     "type": "github",
     "owner": "feel-co",
     "repo": "hjem",
-    "rev": "a065ac188fcd61a9d33349110dc99598a1b5e988",
-    "narHash": "sha256-IesjwM46rsaLRiHebqGdSy0vDuD6Yf7b6IME9LJOS8A=",
-    "lastModified": 1785520341
+    "rev": "d628ecda714785fddf86cad28ee4f506dc5b7eb9",
+    "narHash": "sha256-M9v4zyKLYSVv2RYB4iYTg2THKvW3mDlj+fR1KvW9G3w=",
+    "lastModified": 1785525782
   },
   "nix-darwin": {
     "type": "github",
@@ -59,17 +59,17 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "a7d2cad442172f7e2c2862935b6bfd2dfe2b1303",
-    "narHash": "sha256-qc5PefUCV5rIhGs+dr+0tmSW9MYOAN4cwwncjiXwqIA=",
-    "lastModified": 1785521092
+    "rev": "cd1d9bbc09f1ec673e41a641ead20c88c7feb259",
+    "narHash": "sha256-1AkFJlNhlB8jpcjVW9s00AJLi+BSRywgyMKtRmsgSM0=",
+    "lastModified": 1785535108
   },
   "nvf": {
     "type": "github",
     "owner": "NotAShelf",
     "repo": "nvf",
-    "rev": "a7987e9650cfbefd9c59b203c35e8573f83d0a6b",
-    "narHash": "sha256-qgGuNVfxYliVtRRzxfT4zDr0ZjI7RZtFC0ZngHExTLk=",
-    "lastModified": 1785521230
+    "rev": "fbf73761f56c7b41f8095bd1a8fcadefea30a05b",
+    "narHash": "sha256-ILww3rsO4JA9bY2pV56Pg/VrRADQmIw/alhpM4eUIYY=",
+    "lastModified": 1785524545
   },
   "tack": {
     "type": "github",

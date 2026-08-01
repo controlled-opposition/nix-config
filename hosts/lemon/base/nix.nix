@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   nix.settings.experimental-features = [
     "nix-command"
@@ -6,5 +6,6 @@
   ];
   nixpkgs.config.allowUnfree = true;
   nix.settings.auto-optimise-store = true;
+  nix.package = pkgs.lixPackageSets.stable.lix;
   system.stateVersion = "26.05";
 }
