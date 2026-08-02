@@ -17,6 +17,7 @@
     python3
     alejandra
     statix
+    nh
   ];
   fonts.packages = with pkgs; [
     iosevka-bin
