@@ -2,14 +2,17 @@
 
 NixOS, WSL, and nix-darwin configurations pinned with
 [[https://github.com/manic-systems/tack][Tack]].
-Per-user packages and files are managed with
-[[https://github.com/feel-co/hjem][Hjem]].
+Per-user packages and files are managed with standalone
+[[https://github.com/nix-community/home-manager][Home Manager]] configurations.
 
 ** Configurations
 
 - =nixosConfigurations.lemon=
 - =nixosConfigurations.wsl=
 - =darwinConfigurations."Evericks-MacBook-Air"=
+- =homeConfigurations.rick=
+- =homeConfigurations.weasel=
+- =homeConfigurations.everick=
 
 ** Rebuild
 
@@ -37,6 +40,14 @@ nh os switch -f ./default.nix nixosConfigurations.wsl
 nh darwin switch -f ./default.nix 'darwinConfigurations.Evericks-MacBook-Air'
 #+end_src
 
+Standalone Home Manager should be activated after rebuilding the corresponding
+system configuration so the old Hjem activation is removed. Select the user by
+changing the attribute in the =nh= command:
+
+#+begin_src shell
+nh home switch -f ./default.nix homeConfigurations.rick
+#+end_src
+
 ** Update pins
 
 Tack is itself pinned and installed by each system configuration.
@@ -44,7 +55,7 @@ Tack is itself pinned and installed by each system configuration.
 #+begin_src shell
 tack look
 tack update
-tack update nixpkgs hjem
+tack update nixpkgs home-manager
 #+end_src
 
 Pin declarations live in =.tack/pins.toml=. Resolved revisions and hashes live

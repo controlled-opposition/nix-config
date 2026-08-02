@@ -1,9 +1,8 @@
-{ pkgs, ... }:
 {
-  packages = [ (pkgs.emacs.pkgs.withPackages (_: [ ])) ];
+  programs.emacs.enable = true;
 
-  files.".emacs.d/init.el" = {
+  home.file.".emacs.d/init.el" = {
     source = ./init.el;
-    clobber = true;
+    force = true;
   };
 }

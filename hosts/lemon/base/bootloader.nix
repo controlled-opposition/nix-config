@@ -1,10 +1,21 @@
 { pkgs, ... }:
 {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   boot.loader = {
-    systemd-boot.enable = true;
+    limine.enable = true;
     efi.canTouchEfiVariables = true;
+    limine = {
+      extraEntries = ''
+        /Windows
+        protocol: efi
+        path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+      '';
+      style.wallpapers = [
+        ../../../wallpapers/wallhaven-42xge6.png
+        ../../../wallpapers/wallhaven-qr3mk7.png
+      ];
+    };
+
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }

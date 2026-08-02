@@ -48,9 +48,6 @@ url = "github:manic-systems/tack"
 [inputs.helium-flake]
 url = "github:amaanq/helium-flake"
 
-[inputs.noctalia]
-url = "github:noctalia-dev/noctalia"
-
-[inputs.hjem]
-url = "github:feel-co/hjem"
+[inputs.home-manager]
+url = "gh:nix-community/home-manager"
 
