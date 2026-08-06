@@ -51,3 +51,7 @@ url = "github:amaanq/helium-flake"
 [inputs.home-manager]
 url = "gh:nix-community/home-manager"
 
+[inputs.chaotic]
+url = "github:chaotic-cx/nyx"
+exclude_follow = ["nixpkgs"]
+

@@ -42,6 +42,7 @@ in
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/lemon
+        inputs.chaotic.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
       ];
     };

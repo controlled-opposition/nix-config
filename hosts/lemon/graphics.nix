@@ -6,4 +6,6 @@
   hardware.amdgpu.initrd.enable = true;
 
   #services.lact.enable = true;
+
+  chaotic.mesa-git.enable = true;
 }
