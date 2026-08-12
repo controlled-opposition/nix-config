@@ -30,6 +30,7 @@
   environment.systemPackages = with pkgs; [
     inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex
     vim
     wget
     nixd
@@ -54,5 +55,6 @@
 
   hardware.i2c.enable = true;
   hardware.bluetooth.enable = true;
+
 
 }
