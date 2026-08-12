@@ -27,7 +27,11 @@
       enable = true;
       enableFishIntegration = true;
     };
+    zed-editor.enable = true;
   };
 
-  home.packages = [ pkgs.spotify ];
+  home.packages = with pkgs; [
+    spotify
+    nil
+  ];
 }
