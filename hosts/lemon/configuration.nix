@@ -29,11 +29,7 @@
 
   environment.systemPackages = with pkgs; [
     inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # helium-flake imports nixpkgs separately; pass this host's permitted
-    # Widevine package so its license policy is used.
-    (inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-      widevine-cdm = pkgs.widevine-cdm;
-    })
+    inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default
     vim
     wget
     nixd
@@ -53,6 +49,8 @@
   programs.firefox.enable = true;
 
   programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   hardware.i2c.enable = true;
   hardware.bluetooth.enable = true;
