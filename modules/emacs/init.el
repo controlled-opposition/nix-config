@@ -53,7 +53,7 @@
 (setq inhibit-startup-screen t
       inhibit-startup-echo-area-message t)
 
-(load-theme 'modus-operandi t)
+(load-theme 'modus-vivendi t)
 
 (electric-pair-mode 1)
 (setq electric-pair-pairs
@@ -69,6 +69,7 @@
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 (global-visual-line-mode 1)
 
 (setq kill-buffer-query-functions
@@ -95,21 +96,6 @@
   :ensure t
   :mode "\\.nix\\'"
   :hook (nix-mode . eglot-ensure))
-
-(use-package vterm
-  :ensure t
-  :config
-  (setq vterm-term-environment-variable "xterm-256color")
-  )
-(with-eval-after-load 'vterm
-  (add-hook 'vterm-mode-hook
-            (lambda ()
-              (setq-local process-environment
-                          (append
-                           '("COLORTERM=truecolor"
-                             "TERM=xterm-256color")
-                           process-environment)))))
-
 
 (select-frame-set-input-focus (selected-frame))
 
@@ -162,11 +148,32 @@
   :config
   (global-org-modern-mode 1))
 
-(set-face-attribute 'default nil :family "Iosevka")
-(set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
-;;(set-face-attribute 'org-modern-symbol nil :family "Iosevka")
+(set-face-attribute 'default nil :family "JetBrains Mono" :height 130 :weight 'regular)
+(set-face-attribute 'fixed-pitch nil :family "JetBrains Mono" :height 1.0)
 
 (use-package ein
   :ensure t)
+
+(use-package elcord
+  :ensure t
+  :config
+  (elcord-mode 1))
+
+(use-package ghostel
+  :ensure t)
+
+(use-package nerd-icons-mode-line
+  :ensure t
+  :vc (:url "https://github.com/grolongo/nerd-icons-mode-line")
+  :custom
+  (nerd-icons-mode-line-v-adjust 0.1) ; default value
+  (nerd-icons-mode-line-size 1.0) ; default value
+  :config (nerd-icons-mode-line-global-mode t))
+
+(use-package nerd-icons
+  :ensure t
+  :custom
+  (nerd-icons-font-family "JetBrains Mono Nerd Font"))
+
 
 ;;; init.el ends here

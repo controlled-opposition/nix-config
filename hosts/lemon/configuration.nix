@@ -38,6 +38,12 @@
     google-chrome
     faugus-launcher
 
+    clang
+    gnumake
+    cmake
+    libtool
+
+
   ];
 
   services.crossmacro.enable = true;
