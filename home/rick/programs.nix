@@ -28,6 +28,7 @@
       enableFishIntegration = true;
     };
     zed-editor.enable = true;
+    btop.enable = true;
   };
 
   home.packages = with pkgs; [

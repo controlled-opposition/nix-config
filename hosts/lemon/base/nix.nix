@@ -6,7 +6,7 @@
   ];
   nixpkgs.config.allowUnfree = true;
   nix.settings.auto-optimise-store = true;
-  nix.package = pkgs.lixPackageSets.stable.lix;
+  nix.package = pkgs.nix;
   system.stateVersion = "26.05";
   
   nix.settings = {
