@@ -6,6 +6,7 @@
     discord.enable = true;
     fd.enable = true;
     fzf.enable = true;
+    fish.enable = true;
     git.enable = true;
     kitty.enable = true;
     micro.enable = true;

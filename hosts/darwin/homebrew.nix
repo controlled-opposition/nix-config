@@ -24,6 +24,7 @@
       "codex"
       "zed"
       "spotify"
+      "helium-browser"
     ];
   };
 }

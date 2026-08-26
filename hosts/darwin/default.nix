@@ -6,5 +6,6 @@
     ./homebrew.nix
     ./settings.nix
     ./users.nix
+    ../../modules/fonts
   ];
 }
