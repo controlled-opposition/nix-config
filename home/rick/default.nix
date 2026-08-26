@@ -7,6 +7,7 @@
   };
 
   imports = [
+    ../../modules/agent-skills
     ../../modules/emacs
     ../../modules/nvf
     ./programs.nix
