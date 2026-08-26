@@ -58,3 +58,7 @@ exclude_follow = ["nixpkgs"]
 [inputs.llm-agents]
 url = "gh:numtide/llm-agents.nix"
 exclude_follow = ["nixpkgs"]
+
+[inputs.pstack]
+url = "github:cursor/plugins"
+type = "fetch"
