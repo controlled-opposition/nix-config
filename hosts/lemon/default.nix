@@ -8,6 +8,6 @@
     ./hardware-configuration.nix
     ./peripherals.nix
     ./graphics.nix
-    ./font.nix
+    ../../modules/fonts
   ];
 }

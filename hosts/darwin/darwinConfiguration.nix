@@ -19,8 +19,8 @@
     statix
     nh
   ];
-  fonts.packages = with pkgs; [
-    iosevka-bin
-  ];
+
+  programs.fish.enable = true;
+  environment.shells = [ pkgs.fish ];
 
 }
