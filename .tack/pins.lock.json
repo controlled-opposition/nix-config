@@ -3,9 +3,9 @@
     "type": "github",
     "owner": "chaotic-cx",
     "repo": "nyx",
-    "rev": "366959d4af461afec518247b0547b08d03a67b10",
-    "narHash": "sha256-IvcqWnWYX8bKcUVYyibWWY/m1FI5HfE37Xiv0fZTblg=",
-    "lastModified": 1787663831
+    "rev": "fffdcac925fbf935820af6c64cf45379272b69e6",
+    "narHash": "sha256-mzBSlHqfUyOy/myvVBb1laqUKlAt2J0rrtwU5r+8N4w=",
+    "lastModified": 1787720747
   },
   "helium-flake": {
     "type": "github",
@@ -19,17 +19,17 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "6840c9a8f50722944eb106ce8bb237c138584f2a",
-    "narHash": "sha256-9168tNt0NZdtlx5RM5huEuc9NCWMLACJA9O4UK/l2Zc=",
-    "lastModified": 1787680808
+    "rev": "0a364342a66bcecfc8a00d2fc38c6c29eee7bc5e",
+    "narHash": "sha256-FfIAV44k33i+IjC1+new2KyjyVGUzGtV89VHVP4eK1U=",
+    "lastModified": 1787750582
   },
   "llm-agents": {
     "type": "github",
     "owner": "numtide",
     "repo": "llm-agents.nix",
-    "rev": "2006f03bd90a413dffd1b184559203c52afc1410",
-    "narHash": "sha256-SDam/im59rY43F1kNRtM1iwSYfh4uVOSruQ1SKCsgao=",
-    "lastModified": 1787694916
+    "rev": "76b78a399417964e9133aed0c0a9493616c3508e",
+    "narHash": "sha256-FLBOjXOSh2WvMG6id+ks018WQ7HiA4yPPlIagpTc0DM=",
+    "lastModified": 1787719661
   },
   "nix-darwin": {
     "type": "github",

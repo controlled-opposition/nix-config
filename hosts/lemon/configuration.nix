@@ -31,6 +31,7 @@
     inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex
+    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.pi
     vim
     wget
     nixd
