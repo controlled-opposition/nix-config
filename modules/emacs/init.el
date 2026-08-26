@@ -71,6 +71,8 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (global-visual-line-mode 1)
+(which-key-mode)
+(pixel-scroll-mode)
 
 (setq kill-buffer-query-functions
       (remq 'process-kill-buffer-query-function
@@ -174,6 +176,5 @@
   :ensure t
   :custom
   (nerd-icons-font-family "JetBrains Mono Nerd Font"))
-
 
 ;;; init.el ends here
