@@ -8,16 +8,18 @@
     useWindowsDriver = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
-    wget
-    nixfmt
-    nixd
-    cmake
-    gcc
-    gnumake
+  environment.systemPackages = builtins.attrValues {
+    tack = inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    inherit (pkgs)
+      wget
+      nixfmt
+      nixd
+      cmake
+      gcc
+      gnumake
+      ;
 
-  ];
+  };
 
   services.pulseaudio.enable = true;
 

@@ -24,7 +24,7 @@
       };
       treesitter = {
         enable = true;
-        grammars = with pkgs.vimPlugins.nvim-treesitter; [ withAllGrammars ];
+        grammars = [ pkgs.vimPlugins.nvim-treesitter.withAllGrammars ];
       };
       theme = {
         name = "catppuccin";

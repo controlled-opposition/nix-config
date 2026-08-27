@@ -12,6 +12,7 @@ let
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [];
       };
       extraSpecialArgs = { inherit inputs; };
       modules = [
