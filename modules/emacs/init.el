@@ -138,9 +138,6 @@
 (set-face-attribute 'default nil :family "JetBrains Mono" :height 130 :weight 'regular)
 (set-face-attribute 'fixed-pitch nil :family "JetBrains Mono" :height 1.0)
 
-(use-package ein
-  :ensure t)
-
 (use-package elcord
   :ensure t
   :config
