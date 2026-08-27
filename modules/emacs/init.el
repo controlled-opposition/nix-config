@@ -53,8 +53,6 @@
 (setq inhibit-startup-screen t
       inhibit-startup-echo-area-message t)
 
-(load-theme 'modus-vivendi t)
-
 (electric-pair-mode 1)
 (setq electric-pair-pairs
       '(
@@ -127,19 +125,6 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1))
-
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init))
-
 (use-package apheleia
   :ensure t
   :config
@@ -176,5 +161,16 @@
   :ensure t
   :custom
   (nerd-icons-font-family "JetBrains Mono Nerd Font"))
+
+(use-package ef-themes
+  :ensure t
+  :init
+  (ef-themes-take-over-modus-themes-mode 1)
+  :bind
+  (("<f5>" . modus-themes-rotate)
+   ("C-<f5>" . modus-themes-select)
+   ("M-<f5>" . modus-themes-load-random))
+  :config
+  (modus-themes-load-theme 'ef-night))
 
 ;;; init.el ends here
