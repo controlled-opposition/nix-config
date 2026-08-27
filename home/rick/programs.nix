@@ -31,8 +31,10 @@
     btop.enable = true;
   };
 
-  home.packages = with pkgs; [
-    spotify
-    nil
-  ];
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      spotify
+      nil
+      ;
+  };
 }

@@ -21,31 +21,35 @@
     };
 
   };
-  
+
   environment.variables = {
     NH_FILE = "/home/rick/.config/nix-config/default.nix";
     NH_ATTRP = "nixosConfigurations.lemon";
   };
 
-  environment.systemPackages = with pkgs; [
-    inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.pi
-    vim
-    wget
-    nixd
-    nixfmt
-    google-chrome
-    faugus-launcher
+  environment.systemPackages = builtins.attrValues {
+    tack = inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    helium-flake = inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default;
 
-    clang
-    gnumake
-    cmake
-    libtool
+    inherit (inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system})
+      codex
+      pi
+      ;
 
+    inherit (pkgs)
+      vim
+      wget
+      nixd
+      nixfmt
+      google-chrome
+      faugus-launcher
 
-  ];
+      clang
+      gnumake
+      cmake
+      libtool
+      ;
+  };
 
   services.crossmacro.enable = true;
   services.crossmacro.users = [
@@ -62,6 +66,5 @@
 
   hardware.i2c.enable = true;
   hardware.bluetooth.enable = true;
-
 
 }
