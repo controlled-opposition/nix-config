@@ -1,14 +1,28 @@
-{ ... }:
+{ inputs, pkgs, ... }:
 {
-  home = {
-    username = "weasel";
-    homeDirectory = "/home/weasel";
-    stateVersion = "26.05";
-  };
+  hjem.specialArgs = { inherit inputs; };
 
-  imports = [
-    ../../modules/emacs
-    ../../modules/nvf
-    ./programs.nix
-  ];
+  hjem.users.weasel = {
+    enable = true;
+    imports = [
+      ../../modules/emacs
+      ../../modules/nvf
+    ];
+    packages = builtins.attrValues {
+      inherit (pkgs)
+        bash
+        eza
+        fd
+        fzf
+        git
+        nh
+        obsidian
+        spotify-player
+        tmux
+        uv
+        zellij
+        zoxide
+        ;
+    };
+  };
 }

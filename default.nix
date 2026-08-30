@@ -5,34 +5,16 @@ let
     nix-darwin
     nixpkgs
     ;
-
-  mkHome =
-    user: system:
-    inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        overlays = [];
-      };
-      extraSpecialArgs = { inherit inputs; };
-      modules = [
-        ./home/${user}
-      ];
-    };
-
 in
 {
-  homeConfigurations = {
-    everick = mkHome "everick" "aarch64-darwin";
-    rick = mkHome "rick" "x86_64-linux";
-    weasel = mkHome "weasel" "x86_64-linux";
-  };
-
   darwinConfigurations."Evericks-MacBook-Air" = nix-darwin.lib.darwinSystem {
     system = "aarch64-darwin";
     specialArgs = { inherit inputs; };
     modules = [
       ./hosts/darwin
+      ./home/everick
+      ./modules/fonts
+      inputs.hjem.darwinModules.default
       inputs.nix-homebrew.darwinModules.nix-homebrew
     ];
   };
@@ -43,7 +25,9 @@ in
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/lemon
+        ./home/rick
         inputs.chaotic.nixosModules.default
+        inputs.hjem.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
       ];
     };
@@ -53,6 +37,8 @@ in
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/wsl
+        ./home/weasel
+        inputs.hjem.nixosModules.default
         inputs.nixos-wsl.nixosModules.default
       ];
     };

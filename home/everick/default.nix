@@ -1,14 +1,30 @@
-{ ... }:
+{ inputs, pkgs, ... }:
 {
-  home = {
-    username = "everick";
-    homeDirectory = "/Users/everick";
-    stateVersion = "26.05";
-  };
+  hjem.specialArgs = { inherit inputs; };
 
-  imports = [
-    ../../modules/emacs
-    ../../modules/nvf
-    ./programs.nix
-  ];
+  hjem.users.everick = {
+    enable = true;
+    imports = [
+      ../../modules/emacs
+      ../../modules/nvf
+    ];
+    packages = builtins.attrValues {
+      inherit (pkgs)
+        bat
+        discord
+        fd
+        fish
+        fzf
+        git
+        kitty
+        micro
+        nh
+        obsidian
+        tmux
+        zellij
+        zoxide
+        zoom-us
+        ;
+    };
+  };
 }

@@ -25,40 +25,50 @@ nixpkgs = ["nixos-unstable"]
 [inputs]
 
 [inputs.nix-darwin]
-url = "github:nix-darwin/nix-darwin/master"
+url = "gh:nix-darwin/nix-darwin/master"
 
 [inputs.nix-flatpak]
-url = "github:gmodena/nix-flatpak"
+url = "gh:gmodena/nix-flatpak"
 
 [inputs.nix-homebrew]
-url = "github:zhaofengli/nix-homebrew"
+url = "gh:zhaofengli/nix-homebrew"
 
 [inputs.nixos-wsl]
-url = "github:nix-community/NixOS-WSL"
+url = "gh:nix-community/NixOS-WSL"
 
 [inputs.nixpkgs]
-url = "github:NixOS/nixpkgs/nixos-unstable"
-
-[inputs.nvf]
-url = "github:NotAShelf/nvf"
+url = "gh:NixOS/nixpkgs/nixos-unstable"
 
 [inputs.tack]
-url = "github:manic-systems/tack"
+url = "gh:manic-systems/tack"
 
 [inputs.helium-flake]
-url = "github:amaanq/helium-flake"
-
-[inputs.home-manager]
-url = "gh:nix-community/home-manager"
+url = "gh:amaanq/helium-flake"
 
 [inputs.chaotic]
-url = "github:chaotic-cx/nyx"
+url = "gh:chaotic-cx/nyx"
 exclude_follow = ["nixpkgs"]
 
 [inputs.llm-agents]
 url = "gh:numtide/llm-agents.nix"
 exclude_follow = ["nixpkgs"]
 
+[inputs.emacs-overlay]
+url = "gh:nix-community/emacs-overlay"
+type = "fetch"
+
+[inputs.import-tree]
+url = "gh:denful/import-tree"
+
+[inputs.hjem]
+url = "gh:feel-co/hjem"
+
+[inputs.hjem-impure]
+url = "gh:Rexcrazy804/hjem-impure"
+
+[inputs.nvf]
+url = "gh:NotAShelf/nvf"
+
 [inputs.pstack]
-url = "github:cursor/plugins"
+url = "gh:cursor/plugins"
 type = "fetch"

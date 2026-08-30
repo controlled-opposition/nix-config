@@ -2,16 +2,16 @@
 
 ## Scope
 
-This repository manages NixOS, WSL, nix-darwin, and standalone Home Manager configurations. It uses Tack and `default.nix`, not Nix flakes. Do not add `flake.nix` or `flake.lock`. The `flakes` evaluator feature remains enabled because Tack uses `fetchTree`.
+This repository manages NixOS, WSL, and nix-darwin configurations with Hjem-managed user packages. It uses Tack and `default.nix`, not Nix flakes. Do not add `flake.nix` or `flake.lock`. The `flakes` evaluator feature remains enabled because Tack uses `fetchTree`.
 
 ## Repository layout
 
-- `default.nix` imports pinned dependencies and exports every system and Home Manager configuration.
+- `default.nix` imports pinned dependencies and exports every system configuration.
 - `hosts/lemon/` defines the Lemon NixOS desktop.
 - `hosts/wsl/` defines the WSL system.
 - `hosts/darwin/` defines the macOS system.
-- `home/<user>/` defines each standalone Home Manager configuration.
-- `modules/` contains reusable Home Manager modules.
+- `home/<user>/` defines each Hjem user module.
+- `modules/` contains reusable modules and related static files.
 - `wallpapers/` contains static desktop images.
 - `.tack/` contains dependency declarations, the lock file, and generated imports.
 
@@ -43,13 +43,12 @@ nix eval -f ./default.nix \
 
 Change the attribute for another exported configuration. There is no separate test suite, so successful formatting and evaluation are the minimum checks.
 
-Use `nh` only on the matching machine when an activation test is needed:
+Use `nh` only on the matching machine when an activation test is needed. The system activation also applies the matching Hjem user configuration:
 
 ```sh
 nh os switch
 nh os switch -f ./default.nix nixosConfigurations.wsl
 nh darwin switch -f ./default.nix 'darwinConfigurations.Evericks-MacBook-Air'
-nh home switch -f ./default.nix homeConfigurations.rick
 ```
 
 Never test a host change by activating it on another host. Review the activation output before treating a system change as complete.
@@ -59,7 +58,7 @@ Inspect or update pinned inputs with:
 ```sh
 tack look
 tack update
-tack update nixpkgs home-manager
+tack update nixpkgs hjem
 ```
 
 ## Commits and pull requests

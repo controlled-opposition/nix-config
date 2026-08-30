@@ -1,15 +1,34 @@
-{ ... }:
+{ inputs, pkgs, ... }:
 {
-  home = {
-    username = "rick";
-    homeDirectory = "/home/rick";
-    stateVersion = "26.05";
-  };
+  hjem.specialArgs = { inherit inputs; };
 
-  imports = [
-    ../../modules/agent-skills
-    ../../modules/emacs
-    ../../modules/nvf
-    ./programs.nix
-  ];
+  hjem.users.rick = {
+    enable = true;
+    imports = [
+      ../../modules/agent-skills
+     ../../modules/emacs
+      ../../modules/nvf
+    ];
+    packages = builtins.attrValues {
+      inherit (pkgs)
+        btop
+        discord
+        eza
+        fastfetch
+        fd
+        fish
+        fzf
+        git
+        helix
+        kitty
+        nil
+        obsidian
+        spotify
+        tmux
+        vscode
+        zed-editor
+        zoxide
+        ;
+    };
+  };
 }
