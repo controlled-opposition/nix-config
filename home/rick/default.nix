@@ -1,23 +1,23 @@
 { inputs, pkgs, ... }:
 {
   hjem.specialArgs = { inherit inputs; };
-
+  hjem.extraModules = [inputs.hjem-impure.hjemModules.default];
   hjem.users.rick = {
     enable = true;
+    impure.enable = true;
     imports = [
       ../../modules/agent-skills
-     ../../modules/emacs
+   #  ../../modules/emacs
       ../../modules/nvf
+      ../../modules/fish
+      ../../modules/kitty
     ];
     packages = builtins.attrValues {
       inherit (pkgs)
         btop
         discord
-        eza
         fastfetch
-        fd
         fish
-        fzf
         git
         helix
         kitty

@@ -1,20 +1,18 @@
 { inputs, pkgs, ... }:
 {
   hjem.specialArgs = { inherit inputs; };
-
+  hjem.extraModules = [inputs.hjem-impure.hjemModules.default];
   hjem.users.everick = {
     enable = true;
+    impure.enable = true;
     imports = [
       ../../modules/emacs
       ../../modules/nvf
     ];
     packages = builtins.attrValues {
       inherit (pkgs)
-        bat
         discord
-        fd
         fish
-        fzf
         git
         kitty
         micro
@@ -22,7 +20,6 @@
         obsidian
         tmux
         zellij
-        zoxide
         zoom-us
         ;
     };
