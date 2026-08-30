@@ -3,9 +3,7 @@
 let
   pstackSource = inputs.pstack + "/pstack/skills";
 
-  pstackSkills = lib.filterAttrs (name: type: type == "directory") (
-    builtins.readDir pstackSource
-  );
+  pstackSkills = lib.filterAttrs (name: type: type == "directory") (builtins.readDir pstackSource);
 
   pstackSkillFiles = builtins.listToAttrs (
     map (
@@ -17,5 +15,5 @@ let
   );
 in
 {
-  home.file = pstackSkillFiles;
+  files = pstackSkillFiles;
 }
