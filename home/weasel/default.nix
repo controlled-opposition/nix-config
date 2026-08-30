@@ -1,19 +1,16 @@
 { inputs, pkgs, ... }:
 {
   hjem.specialArgs = { inherit inputs; };
-
+  hjem.extraModules = [inputs.hjem-impure.hjemModules.default];
   hjem.users.weasel = {
     enable = true;
+    impure.enable = true;
     imports = [
       ../../modules/emacs
       ../../modules/nvf
     ];
     packages = builtins.attrValues {
       inherit (pkgs)
-        bash
-        eza
-        fd
-        fzf
         git
         nh
         obsidian
@@ -21,7 +18,6 @@
         tmux
         uv
         zellij
-        zoxide
         ;
     };
   };
