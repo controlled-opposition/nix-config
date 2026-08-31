@@ -16,11 +16,8 @@
 
     casks = [
       "google-chrome"
-      "codex-app"
-      "anki"
       "visual-studio-code"
       "finetune"
-      "emacs-app"
       "codex"
       "zed"
       "spotify"
