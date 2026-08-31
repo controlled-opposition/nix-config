@@ -6,8 +6,11 @@
     enable = true;
     impure.enable = true;
     imports = [
-      ../../modules/emacs
+     # ../../modules/emacs
       ../../modules/nvf
+      ../../modules/agent-skills
+      ../../modules/fish
+      ../../modules/kitty
     ];
     packages = builtins.attrValues {
       inherit (pkgs)
@@ -16,11 +19,11 @@
         git
         kitty
         micro
-        nh
         obsidian
         tmux
         zellij
         zoom-us
+        zoxide
         ;
     };
   };
