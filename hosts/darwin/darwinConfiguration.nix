@@ -20,6 +20,7 @@
       alejandra
       statix
       nh
+      docker
       ;
   };
 

@@ -8,7 +8,7 @@
     imports = [
      # ../../modules/emacs
       ../../modules/nvf
-      ../../modules/agent-skills
+     #  ../../modules/agent-skills
       ../../modules/fish
       ../../modules/kitty
     ];
