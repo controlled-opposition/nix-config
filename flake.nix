@@ -1,0 +1,95 @@
+{
+  description = "NixOS, WSL, and nix-darwin configurations";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    helium-flake = {
+      url = "github:amaanq/helium-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    chaotic.url = "github:chaotic-cx/nyx";
+
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      flake = false;
+    };
+
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    pstack = {
+      url = "github:cursor/plugins";
+      flake = false;
+    };
+  };
+
+  outputs =
+    inputs@{
+      nix-darwin,
+      nixpkgs,
+      ...
+    }:
+    {
+      darwinConfigurations."Evericks-MacBook-Air" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/darwin
+          ./home/everick
+          ./modules/fonts
+          inputs.hjem.darwinModules.default
+          inputs.nix-homebrew.darwinModules.nix-homebrew
+        ];
+      };
+
+      nixosConfigurations = {
+        lemon = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/lemon
+            ./home/rick
+            inputs.chaotic.nixosModules.default
+            inputs.hjem.nixosModules.default
+            inputs.nix-flatpak.nixosModules.nix-flatpak
+          ];
+        };
+
+        wsl = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/wsl
+            ./home/weasel
+            inputs.hjem.nixosModules.default
+            inputs.nixos-wsl.nixosModules.default
+          ];
+        };
+      };
+    };
+}

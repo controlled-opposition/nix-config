@@ -9,7 +9,6 @@
   };
 
   environment.systemPackages = builtins.attrValues {
-    tack = inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
     inherit (pkgs)
       wget
       nixfmt
@@ -17,6 +16,7 @@
       cmake
       gcc
       gnumake
+      stow
       ;
 
   };

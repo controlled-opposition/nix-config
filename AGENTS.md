@@ -2,18 +2,18 @@
 
 ## Scope
 
-This repository manages NixOS, WSL, and nix-darwin configurations with Hjem-managed user packages. It uses Tack and `default.nix`, not Nix flakes. Do not add `flake.nix` or `flake.lock`. The `flakes` evaluator feature remains enabled because Tack uses `fetchTree`.
+This repository manages NixOS, WSL, and nix-darwin configurations with Hjem-managed user packages. It uses Nix flakes with `flake.nix` and `flake.lock`.
 
 ## Repository layout
 
-- `default.nix` imports pinned dependencies and exports every system configuration.
+- `flake.nix` declares pinned inputs and exports every system configuration.
 - `hosts/lemon/` defines the Lemon NixOS desktop.
 - `hosts/wsl/` defines the WSL system.
 - `hosts/darwin/` defines the macOS system.
 - `home/<user>/` defines each Hjem user module.
 - `modules/` contains reusable modules and related static files.
 - `wallpapers/` contains static desktop images.
-- `.tack/` contains dependency declarations, the lock file, and generated imports.
+- `flake.lock` records resolved input revisions and hashes.
 
 Keep machine-specific settings under the matching `hosts/<name>/` directory. Keep user-specific settings under `home/<user>/`. Put shared behavior in `modules/` and import it where needed.
 
@@ -22,8 +22,7 @@ Keep machine-specific settings under the matching `hosts/<name>/` directory. Kee
 - Use two-space indentation and standard `nixfmt` output.
 - Keep modules small, with explicit imports and related options grouped under namespaces such as `programs`, `services`, and `environment`.
 - Name host and user directories after their exported configuration keys.
-- Do not edit `.tack/default.nix`; Tack generates it.
-- When changing dependency pins, update both `.tack/pins.toml` and `.tack/pins.lock.json`.
+- When changing dependency pins, update `flake.lock` with `nix flake update`.
 - Preserve unrelated working-tree changes.
 
 ## Validation
@@ -37,8 +36,7 @@ nixfmt path/to/file.nix
 Evaluate each affected configuration without activating it. For Lemon, run:
 
 ```sh
-nix eval -f ./default.nix \
-  nixosConfigurations.lemon.config.system.build.toplevel.drvPath
+nix eval .#nixosConfigurations.lemon.config.system.build.toplevel.drvPath
 ```
 
 Change the attribute for another exported configuration. There is no separate test suite, so successful formatting and evaluation are the minimum checks.
@@ -46,9 +44,9 @@ Change the attribute for another exported configuration. There is no separate te
 Use `nh` only on the matching machine when an activation test is needed. The system activation also applies the matching Hjem user configuration:
 
 ```sh
-nh os switch
-nh os switch -f ./default.nix nixosConfigurations.wsl
-nh darwin switch -f ./default.nix 'darwinConfigurations.Evericks-MacBook-Air'
+nh os switch . -H lemon
+nh os switch . -H wsl
+nh darwin switch . -H Evericks-MacBook-Air
 ```
 
 Never test a host change by activating it on another host. Review the activation output before treating a system change as complete.
@@ -56,9 +54,9 @@ Never test a host change by activating it on another host. Review the activation
 Inspect or update pinned inputs with:
 
 ```sh
-tack look
-tack update
-tack update nixpkgs hjem
+nix flake metadata
+nix flake update
+nix flake update nixpkgs hjem
 ```
 
 ## Commits and pull requests

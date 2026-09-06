@@ -5,8 +5,6 @@
   networking.hostName = "Evericks-MacBook-Air";
 
   environment.systemPackages = builtins.attrValues {
-    tack = inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
-
     inherit (pkgs)
       gcc
       gnumake
@@ -21,6 +19,7 @@
       statix
       nh
       docker
+      stow
       ;
   };
 

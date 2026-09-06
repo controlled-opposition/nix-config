@@ -1,6 +1,6 @@
 # nix-config
 
-This repository defines NixOS, WSL, and nix-darwin configurations with Hjem-managed user packages. [Tack](https://github.com/manic-systems/tack) pins the dependencies imported by [`default.nix`](./default.nix).
+This repository defines NixOS, WSL, and nix-darwin configurations with Hjem-managed user packages. [`flake.nix`](./flake.nix) defines the configurations and [`flake.lock`](./flake.lock) pins their dependencies.
 
 ## Configurations
 
@@ -14,16 +14,16 @@ Host modules live in [`hosts/`](./hosts), Hjem user modules live in [`home/`](./
 
 ## Rebuild a system
 
-Tack uses Nix's `fetchTree` built-in. The Nix evaluator must therefore enable `nix-command` and `flakes`, even though this repository has no `flake.nix` or `flake.lock`.
+Native flakes require the `nix-command` and `flakes` evaluator features. The host configurations enable both features.
 
 On the first Lemon rebuild from a configuration that does not enable those features, run:
 
 ```sh
 nh os switch --option experimental-features 'nix-command flakes' \
-  -f ./default.nix nixosConfigurations.lemon
+  . -H lemon
 ```
 
-The activated Lemon configuration sets `NH_FILE` and `NH_ATTRP`. Later rebuilds need only:
+The activated Lemon configuration sets the flake path for `nh`. Later rebuilds need only:
 
 ```sh
 nh os switch
@@ -32,8 +32,8 @@ nh os switch
 Select the WSL or macOS configuration explicitly:
 
 ```sh
-nh os switch -f ./default.nix nixosConfigurations.wsl
-nh darwin switch -f ./default.nix 'darwinConfigurations.Evericks-MacBook-Air'
+nh os switch . -H wsl
+nh darwin switch . -H Evericks-MacBook-Air
 ```
 
 Each system imports Hjem's matching NixOS or nix-darwin module. A system rebuild installs the packages declared for Rick, Weasel, or Everick under `hjem.users.<name>.packages`.
@@ -43,20 +43,17 @@ Each system imports Hjem's matching NixOS or nix-darwin module. A system rebuild
 Evaluate a configuration without activating it:
 
 ```sh
-nix eval -f ./default.nix \
-  nixosConfigurations.lemon.config.system.build.toplevel.drvPath
+nix eval .#nixosConfigurations.lemon.config.system.build.toplevel.drvPath
 ```
 
 Change the attribute to check WSL or nix-darwin. Format every changed Nix file with `nixfmt` before evaluation.
 
 ## Update dependencies
 
-Inspect or update the pinned inputs with Tack:
+Inspect or update the pinned inputs with Nix:
 
 ```sh
-tack look
-tack update
-tack update nixpkgs hjem
+nix flake metadata
+nix flake update
+nix flake update nixpkgs hjem
 ```
-
-Tack reads pin declarations from [`.tack/pins.toml`](./.tack/pins.toml) and writes resolved revisions and hashes to [`.tack/pins.lock.json`](./.tack/pins.lock.json). Commit both files after a pin change. Do not edit `.tack/default.nix`; Tack generates it.
