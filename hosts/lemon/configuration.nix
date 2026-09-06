@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }:
 
@@ -15,6 +16,7 @@
 
   programs.nh = {
     enable = true;
+    flake = "/home/rick/.config/nix-config";
     clean = {
       enable = true;
       extraArgs = "--keep 3";
@@ -22,13 +24,7 @@
 
   };
 
-  environment.variables = {
-    NH_FILE = "/home/rick/.config/nix-config/default.nix";
-    NH_ATTRP = "nixosConfigurations.lemon";
-  };
-
   environment.systemPackages = builtins.attrValues {
-    tack = inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
     helium-flake = inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default;
 
     inherit (inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system})
@@ -43,6 +39,8 @@
       nixfmt
       google-chrome
       faugus-launcher
+      stow
+      emmylua-ls
 
       clang
       gnumake
