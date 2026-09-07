@@ -10,7 +10,5 @@
     ./peripherals.nix
     ./graphics.nix
     ../../modules/fonts
-    ../../modules/dms
-    ../../modules/hyprland
   ];
 }

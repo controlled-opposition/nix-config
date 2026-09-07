@@ -1,15 +1,14 @@
 # Lemon desktop
 
 Umbriel is the default SDDM session and starts Noctalia v5 from its native TOML
-configuration. Plasma and Hyprland remain selectable; DMS starts only with
-Hyprland's UWSM session. SDDM replaces Plasma Login Manager because the latter
-does not apply NixOS's default-session setting to normal logins.
+configuration. Plasma remains selectable. SDDM replaces Plasma Login Manager
+because the latter does not apply NixOS's default-session setting to normal logins.
 
 Rick's editable configuration is `dotfiles/.config/umbriel/config.toml`.
 From the repository root, link it with GNU Stow:
 
 ```sh
-stow --no-folding --ignore='(emacs|fish|hypr|kitty)' --dir=. --target="$HOME" dotfiles
+stow --no-folding --ignore='(emacs|fish|kitty)' --dir=. --target="$HOME" dotfiles
 ```
 
 The ignore list leaves the other existing dotfiles alone. Hjem does not own the
