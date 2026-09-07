@@ -2,7 +2,7 @@
 {
 
   imports = [
-    ./darwinConfiguration.nix
+    ./configuration.nix
     ./homebrew.nix
     ./settings.nix
     ./users.nix

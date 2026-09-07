@@ -8,7 +8,7 @@ This repository defines NixOS, WSL, and nix-darwin configurations with Hjem-mana
 | --- | --- |
 | `nixosConfigurations.lemon` | NixOS desktop |
 | `nixosConfigurations.wsl` | NixOS on WSL |
-| `darwinConfigurations."Evericks-MacBook-Air"` | macOS laptop |
+| `darwinConfigurations.malus` | Malus macOS laptop |
 
 Host modules live in [`hosts/`](./hosts), Hjem user modules live in [`home/`](./home), and shared modules live in [`modules/`](./modules).
 
@@ -33,7 +33,7 @@ Select the WSL or macOS configuration explicitly:
 
 ```sh
 nh os switch . -H wsl
-nh darwin switch . -H Evericks-MacBook-Air
+nh darwin switch . -H malus
 ```
 
 Each system imports Hjem's matching NixOS or nix-darwin module. A system rebuild installs the packages declared for Rick, Weasel, or Everick under `hjem.users.<name>.packages`.
