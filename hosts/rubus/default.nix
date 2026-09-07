@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./wslConfiguration.nix
+    ./configuration.nix
   ];
 }

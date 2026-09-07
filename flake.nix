@@ -87,11 +87,11 @@
           ];
         };
 
-        wsl = nixpkgs.lib.nixosSystem {
+        rubus = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/wsl
+            ./hosts/rubus
             ./home/weasel
             inputs.hjem.nixosModules.default
             inputs.nixos-wsl.nixosModules.default

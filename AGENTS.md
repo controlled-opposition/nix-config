@@ -8,7 +8,7 @@ This repository manages NixOS, WSL, and nix-darwin configurations with Hjem-mana
 
 - `flake.nix` declares pinned inputs and exports every system configuration.
 - `hosts/citrus/` defines the Citrus NixOS desktop.
-- `hosts/wsl/` defines the WSL system.
+- `hosts/rubus/` defines the Rubus WSL system.
 - `hosts/malus/` defines the Malus macOS system.
 - `home/<user>/` defines each Hjem user module.
 - `modules/` contains reusable modules and related static files.
@@ -45,7 +45,7 @@ Use `nh` only on the matching machine when an activation test is needed. The sys
 
 ```sh
 nh os switch . -H citrus
-nh os switch . -H wsl
+nh os switch . -H rubus
 nh darwin switch . -H malus
 ```
 
