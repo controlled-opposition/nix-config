@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }:
 
 {
+  networking.hostName = "rubus";
+
   wsl = {
     enable = true;
     defaultUser = "weasel";

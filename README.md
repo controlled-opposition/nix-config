@@ -7,7 +7,7 @@ This repository defines NixOS, WSL, and nix-darwin configurations with Hjem-mana
 | Attribute | Target |
 | --- | --- |
 | `nixosConfigurations.citrus` | NixOS desktop |
-| `nixosConfigurations.wsl` | NixOS on WSL |
+| `nixosConfigurations.rubus` | Rubus NixOS on WSL |
 | `darwinConfigurations.malus` | Malus macOS laptop |
 
 Host modules live in [`hosts/`](./hosts), Hjem user modules live in [`home/`](./home), and shared modules live in [`modules/`](./modules).
@@ -32,7 +32,7 @@ nh os switch
 Select the WSL or macOS configuration explicitly:
 
 ```sh
-nh os switch . -H wsl
+nh os switch . -H rubus
 nh darwin switch . -H malus
 ```
 
