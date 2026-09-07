@@ -9,7 +9,10 @@
 
   services = {
     desktopManager.plasma6.enable = true;
-    displayManager.plasma-login-manager.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
   };
 
   programs.git.enable = true;
