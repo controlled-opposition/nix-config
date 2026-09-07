@@ -1,4 +1,4 @@
-# Lemon desktop
+# Citrus desktop
 
 Umbriel is the default SDDM session and starts Noctalia v5 from its native TOML
 configuration. Plasma remains selectable. SDDM replaces Plasma Login Manager
@@ -35,11 +35,11 @@ The packaged Space/Shift+Space/Ctrl+Space/Tab scratchpad shortcuts are preserved
 | Print / Shift+Print | Region / monitor screenshot |
 | Volume, media, brightness keys | Noctalia controls and OSD; also work while locked |
 
-Validate and apply on Lemon:
+Validate and apply on Citrus:
 
 ```sh
-nix eval .#nixosConfigurations.lemon.config.system.build.toplevel.drvPath
-nh os switch . -H lemon
+nix eval .#nixosConfigurations.citrus.config.system.build.toplevel.drvPath
+nh os switch . -H citrus
 ```
 
 Log out and choose Umbriel if SDDM remembers a previously selected session.

@@ -6,7 +6,7 @@ This repository defines NixOS, WSL, and nix-darwin configurations with Hjem-mana
 
 | Attribute | Target |
 | --- | --- |
-| `nixosConfigurations.lemon` | NixOS desktop |
+| `nixosConfigurations.citrus` | NixOS desktop |
 | `nixosConfigurations.wsl` | NixOS on WSL |
 | `darwinConfigurations.malus` | Malus macOS laptop |
 
@@ -16,14 +16,14 @@ Host modules live in [`hosts/`](./hosts), Hjem user modules live in [`home/`](./
 
 Native flakes require the `nix-command` and `flakes` evaluator features. The host configurations enable both features.
 
-On the first Lemon rebuild from a configuration that does not enable those features, run:
+On the first Citrus rebuild from a configuration that does not enable those features, run:
 
 ```sh
 nh os switch --option experimental-features 'nix-command flakes' \
-  . -H lemon
+  . -H citrus
 ```
 
-The activated Lemon configuration sets the flake path for `nh`. Later rebuilds need only:
+The activated Citrus configuration sets the flake path for `nh`. Later rebuilds need only:
 
 ```sh
 nh os switch
@@ -43,7 +43,7 @@ Each system imports Hjem's matching NixOS or nix-darwin module. A system rebuild
 Evaluate a configuration without activating it:
 
 ```sh
-nix eval .#nixosConfigurations.lemon.config.system.build.toplevel.drvPath
+nix eval .#nixosConfigurations.citrus.config.system.build.toplevel.drvPath
 ```
 
 Change the attribute to check WSL or nix-darwin. Format every changed Nix file with `nixfmt` before evaluation.
