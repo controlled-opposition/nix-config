@@ -1,0 +1,29 @@
+# Default bar name, placement, geometry, and widgets from example.toml.
+# https://docs.noctalia.dev/noctalia/bar/
+[bar.main]
+position = "top"
+thickness = 34
+background_opacity = 1.0
+radius = 12
+margin_ends = 180
+margin_edge = 10
+padding = 14
+widget_spacing = 6
+start = ["launcher", "wallpaper", "workspaces"]
+center = ["clock"]
+end = [
+  "media",
+  "tray",
+  "notifications",
+  "clipboard",
+  "network",
+  "bluetooth",
+  "volume",
+  "brightness",
+  "battery",
+  "control-center",
+  "session",
+]
+
+[dock]
+enabled = false
