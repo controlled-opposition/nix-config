@@ -2,7 +2,11 @@
 
 {
 
-  networking.hostName = "Evericks-MacBook-Air";
+  networking = {
+    hostName = "malus";
+    localHostName = "malus";
+    computerName = "malus";
+  };
 
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)

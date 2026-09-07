@@ -62,11 +62,11 @@
       ...
     }:
     {
-      darwinConfigurations."Evericks-MacBook-Air" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations.malus = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/darwin
+          ./hosts/malus
           ./home/everick
           ./modules/fonts
           inputs.hjem.darwinModules.default

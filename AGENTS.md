@@ -9,7 +9,7 @@ This repository manages NixOS, WSL, and nix-darwin configurations with Hjem-mana
 - `flake.nix` declares pinned inputs and exports every system configuration.
 - `hosts/lemon/` defines the Lemon NixOS desktop.
 - `hosts/wsl/` defines the WSL system.
-- `hosts/darwin/` defines the macOS system.
+- `hosts/malus/` defines the Malus macOS system.
 - `home/<user>/` defines each Hjem user module.
 - `modules/` contains reusable modules and related static files.
 - `wallpapers/` contains static desktop images.
@@ -46,7 +46,7 @@ Use `nh` only on the matching machine when an activation test is needed. The sys
 ```sh
 nh os switch . -H lemon
 nh os switch . -H wsl
-nh darwin switch . -H Evericks-MacBook-Air
+nh darwin switch . -H malus
 ```
 
 Never test a host change by activating it on another host. Review the activation output before treating a system change as complete.
