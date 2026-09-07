@@ -1,12 +1,9 @@
 # Noctalia v5 reads all *.toml files in this directory, in alphabetical order.
 # These are the defaults from example.toml at the revision in flake.lock.
-# https://docs.noctalia.dev/noctalia/configuration/
+# https://docs.noctalia.dev/noctalia/theming/
 [theme]
 mode = "dark"
-source = "builtin"
+shell_mode = "follow"
+source = "community"
 builtin = "Noctalia"
-
-# App templates remain opt-in; keep fonts, animations, and wallpaper at defaults.
-[theme.templates]
-builtin_ids = []
-community_ids = []
+community_palette = "Oxocarbon" 

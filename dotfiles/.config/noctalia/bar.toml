@@ -24,6 +24,3 @@ end = [
   "control-center",
   "session",
 ]
-
-[dock]
-enabled = false
