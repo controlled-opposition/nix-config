@@ -1,0 +1,26 @@
+# Desktop entry IDs without .desktop, for apps installed on Citrus.
+# The launcher discovers other installed apps automatically.
+# https://docs.noctalia.dev/noctalia/launcher/
+[shell.launcher]
+categories = true
+show_icons = true
+compact = false
+app_grid = false
+sort_by_usage = true
+pinned = [
+  "kitty",
+  "org.kde.dolphin",
+  "helium",
+  "firefox",
+  "google-chrome",
+  "code",
+  "dev.zed.Zed",
+  "obsidian",
+  "discord",
+  "spotify",
+  "steam",
+  "io.github.Faugus.faugus-launcher",
+  "org.vinegarhq.Sober",
+  "gopeed",
+  "btop",
+]

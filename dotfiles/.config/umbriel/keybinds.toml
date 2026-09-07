@@ -1,0 +1,22 @@
+# Compositor bindings from the packaged example.
+# Unmentioned built-ins remain active: H/J/K/L, Shift+arrows, 1–9,
+# Shift+1–9, R/Shift+R, F/Ctrl+F, comma/period, and Escape.
+# https://docs.noctalia.dev/umbriel/keybinds/
+[keybinds]
+"Mod+Q" = "window-close"
+
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-down"
+"Mod+Up" = "window-focus-up"
+"Mod+Right" = "window-focus-right"
+
+"Mod+T" = "window-toggle-floating"
+"Mod+Shift+T" = "window-focus-switch-floating"
+"Mod+P" = "window-toggle-pinned"
+"Mod+M" = "window-toggle-maximize-to-edges"
+"Mod+O" = { action = "overview-toggle", repeat = false }
+
+"Mod+Shift+Space" = "window-move-to-scratchpad"
+"Mod+Space" = "scratchpad-toggle"
+"Mod+Ctrl+Space" = "window-restore-from-scratchpad"
+"Mod+Tab" = "scratchpad-focus-next"

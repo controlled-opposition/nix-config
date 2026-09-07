@@ -1,0 +1,20 @@
+# Apps installed by hosts/citrus and home/rick.
+# Mod+Return is the packaged terminal shortcut; the rest are Citrus additions.
+[keybinds]
+"Mod+Return" = "spawn:kitty"
+"Mod+E" = "spawn:dolphin"
+"Mod+B" = "spawn:helium"
+"Mod+Shift+Return" = "spawn:kitty -e btop"
+
+# Ctrl app shortcuts leave the compositor's navigation bindings available.
+"Mod+Ctrl+B" = "spawn:firefox"
+"Mod+Ctrl+C" = "spawn:google-chrome-stable"
+"Mod+Ctrl+D" = "spawn:discord"
+"Mod+Ctrl+E" = "spawn:code"
+"Mod+Ctrl+Z" = "spawn:zeditor"
+"Mod+Ctrl+O" = "spawn:obsidian"
+"Mod+Ctrl+S" = "spawn:spotify"
+"Mod+Ctrl+G" = "spawn:steam"
+"Mod+Ctrl+Shift+G" = "spawn:faugus-launcher"
+"Mod+Ctrl+Shift+S" = "spawn:flatpak run org.vinegarhq.Sober"
+"Mod+Ctrl+J" = "spawn:gopeed"

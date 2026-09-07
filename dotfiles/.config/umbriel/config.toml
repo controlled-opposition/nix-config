@@ -1,86 +1,13 @@
-# Rick's Umbriel configuration for citrus. Managed with GNU Stow; edits reload live.
-# Reference: https://docs.noctalia.dev/umbriel/
-# Validate with: umbriel validate -c ~/.config/umbriel/config.toml
+# Citrus / Rick. Link with GNU Stow; see hosts/citrus/README.md.
+# Based on the packaged example at the Umbriel revision in flake.lock.
+# https://docs.noctalia.dev/umbriel/configuration/
+# Validate: umbriel validate -c ~/.config/umbriel/config.toml
 
-[general]
-autostart = ["noctalia"]
-xwayland = true
-show_cheatsheet = true
-
-[environment]
-TERMINAL = "kitty"
-XCURSOR_SIZE = "24"
-
-# Outputs use their preferred modes and automatic placement.
-[layout]
-mode = "scrolling"
-
-[input.keyboard]
-layout = "us"
-
-[input.mouse]
-accel_profile = "flat"
-sensitivity = 0.0
-
-[input.touchpad]
-tap = true
-natural_scroll = true
-
-[keybinds]
-# Keep the packaged app bindings; add apps already installed on citrus.
-"Mod+Return" = "spawn:kitty"
-"Mod" = { action = "spawn:noctalia msg panel-toggle launcher", repeat = false }
-"Mod+D" = { action = "spawn:noctalia msg panel-toggle launcher", repeat = false }
-"Mod+E" = "spawn:dolphin"
-"Mod+B" = "spawn:helium"
-"Mod+Shift+Return" = "spawn:kitty -e btop"
-"Mod+Q" = "window-close"
-
-# Umbriel's built-in H/J/K/L and Shift+H/J/K/L focus and move windows.
-# Keep R for width cycling, F for fullscreen, Escape for confirmed logout,
-# comma/period for consuming windows, and 1-9 / Shift+1-9 for workspaces.
-"Mod+Left" = "window-focus-left"
-"Mod+Down" = "window-focus-down"
-"Mod+Up" = "window-focus-up"
-"Mod+Right" = "window-focus-right"
-"Mod+T" = "window-toggle-floating"
-"Mod+Shift+T" = "window-focus-switch-floating"
-"Mod+P" = "window-toggle-pinned"
-"Mod+M" = "window-toggle-maximize-to-edges"
-"Mod+O" = { action = "overview-toggle", repeat = false }
-
-# Packaged scratchpad bindings.
-"Mod+Shift+Space" = "window-move-to-scratchpad"
-"Mod+Space" = "scratchpad-toggle"
-"Mod+Ctrl+Space" = "window-restore-from-scratchpad"
-"Mod+Tab" = "scratchpad-focus-next"
-
-# Noctalia panels and lock screen; Mod+L remains directional focus.
-"Mod+Ctrl+L" = { action = "spawn:noctalia msg session lock", repeat = false }
-"Mod+V" = { action = "spawn:noctalia msg panel-toggle clipboard", repeat = false }
-"Mod+N" = { action = "spawn:noctalia msg panel-toggle control-center", repeat = false }
-"Mod+Shift+Escape" = { action = "spawn:noctalia msg panel-toggle session", repeat = false }
-"Print" = { action = "spawn:noctalia msg screenshot-region", repeat = false }
-"Shift+Print" = { action = "spawn:noctalia msg screenshot-fullscreen", repeat = false }
-
-# Noctalia handles the OSD and active MPRIS player (including Spotify).
-"XF86AudioRaiseVolume" = { action = "spawn:noctalia msg volume-up", allow_when_locked = true }
-"XF86AudioLowerVolume" = { action = "spawn:noctalia msg volume-down", allow_when_locked = true }
-"XF86AudioMute" = { action = "spawn:noctalia msg volume-mute", allow_when_locked = true, repeat = false }
-"XF86AudioMicMute" = { action = "spawn:noctalia msg mic-mute", allow_when_locked = true, repeat = false }
-"XF86AudioPlay" = { action = "spawn:noctalia msg media toggle", allow_when_locked = true, repeat = false }
-"XF86AudioPause" = { action = "spawn:noctalia msg media pause", allow_when_locked = true, repeat = false }
-"XF86AudioNext" = { action = "spawn:noctalia msg media next", allow_when_locked = true, repeat = false }
-"XF86AudioPrev" = { action = "spawn:noctalia msg media previous", allow_when_locked = true, repeat = false }
-"XF86MonBrightnessUp" = { action = "spawn:noctalia msg brightness-up", allow_when_locked = true }
-"XF86MonBrightnessDown" = { action = "spawn:noctalia msg brightness-down", allow_when_locked = true }
-
-[[window_rule]]
-match.app_id = "^dev.noctalia.Noctalia$"
-default_floating = true
-default_size = [1020, 900]
-
-[[window_rule]]
-match.app_id = "^dev.noctalia.UmbrielSharePicker$"
-default_floating = true
-default_size = [800, 600]
+[include]
+files = [
+  "settings.toml",
+  "keybinds.toml",
+  "apps.toml",
+  "noctalia.toml",
+  "rules.toml",
+]
