@@ -11,16 +11,22 @@ built-in defaults.
 
 | File under `dotfiles/.config/` | Purpose |
 | --- | --- |
-| `umbriel/config.toml` | Entry point and ordered includes |
-| `umbriel/settings.toml` | Session startup, input, appearance, scrolling layout |
-| `umbriel/keybinds.toml` | Packaged compositor shortcuts |
-| `umbriel/apps.toml` | Shortcuts for Citrus apps |
-| `umbriel/noctalia.toml` | Shell panels, lock, screenshots, hardware controls |
-| `umbriel/rules.toml` | Packaged window and layer rules, including PiP and Steam toasts |
-| `noctalia/bar.toml` | Default top bar and widgets; dock disabled by default |
+| `umbriel/config.toml` | Ordered includes, general session settings, and environment |
+| `umbriel/outputs.toml` | Output settings, including the Citrus DP-1 monitor mode |
+| `umbriel/keybinds.toml` | Compositor, Citrus app, and Noctalia shortcuts |
+| `umbriel/input.toml` | Keyboard, touchpad, mouse, and other input settings |
+| `umbriel/appearance.toml` | Colors and window appearance; unspecified colors use defaults |
+| `umbriel/layout.toml` | Layout selection and scrolling settings |
+| `umbriel/window-rules.toml` | Window rules, including PiP and Steam toasts |
+| `umbriel/layer-rules.toml` | Noctalia layer rules and blur |
+| `noctalia/bar.toml` | Default top bar and widgets |
+| `noctalia/dock.toml` | App dock settings; disabled by default |
 | `noctalia/launcher.toml` | Default launcher behavior and Citrus app pins |
 | `noctalia/theme.toml` | Default Noctalia dark palette |
+| `noctalia/app-theming.toml` | App theme template selection; templates remain opt-in |
 
+Both configurations follow their documentation sections. Umbriel groups all
+keybinds in one file and keeps window rules in their matching order.
 Umbriel loads the files listed in `config.toml`; Noctalia automatically merges
 all top-level `*.toml` files alphabetically. No generation step is needed.
 From the repository root on Citrus, link both configurations with GNU Stow:

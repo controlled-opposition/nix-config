@@ -1,0 +1,4 @@
+# Output configuration for Citrus.
+# https://docs.noctalia.dev/umbriel/outputs/
+[output.DP-1]
+mode = "2560x1440@360"
