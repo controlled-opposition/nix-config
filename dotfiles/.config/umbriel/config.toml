@@ -1,4 +1,4 @@
-# Rick's Umbriel configuration for lemon. Managed with GNU Stow; edits reload live.
+# Rick's Umbriel configuration for citrus. Managed with GNU Stow; edits reload live.
 # Reference: https://docs.noctalia.dev/umbriel/
 # Validate with: umbriel validate -c ~/.config/umbriel/config.toml
 
@@ -27,7 +27,7 @@ tap = true
 natural_scroll = true
 
 [keybinds]
-# Keep the packaged app bindings; add apps already installed on lemon.
+# Keep the packaged app bindings; add apps already installed on citrus.
 "Mod+Return" = "spawn:kitty"
 "Mod" = { action = "spawn:noctalia msg panel-toggle launcher", repeat = false }
 "Mod+D" = { action = "spawn:noctalia msg panel-toggle launcher", repeat = false }

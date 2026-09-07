@@ -7,7 +7,7 @@ This repository manages NixOS, WSL, and nix-darwin configurations with Hjem-mana
 ## Repository layout
 
 - `flake.nix` declares pinned inputs and exports every system configuration.
-- `hosts/lemon/` defines the Lemon NixOS desktop.
+- `hosts/citrus/` defines the Citrus NixOS desktop.
 - `hosts/wsl/` defines the WSL system.
 - `hosts/malus/` defines the Malus macOS system.
 - `home/<user>/` defines each Hjem user module.
@@ -33,10 +33,10 @@ Format every changed Nix file:
 nixfmt path/to/file.nix
 ```
 
-Evaluate each affected configuration without activating it. For Lemon, run:
+Evaluate each affected configuration without activating it. For Citrus, run:
 
 ```sh
-nix eval .#nixosConfigurations.lemon.config.system.build.toplevel.drvPath
+nix eval .#nixosConfigurations.citrus.config.system.build.toplevel.drvPath
 ```
 
 Change the attribute for another exported configuration. There is no separate test suite, so successful formatting and evaluation are the minimum checks.
@@ -44,7 +44,7 @@ Change the attribute for another exported configuration. There is no separate te
 Use `nh` only on the matching machine when an activation test is needed. The system activation also applies the matching Hjem user configuration:
 
 ```sh
-nh os switch . -H lemon
+nh os switch . -H citrus
 nh os switch . -H wsl
 nh darwin switch . -H malus
 ```

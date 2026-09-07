@@ -75,11 +75,11 @@
       };
 
       nixosConfigurations = {
-        lemon = nixpkgs.lib.nixosSystem {
+        citrus = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/lemon
+            ./hosts/citrus
             ./home/rick
             inputs.chaotic.nixosModules.default
             inputs.hjem.nixosModules.default
