@@ -14,11 +14,4 @@
   };
 
   services.displayManager.defaultSession = "umbriel";
-
-  # Keep DMS available for the existing Hyprland session only.
-  programs.dms-shell.systemd.target = "wayland-session@hyprland.desktop.target";
-  systemd.user.services.dms = {
-    partOf = [ "wayland-session@hyprland.desktop.target" ];
-    after = [ "wayland-session@hyprland.desktop.target" ];
-  };
 }

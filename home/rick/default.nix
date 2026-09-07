@@ -4,10 +4,11 @@
   hjem.users.rick = {
     enable = true;
     imports = [
-      ../../modules/hyprland
       ../../modules/nvf
     ];
     packages = builtins.attrValues {
+      inherit (pkgs.kdePackages) dolphin;
+
       inherit (pkgs)
         btop
         discord
