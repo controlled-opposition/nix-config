@@ -23,10 +23,10 @@ nh os switch --option experimental-features 'nix-command flakes' \
   . -H citrus
 ```
 
-The activated Citrus configuration sets the flake path for `nh`. Later rebuilds need only:
+For later Citrus rebuilds, run from the repository root:
 
 ```sh
-nh os switch
+nh os switch . -H citrus
 ```
 
 Select the WSL or macOS configuration explicitly:
