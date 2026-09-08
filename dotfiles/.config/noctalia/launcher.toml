@@ -5,22 +5,6 @@
 categories = true
 show_icons = true
 compact = false
-app_grid = false
+app_grid = true
 sort_by_usage = true
-pinned = [
-  "kitty",
-  "org.kde.dolphin",
-  "helium",
-  "firefox",
-  "google-chrome",
-  "code",
-  "dev.zed.Zed",
-  "obsidian",
-  "discord",
-  "spotify",
-  "steam",
-  "io.github.Faugus.faugus-launcher",
-  "org.vinegarhq.Sober",
-  "gopeed",
-  "btop",
-]
+

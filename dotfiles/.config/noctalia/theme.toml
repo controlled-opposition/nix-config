@@ -4,6 +4,6 @@
 [theme]
 mode = "dark"
 shell_mode = "follow"
-source = "community"
+source = "wallpaper"
 builtin = "Noctalia"
-community_palette = "Oxocarbon" 
+community_palette = "Ayu" 
