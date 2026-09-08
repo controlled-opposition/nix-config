@@ -1,26 +1,21 @@
 {
-  nixpkgs.hostPlatform = "aarch64-darwin";
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    hostPlatform.system = "aarch64-darwin";
+  };
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  system = {
-    stateVersion = 6;
+  system.stateVersion = 6;
+
+  networking = {
+    hostName = "malus";
+    localHostName = "malus";
+    computerName = "malus";
   };
 
-  nix.settings = {
-    extra-substituters = [
-      "https://cache.numtide.com"
-      "https://nix-community.cachix.org"
-    ];
-
-    extra-trusted-public-keys = [
-      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
 }

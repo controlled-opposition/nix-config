@@ -9,6 +9,7 @@
     ./peripherals.nix
     ./graphics.nix
     ../../modules/fonts
+    ../../modules/cache
     ./desktop.nix 
   ];
 }

@@ -7,5 +7,6 @@
     ./settings.nix
     ./users.nix
     ../../modules/fonts
+    ../../modules/cache
   ];
 }
