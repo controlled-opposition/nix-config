@@ -1,8 +1,50 @@
 # Citrus desktop
 
-Umbriel is the default SDDM session and starts Noctalia v5 from its native TOML
-configuration. Plasma remains selectable. SDDM replaces Plasma Login Manager
-because the latter does not apply NixOS's default-session setting to normal logins.
+Hyprland and Plasma are selectable SDDM sessions. Hyprland starts Noctalia v5
+from its native Lua configuration. No default session is forced. The Umbriel
+configuration remains available in the repository, but its desktop module is
+currently not imported by Citrus.
+
+Rick's Hyprland config is `dotfiles/.config/hypr/hyprland.lua`, managed with the
+same Stow command below. It uses the native Lua API in the pinned Hyprland
+0.56.2; no input pin changes are needed. It matches Umbriel's current Dwindle
+layout, DP-1 mode, input settings, app shortcuts, Noctalia controls, and hardware
+keys. Super is the modifier, including when running nested.
+
+Hyprland-specific equivalents:
+
+| Shortcut | Action |
+| --- | --- |
+| Super+H/J/K/L or arrows | Focus; add Shift to move the window |
+| Super+1–9 / Super+Shift+1–9 | Switch workspace / move window |
+| Super+T / Super+Shift+T | Toggle floating / cycle floating windows |
+| Super+F / M / P | Toggle fullscreen / maximize / pin floating window |
+| Super+S / Super+Shift+S | Toggle scratchpad / send window there |
+| Super+Ctrl+S | Restore focused scratchpad window to the monitor's normal workspace |
+| Super+Tab | Cycle windows in the current workspace (including the open scratchpad) |
+| Super+R / Super+Shift+R | Grow / shrink width by 40 pixels |
+| Super+Alt+R / Super+Alt+Shift+R | Grow / shrink height by 40 pixels |
+| Super+O / Alt+Tab | Noctalia window switcher |
+| Super+Escape / Super+Comma | Noctalia session menu / settings |
+| Super+left/right mouse drag | Move / resize window |
+
+The scratchpad uses a Hyprland special workspace. Open it and focus a window
+before restoring it. Width/height presets and Umbriel's overview have the
+equivalents above. The Lua file follows the current Umbriel keybind file;
+the older Umbriel shortcut summary below may differ from local edits.
+
+Validate Hyprland without starting a session:
+
+```sh
+Hyprland --verify-config -c "$PWD/dotfiles/.config/hypr/hyprland.lua"
+```
+
+After Stow and rebuilding Citrus with the command below, log out and select
+Hyprland in SDDM. Configuration edits reload automatically; startup commands
+and environment changes require a new session.
+
+References: [Hyprland Lua configuration](https://wiki.hypr.land/Configuring/Start/),
+[Hyprland 0.56.2 example](https://github.com/hyprwm/Hyprland/blob/v0.56.2/example/hyprland.lua).
 
 Rick's editable Umbriel and Noctalia v5 configs live under `dotfiles/.config/`.
 They follow the examples shipped by the revisions in `flake.lock`, with

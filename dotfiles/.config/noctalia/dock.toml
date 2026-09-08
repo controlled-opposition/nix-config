@@ -1,4 +1,4 @@
 # App dock settings.
 # https://docs.noctalia.dev/noctalia/dock/
 [dock]
-enabled = true
+enabled = false
