@@ -3,6 +3,12 @@
 {
 
   environment.systemPackages = builtins.attrValues {
+    inherit (inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system})
+      codex
+      pi
+      ;
+
+
     inherit (pkgs)
       gcc
       gnumake
