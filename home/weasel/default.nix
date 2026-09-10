@@ -4,6 +4,7 @@
   hjem.users.weasel = {
     enable = true;
     imports = [
+      ../../modules/language-tools
       ../../modules/nvf
     ];
     packages = builtins.attrValues {
