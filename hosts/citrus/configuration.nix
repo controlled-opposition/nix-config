@@ -48,6 +48,8 @@
       gnumake
       cmake
       libtool
+      python3
+      nodejs_latest
       ;
   };
 
