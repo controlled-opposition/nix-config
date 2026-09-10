@@ -1,0 +1,26 @@
+{
+  "overrideDefaultCompaction": true,
+  "smartKeepTail": true,
+  "continueAfterThresholdCompact": true,
+  "debug": false,
+  "extraction": {
+    "references": {
+      "enabled": true,
+      "extraUrlPatterns": [],
+      "extraGithubRefPatterns": [],
+      "extraVersionPatterns": [],
+      "extraBranchPatterns": []
+    },
+    "keySignals": {
+      "enabled": true,
+      "extraConstraintPatterns": [],
+      "extraDecisionPatterns": [],
+      "extraStatusPatterns": []
+    },
+    "goals": {
+      "enabled": true,
+      "extraTaskVerbs": [],
+      "extraScopeChangeWords": []
+    }
+  }
+}
