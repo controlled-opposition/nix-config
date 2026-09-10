@@ -13,8 +13,6 @@
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
       wget
-      nixfmt
-      nixd
       cmake
       gcc
       gnumake

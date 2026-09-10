@@ -37,12 +37,9 @@
     inherit (pkgs)
       vim
       wget
-      nixd
-      nixfmt
       google-chrome
       faugus-launcher
       stow
-      emmylua-ls
 
       clang
       gnumake

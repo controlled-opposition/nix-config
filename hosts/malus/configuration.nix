@@ -8,19 +8,14 @@
       pi
       ;
 
-
     inherit (pkgs)
       gcc
       gnumake
       cmake
       nodejs_latest
       bun
-      nixd
-      nixfmt
       uv
       python3
-      alejandra
-      statix
       nh
       docker
       stow
