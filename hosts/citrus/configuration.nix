@@ -50,6 +50,7 @@
       libtool
       python3
       nodejs_latest
+      direnv
       ;
   };
 

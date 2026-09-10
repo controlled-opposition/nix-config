@@ -13,7 +13,7 @@
       gcc
       gnumake
       cmake
-      nodejs
+      nodejs_latest
       bun
       nixd
       nixfmt
@@ -25,6 +25,7 @@
       docker
       stow
       helix
+      direnv
       ;
   };
 
