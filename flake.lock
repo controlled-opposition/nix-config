@@ -428,22 +428,6 @@
         "type": "github"
       }
     },
-    "pstack": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1789057712,
-        "narHash": "sha256-k0ZAgK/cNae0S0/OO7AdDvCCMJvtNE3g29Ls0jCqTqA=",
-        "owner": "cursor",
-        "repo": "plugins",
-        "rev": "c5db7fef1f1b1ebb2d4b7ae0308bf4beb10cb4c1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cursor",
-        "repo": "plugins",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "chaotic": "chaotic",
@@ -458,7 +442,6 @@
         "nixpkgs": "nixpkgs_3",
         "noctalia": "noctalia",
         "nvf": "nvf",
-        "pstack": "pstack",
         "umbriel": "umbriel"
       }
     },
