@@ -21,6 +21,7 @@
     inherit (pkgs)
       vim
       wget
+      nh
       ;
   };
 
