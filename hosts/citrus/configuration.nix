@@ -27,13 +27,6 @@
   };
 
   environment.systemPackages = builtins.attrValues {
-    helium-flake = inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default;
-
-    inherit (inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system})
-      codex
-      pi
-      ;
-
     inherit (pkgs)
       vim
       wget
