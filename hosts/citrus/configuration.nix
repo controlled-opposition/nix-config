@@ -17,30 +17,10 @@
 
   programs.git.enable = true;
 
-  programs.nh = {
-    enable = true;
-    clean = {
-      enable = true;
-      extraArgs = "--keep 3";
-    };
-
-  };
-
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
       vim
       wget
-      google-chrome
-      faugus-launcher
-      stow
-
-      clang
-      gnumake
-      cmake
-      libtool
-      python3
-      nodejs_latest
-      direnv
       ;
   };
 
