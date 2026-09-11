@@ -6,8 +6,10 @@
     imports = [
       ../../modules/language-tools
       ../../modules/nvf
+      ../../modules/ai
     ];
     packages = builtins.attrValues {
+
       inherit (pkgs)
         discord
         fish

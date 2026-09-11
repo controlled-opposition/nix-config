@@ -1,12 +1,18 @@
 { pkgs, ... }:
-{
-  users.users.everick.home = "/Users/everick";
-  system.primaryUser = "everick";
-  users.knownUsers = [ "everick" ];
-  users.users.everick.uid = 501;
 
-  users.users.everick.shell = pkgs.fish;
+let
+  username = "everick";
+in
+{
+  users.users.${username} = {
+    home = "/Users/${username}";
+    uid = 501;
+    shell = pkgs.fish;
+  };
+
+  system.primaryUser = username;
+  users.knownUsers = [ username ];
+
   programs.fish.enable = true;
   environment.shells = [ pkgs.fish ];
-
 }

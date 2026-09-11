@@ -6,8 +6,11 @@
     imports = [
       ../../modules/language-tools
       ../../modules/nvf
+      ../../modules/ai
     ];
     packages = builtins.attrValues {
+    helium-flake = inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default;
+
       inherit (pkgs.kdePackages) dolphin;
 
       inherit (pkgs)
