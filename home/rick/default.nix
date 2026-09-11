@@ -9,7 +9,7 @@
       ../../modules/ai
     ];
     packages = builtins.attrValues {
-    helium-flake = inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default;
+      helium-flake = inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default;
 
       inherit (pkgs.kdePackages) dolphin;
 
@@ -28,6 +28,16 @@
         zed-editor
         zoxide
         gopeed
+        faugus-launcher
+        stow
+
+        clang
+        gnumake
+        cmake
+        libtool
+        python3
+        nodejs_latest
+        direnv
         ;
     };
   };
