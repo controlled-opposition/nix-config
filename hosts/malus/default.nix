@@ -8,5 +8,6 @@
     ./users.nix
     ../../modules/fonts
     ../../modules/cache
+    ../../modules/emacs
   ];
 }
