@@ -1,7 +1,8 @@
 { inputs, pkgs, ... }:
-let
-  emacsPkgs = pkgs.extend (import inputs.emacs-overlay);
-in
 {
-  packages = [ emacsPkgs.emacs-unstable ];
+  nixpkgs.overlays = [
+    inputs.emacs-overlay.overlays.default
+  ];
+
+  services.emacs.package = pkgs.emacs-unstable;
 }

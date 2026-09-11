@@ -10,6 +10,7 @@
     ./graphics.nix
     ../../modules/fonts
     ../../modules/cache
-    ./desktop.nix 
+    ./desktop.nix
+    ../../modules/emacs
   ];
 }

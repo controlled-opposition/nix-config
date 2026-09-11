@@ -36,7 +36,7 @@
 
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hjem = {
