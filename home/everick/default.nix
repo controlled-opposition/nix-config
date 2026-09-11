@@ -29,7 +29,6 @@
         bun
         uv
         python3
-        nh
         stow
         helix
         direnv
