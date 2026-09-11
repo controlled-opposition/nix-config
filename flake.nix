@@ -48,11 +48,6 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    pstack = {
-      url = "github:cursor/plugins";
-      flake = false;
-    };
   };
 
   outputs =
