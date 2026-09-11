@@ -13,7 +13,6 @@
       inherit (pkgs)
         emacs
         discord
-        fish
         git
         kitty
         micro

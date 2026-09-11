@@ -18,7 +18,6 @@
         btop
         discord
         fastfetch
-        fish
         git
         helix
         kitty

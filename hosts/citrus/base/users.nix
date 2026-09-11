@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   users.users."rick" = {
     isNormalUser = true;
@@ -7,6 +7,5 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.fish;
   };
 }
