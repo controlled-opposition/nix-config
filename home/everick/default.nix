@@ -21,6 +21,7 @@
         zellij
         zoom-us
         zoxide
+        jujutsu
 
         gcc
         gnumake
