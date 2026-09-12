@@ -11,6 +11,7 @@
     packages = builtins.attrValues {
       inherit (pkgs)
         git
+        jujutsu
         nh
         obsidian
         spotify-player
