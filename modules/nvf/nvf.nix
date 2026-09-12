@@ -25,21 +25,21 @@
       grammars = [ pkgs.vimPlugins.nvim-treesitter.withAllGrammars ];
     };
     theme = {
-      name = "catppuccin";
+      name = "oxocarbon";
       enable = true;
-      style = "mocha";
+      style = "dark";
     };
     telescope.enable = true;
-    utility = {
-      oil-nvim.enable = true;
-    };
     binds.whichKey.enable = true;
     clipboard.enable = true;
     visuals = {
       rainbow-delimiters.enable = true;
     };
     filetree = {
-      neo-tree.enable = true;
+      neo-tree = {
+        enable = true;
+        setupOpts.filesystem.filtered_items.hide_dotfiles = false;
+      };
     };
   };
 }
