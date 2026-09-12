@@ -27,7 +27,6 @@
         vscode
         zed-editor
         zoxide
-        gopeed
         faugus-launcher
         stow
         jujutsu
