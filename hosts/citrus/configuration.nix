@@ -24,6 +24,7 @@
       nh
       ;
   };
+  environment.variables.EDITOR = "vim";
 
   services.crossmacro.enable = true;
   services.crossmacro.users = [
