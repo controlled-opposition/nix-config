@@ -30,6 +30,7 @@
         gopeed
         faugus-launcher
         stow
+        jujutsu
 
         clang
         gnumake
