@@ -25,12 +25,14 @@
         spotify
         tmux
         vscode
-        zed-editor
         zoxide
         faugus-launcher
         stow
         jujutsu
-
+        brave-origin
+        yazi
+        fresh-editor
+        gram
         clang
         gnumake
         cmake
