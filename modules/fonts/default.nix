@@ -1,12 +1,9 @@
 { pkgs, ... }:
 {
-  fonts.packages = builtins.attrValues {
-    inherit (pkgs.nerd-fonts)
-      jetbrains-mono
-      ;
-
-      inherit(pkgs)
-      aporetic
-      ;
-  };
+  fonts.packages = [
+      pkgs.jetbrains-mono
+      pkgs.aporetic
+      pkgs.commit-mono
+      pkgs.ioskeley-mono.normal
+  ];
 }

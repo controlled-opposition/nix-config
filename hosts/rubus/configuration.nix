@@ -12,6 +12,7 @@
 
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
+      vim
       wget
       cmake
       gcc
@@ -22,6 +23,8 @@
   };
 
   services.pulseaudio.enable = true;
+
+  environment.variables.EDITOR = "vim";
 
   nixpkgs.config.allowUnfree = true;
   programs.nix-ld.enable = true;
