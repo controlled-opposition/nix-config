@@ -40,13 +40,13 @@ Each system imports Hjem's matching NixOS or nix-darwin module. A system rebuild
 
 ## Pi configuration
 
-Pi package declarations, MCP configuration, and the Pi VCC configuration are kept under [`dotfiles/.pi/agent/`](./dotfiles/.pi/agent/) and [`dotfiles/.config/mcp/`](./dotfiles/.config/mcp/). From the repository root, link them with GNU Stow:
+Pi package declarations, skills, MCP configuration, and the Pi VCC configuration are kept under [`dotfiles/.pi/agent/`](./dotfiles/.pi/agent/) and [`dotfiles/.config/mcp/`](./dotfiles/.config/mcp/). From the repository root, link them with GNU Stow:
 
 ```sh
 stow --no-folding --ignore='(emacs|fish|kitty)' --dir=. --target="$HOME" dotfiles
 ```
 
-This links the configuration files but leaves Pi's downloaded packages, dependencies, credentials, and sessions machine-local. The NixOS MCP server is configured lazily and is downloaded by `nix run` on first use. Install missing Pi packages on a new machine with `pi install` using the entries in `dotfiles/.pi/agent/settings.json`.
+This links the configuration files and skills but leaves Pi's downloaded packages, dependencies, credentials, and sessions machine-local. The NixOS MCP server is configured lazily and is downloaded by `nix run` on first use. Install missing Pi packages on a new machine with `pi install` using the entries in `dotfiles/.pi/agent/settings.json`.
 
 ## Check a configuration
 
