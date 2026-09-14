@@ -22,6 +22,7 @@
       vim
       wget
       nh
+      gh
       ;
   };
   environment.variables.EDITOR = "vim";
