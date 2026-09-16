@@ -5,5 +5,8 @@
       codex
       pi
       ;
+
+    autolith = inputs.autolith.packages.${pkgs.stdenv.hostPlatform.system}.autolith;
+    hermes-agent = inputs.hermes-agent.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 }
