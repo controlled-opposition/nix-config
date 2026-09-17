@@ -9,6 +9,7 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.auto-optimise-store = true;
 
   system.stateVersion = 6;
 

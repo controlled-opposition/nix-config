@@ -9,7 +9,14 @@
     "npm:@narumitw/pi-usage",
     "npm:pi-mcp-adapter",
     "npm:pi-lens",
-    "npm:@ff-labs/pi-fff"
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-subagents",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:pi-memory"
   ],
-  "hideThinkingBlock": false
+  "hideThinkingBlock": false,
+  "npmCommand": [
+    "bun"
+  ]
 }

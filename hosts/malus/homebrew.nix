@@ -9,9 +9,13 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
+    taps = [
+      "specstoryai/tap"
+    ];
     brews = [
       "libvterm"
       "libtool"
+      "specstory"
     ];
 
     casks = [

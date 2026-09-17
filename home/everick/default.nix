@@ -8,6 +8,9 @@
       ../../modules/nvf
       ../../modules/ai
     ];
+    files = {
+      ".pi/agent/settings.json".source = ../../dotfiles/.pi/agent/settings.json;
+    };
     packages = builtins.attrValues {
 
       inherit (pkgs)
@@ -21,15 +24,13 @@
         zellij
         zoom-us
         zoxide
-        jujutsu
 
+        nodejs
+        bun
+        python3
         gcc
         gnumake
         cmake
-        nodejs_latest
-        bun
-        uv
-        python3
         stow
         helix
         direnv
