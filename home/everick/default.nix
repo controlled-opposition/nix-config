@@ -1,16 +1,8 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
-  hjem.specialArgs = { inherit inputs; };
   hjem.users.everick = {
     enable = true;
-    imports = [
-      ../../modules/language-tools
-      ../../modules/nvf
-      ../../modules/ai
-    ];
-    files = {
-      ".pi/agent/settings.json".source = ../../dotfiles/.pi/agent/settings.json;
-    };
+    imports = [ ../../modules/hjem/common.nix ];
     packages = builtins.attrValues {
 
       inherit (pkgs)
@@ -34,6 +26,8 @@
         stow
         helix
         direnv
+        ripgrep
+        fd
         ;
     };
   };

@@ -1,31 +1,13 @@
+{ pkgs, ... }:
 {
-  pkgs,
-  inputs,
-  lib,
-  ...
-}:
-
-{
-
-  services = {
-    desktopManager.plasma6.enable = true;
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-  };
-
   programs.git.enable = true;
 
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
-      vim
-      wget
       nh
       gh
       ;
   };
-  environment.variables.EDITOR = "vim";
 
   services.crossmacro.enable = true;
   services.crossmacro.users = [

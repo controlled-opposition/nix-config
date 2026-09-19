@@ -1,4 +1,7 @@
+{ inputs, ... }:
 {
+  imports = [ inputs.nix-homebrew.darwinModules.nix-homebrew ];
+
   nix-homebrew = {
     enable = true;
     enableRosetta = true;
@@ -9,9 +12,15 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
-    taps = [
-      "specstoryai/tap"
-    ];
+    taps =
+      map
+        (name: {
+          inherit name;
+          trusted = true;
+        })
+        [
+          "specstoryai/tap"
+        ];
     brews = [
       "libvterm"
       "libtool"

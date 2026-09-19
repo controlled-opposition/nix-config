@@ -1,14 +1,7 @@
 {
 
-  nixpkgs = {
-    config.allowUnfree = true;
-    hostPlatform.system = "aarch64-darwin";
-  };
+  nixpkgs.hostPlatform.system = "aarch64-darwin";
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
   nix.settings.auto-optimise-store = true;
 
   system.stateVersion = 6;

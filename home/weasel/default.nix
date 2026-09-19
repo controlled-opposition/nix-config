@@ -1,13 +1,8 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
-  hjem.specialArgs = { inherit inputs; };
   hjem.users.weasel = {
     enable = true;
-    imports = [
-      ../../modules/language-tools
-      ../../modules/nvf
-      ../../modules/ai
-    ];
+    imports = [ ../../modules/hjem/common.nix ];
     packages = builtins.attrValues {
       inherit (pkgs)
         git

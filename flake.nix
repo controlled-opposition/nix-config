@@ -34,8 +34,6 @@
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
-    hermes-agent.url = "github:NousResearch/hermes-agent";
-
     autolith.url = "github:lambda-symbolics/autolith";
 
     emacs-overlay = {
@@ -64,37 +62,20 @@
       darwinConfigurations.malus = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/malus
-          ./home/everick
-          ./modules/fonts
-          inputs.hjem.darwinModules.default
-          inputs.nix-homebrew.darwinModules.nix-homebrew
-        ];
+        modules = [ ./hosts/malus ];
       };
 
       nixosConfigurations = {
         citrus = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/citrus
-            ./home/rick
-            inputs.chaotic.nixosModules.default
-            inputs.hjem.nixosModules.default
-            inputs.nix-flatpak.nixosModules.nix-flatpak
-          ];
+          modules = [ ./hosts/citrus ];
         };
 
         rubus = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/rubus
-            ./home/weasel
-            inputs.hjem.nixosModules.default
-            inputs.nixos-wsl.nixosModules.default
-          ];
+          modules = [ ./hosts/rubus ];
         };
       };
     };

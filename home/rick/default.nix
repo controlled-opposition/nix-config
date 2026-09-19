@@ -1,13 +1,8 @@
 { inputs, pkgs, ... }:
 {
-  hjem.specialArgs = { inherit inputs; };
   hjem.users.rick = {
     enable = true;
-    imports = [
-      ../../modules/language-tools
-      ../../modules/nvf
-      ../../modules/ai
-    ];
+    imports = [ ../../modules/hjem/common.nix ];
     packages = builtins.attrValues {
       helium-flake = inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default;
 
