@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.hjem.darwinModules.default
+    inputs.home-manager.darwinModules.home-manager
 
     ../../modules/system/common.nix
     ../../modules/system/cache

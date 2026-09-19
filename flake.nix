@@ -41,8 +41,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hjem = {
-      url = "github:feel-co/hjem";
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

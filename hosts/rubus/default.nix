@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.hjem.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
     inputs.nixos-wsl.nixosModules.default
 
     ../../modules/system/common.nix

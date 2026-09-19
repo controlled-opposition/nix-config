@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.chaotic.nixosModules.default
-    inputs.hjem.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
 
     ../../modules/system/common.nix
     ../../modules/system/cache

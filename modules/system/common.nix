@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
-  hjem.specialArgs = { inherit inputs; };
+  home-manager.extraSpecialArgs = { inherit inputs; };
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [

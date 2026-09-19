@@ -1,6 +1,6 @@
 # nix-config
 
-This flake defines NixOS, WSL, and nix-darwin configurations with Hjem-managed user packages.
+This flake defines NixOS, WSL, and nix-darwin configurations with Home Manager-managed user packages.
 
 Run commands from the repository root.
 
@@ -16,7 +16,7 @@ nix eval .#darwinConfigurations.malus.config.system.build.toplevel.drvPath
 
 ## Rebuild
 
-Run only the command for the current machine. Activation also applies the matching Hjem user configuration.
+Run only the command for the current machine. Activation also applies the matching Home Manager user configuration.
 
 ```sh
 nh os switch . -H citrus     # NixOS desktop, rick
@@ -33,7 +33,7 @@ Inspect pins with `nix flake metadata`. Update all inputs or name selected input
 
 ```sh
 nix flake update
-nix flake update nixpkgs hjem
+nix flake update nixpkgs home-manager
 ```
 
 Review the `flake.lock` diff. [Check affected hosts](#check-changes) before activation.

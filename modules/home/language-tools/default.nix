@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  packages = builtins.attrValues {
+  home.packages = builtins.attrValues {
     inherit (pkgs)
       # Language servers
       nixd
