@@ -4,6 +4,6 @@
     pkgs.jetbrains-mono
     pkgs.aporetic-bin
     pkgs.commit-mono
-    pkgs.ioskeley-mono.normal
+    pkgs.ioskeley-mono.standard
   ];
 }
