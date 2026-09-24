@@ -1,4 +1,4 @@
 { ... }:
 {
-  home.file.".agents/skills".source = ../../skills;
+  home.file.".agents/skills".source = ../../../skills;
 }
