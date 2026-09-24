@@ -7,6 +7,5 @@
       claude-code
       ;
 
-    autolith = inputs.autolith.packages.${pkgs.stdenv.hostPlatform.system}.autolith;
   };
 }

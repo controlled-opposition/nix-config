@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs }:
 {
-  config.vim = {
+  vim = {
     syntaxHighlighting = true;
     lsp = {
       enable = true;

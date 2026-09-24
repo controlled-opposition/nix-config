@@ -34,8 +34,6 @@
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
-    autolith.url = "github:lambda-symbolics/autolith";
-
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";

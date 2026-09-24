@@ -1,9 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
-  home.packages = [
-    (inputs.nvf.lib.neovimConfiguration {
-      inherit pkgs;
-      modules = [ ./nvf.nix ];
-    }).neovim
-  ];
+  programs.nvf = {
+    enable = true;
+    settings = import ./nvf.nix { inherit pkgs; };
+  };
 }
