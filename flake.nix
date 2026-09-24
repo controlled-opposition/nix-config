@@ -56,9 +56,41 @@
     inputs@{
       nix-darwin,
       nixpkgs,
+      home-manager,
       ...
     }:
+    let
+      linuxPkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+        overlays = [ inputs.emacs-overlay.overlays.default ];
+      };
+      darwinPkgs = import nixpkgs {
+        system = "aarch64-darwin";
+        config.allowUnfree = true;
+      };
+    in
     {
+      homeConfigurations = {
+        "rick@citrus" = home-manager.lib.homeManagerConfiguration {
+          pkgs = linuxPkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [ ./home/rick ];
+        };
+
+        "weasel@rubus" = home-manager.lib.homeManagerConfiguration {
+          pkgs = linuxPkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [ ./home/weasel ];
+        };
+
+        "everick@malus" = home-manager.lib.homeManagerConfiguration {
+          pkgs = darwinPkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [ ./home/everick ];
+        };
+      };
+
       darwinConfigurations.malus = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = { inherit inputs; };

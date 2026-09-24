@@ -8,7 +8,7 @@
 - Assemble features and users in each host's `default.nix`, not `flake.nix`.
 - Put shared system modules in `modules/system/`, NixOS-only modules in `modules/nixos/`, and Home Manager modules in `modules/home/`. Import modules explicitly.
 - Use two-space indentation. Keep modules small. Group related options under namespaces such as `programs`, `services`, and `environment`.
-- Keep Stow and Home Manager file ownership separate. Manage Pi's `settings.json` with Stow. Keep credentials, sessions, and downloaded packages machine-local.
+- Keep Stow and Home Manager file ownership separate. Manage Pi's `settings.json` with [`modules/home/pi/`](./modules/home/pi/). Keep credentials, sessions, and downloaded packages machine-local.
 - Add Pi extensions only when requested.
 - Update dependency pins with `nix flake update`.
 - Keep documentation minimal. Link to configuration files instead of copying option or shortcut lists.

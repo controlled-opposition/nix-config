@@ -1,6 +1,6 @@
 # nix-config
 
-This flake defines NixOS, WSL, and nix-darwin configurations with Home Manager-managed user packages.
+This flake defines NixOS, WSL, and nix-darwin configurations alongside standalone Home Manager configurations.
 
 Run commands from the repository root.
 
@@ -12,16 +12,22 @@ Format changed Nix files with `nixfmt path/to/file.nix`. Evaluate each affected 
 nix eval .#nixosConfigurations.citrus.config.system.build.toplevel.drvPath
 nix eval .#nixosConfigurations.rubus.config.system.build.toplevel.drvPath
 nix eval .#darwinConfigurations.malus.config.system.build.toplevel.drvPath
+nix eval '.#homeConfigurations."rick@citrus".activationPackage.drvPath'
+nix eval '.#homeConfigurations."weasel@rubus".activationPackage.drvPath'
+nix eval '.#homeConfigurations."everick@malus".activationPackage.drvPath'
 ```
 
 ## Rebuild
 
-Run only the command for the current machine. Activation also applies the matching Home Manager user configuration.
+Run only the commands for the current machine. System and Home Manager activations are separate; switch the system before the matching user configuration.
 
 ```sh
-nh os switch . -H citrus     # NixOS desktop, rick
-nh os switch . -H rubus      # WSL, weasel
-nh darwin switch . -H malus  # macOS, everick
+nh os switch . -H citrus
+HOME_MANAGER_BACKUP_EXT=backup nh home switch . -c rick@citrus
+nh os switch . -H rubus
+HOME_MANAGER_BACKUP_EXT=backup nh home switch . -c weasel@rubus
+nh darwin switch . -H malus
+HOME_MANAGER_BACKUP_EXT=backup nh home switch . -c everick@malus
 ```
 
 If flakes are disabled, add `--option experimental-features 'nix-command flakes'` after `switch`.

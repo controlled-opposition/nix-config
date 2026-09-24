@@ -3,7 +3,6 @@
   home.packages = builtins.attrValues {
     inherit (inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system})
       codex
-      pi
       hermes-agent
       claude-code
       ;

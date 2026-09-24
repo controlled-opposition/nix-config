@@ -3,5 +3,6 @@
     ./language-tools
     ./nvf
     ./ai
+    ./pi
   ];
 }
