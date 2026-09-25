@@ -12,7 +12,6 @@
       inherit (pkgs)
         discord
         git
-        kitty
         micro
         obsidian
         tmux

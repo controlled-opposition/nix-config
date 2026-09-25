@@ -1,5 +1,9 @@
 # Repository instructions
 
+## Documentation
+
+Only edit or update `AGENTS.md` when appropriate. Do not edit `README.md` or add new documentation unless explicity asked.
+
 ## Edit
 
 - Preserve unrelated working-tree changes.
@@ -13,12 +17,80 @@
 - Update dependency pins with `nix flake update`.
 - Keep documentation minimal. Link to configuration files instead of copying option or shortcut lists.
 
-## Validate
+## Check changes
 
-Format changed Nix files with `nixfmt`. Evaluate each affected host with the [README commands](./README.md#check-changes).
+Run commands from the repository root. Format changed Nix files with `nixfmt path/to/file.nix`. Evaluate each affected host without activation:
+
+```sh
+nix eval .#nixosConfigurations.citrus.config.system.build.toplevel.drvPath
+nix eval .#nixosConfigurations.rubus.config.system.build.toplevel.drvPath
+nix eval .#darwinConfigurations.malus.config.system.build.toplevel.drvPath
+nix eval '.#homeConfigurations."rick@citrus".activationPackage.drvPath'
+nix eval '.#homeConfigurations."weasel@rubus".activationPackage.drvPath'
+nix eval '.#homeConfigurations."everick@malus".activationPackage.drvPath'
+```
+
 There is no separate test suite.
 
-Activate only on the matching machine. Review the activation output for errors.
+## Rebuild
+
+Activate only on the matching machine. System and standalone Home Manager activations are separate; switch the system before the matching user configuration:
+
+```sh
+nh os switch . -H citrus
+HOME_MANAGER_BACKUP_EXT=backup nh home switch . -c rick@citrus
+nh os switch . -H rubus
+HOME_MANAGER_BACKUP_EXT=backup nh home switch . -c weasel@rubus
+nh darwin switch . -H malus
+HOME_MANAGER_BACKUP_EXT=backup nh home switch . -c everick@malus
+```
+
+If flakes are disabled, add `--option experimental-features 'nix-command flakes'` after `switch`. Review the activation output for errors.
+
+## Update dependencies
+
+Inspect pins with `nix flake metadata`. Update all inputs or name selected inputs:
+
+```sh
+nix flake update
+nix flake update nixpkgs home-manager
+```
+
+Review the `flake.lock` diff. [Check affected hosts](#check-changes) before activation.
+
+## Link dotfiles
+
+1. Preview the links:
+
+   ```sh
+   stow --simulate --verbose --no-folding --dir=. --target="$HOME" dotfiles
+   ```
+
+2. Back up conflicting local files before replacing them. Do not use `--adopt` unless you intend to replace repository files with local content.
+
+3. Apply the links:
+
+   ```sh
+   stow --no-folding --dir=. --target="$HOME" dotfiles
+   ```
+
+Repeat after adding files. On Citrus, follow [desktop setup](#citrus-desktop).
+
+## Citrus desktop
+
+From the repository root on Citrus, validate the dotfiles before linking them:
+
+```sh
+Hyprland --verify-config -c "$PWD/dotfiles/.config/hypr/hyprland.lua"
+umbriel validate -c dotfiles/.config/umbriel/config.toml
+noctalia config validate dotfiles/.config/noctalia
+```
+
+Fix validation errors, then [link the dotfiles](#link-dotfiles). If system packages or modules changed, [check changes](#check-changes) and [rebuild](#rebuild) Citrus. Start a Hyprland, Umbriel, or Plasma session in SDDM.
+
+To change shortcuts, edit [`hyprland.lua`](./dotfiles/.config/hypr/hyprland.lua) or [`umbriel/keybinds.toml`](./dotfiles/.config/umbriel/keybinds.toml). After changing startup commands or environment settings, start a new session.
+
+If a repository Noctalia setting has no effect, check `~/.local/state/noctalia/settings.toml` for a GUI override. Back up that file before removing overrides. Validate the active configuration with `noctalia config validate`.
 
 ## Commit and review
 

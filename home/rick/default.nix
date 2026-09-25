@@ -18,7 +18,6 @@
         fastfetch
         git
         helix
-        kitty
         obsidian
         spotify
         tmux
