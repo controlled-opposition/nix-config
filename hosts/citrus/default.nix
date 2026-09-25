@@ -5,7 +5,6 @@
 
     ../../modules/system/common.nix
     ../../modules/system/cache
-    ../../modules/system/emacs
     ../../modules/system/fonts
 
     ./base

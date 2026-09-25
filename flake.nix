@@ -34,11 +34,6 @@
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,7 +56,6 @@
       linuxPkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
-        overlays = [ inputs.emacs-overlay.overlays.default ];
       };
       darwinPkgs = import nixpkgs {
         system = "aarch64-darwin";

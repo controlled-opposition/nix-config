@@ -13,7 +13,6 @@
       inherit (pkgs.kdePackages) dolphin;
 
       inherit (pkgs)
-        emacs-unstable
         btop
         discord
         fastfetch

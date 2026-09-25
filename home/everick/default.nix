@@ -10,7 +10,6 @@
     packages = builtins.attrValues {
 
       inherit (pkgs)
-        emacs
         discord
         git
         kitty

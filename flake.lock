@@ -71,27 +71,6 @@
         "type": "github"
       }
     },
-    "emacs-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "nixpkgs-stable": "nixpkgs-stable"
-      },
-      "locked": {
-        "lastModified": 1790282539,
-        "narHash": "sha256-i48NDbSGQy5QB5CUMLz1CsoyHIpL8GgcQVjI9SurJeU=",
-        "owner": "nix-community",
-        "repo": "emacs-overlay",
-        "rev": "ff594a0e7754d510553e87938dde73b196004ed7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "emacs-overlay",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -345,22 +324,6 @@
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst"
       }
     },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1790218706,
-        "narHash": "sha256-6e4Na3z008XpdVyOXgfasXIn1aN+z8AXFG+jXdQSyuI=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c508844df6c28fa6dabc1b6af70f3ccbd65c5201",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-26.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1790238896,
@@ -449,7 +412,6 @@
     "root": {
       "inputs": {
         "chaotic": "chaotic",
-        "emacs-overlay": "emacs-overlay",
         "helium-flake": "helium-flake",
         "home-manager": "home-manager_2",
         "llm-agents": "llm-agents",
