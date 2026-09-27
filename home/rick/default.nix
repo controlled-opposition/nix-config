@@ -10,6 +10,8 @@
     packages = builtins.attrValues {
       helium-flake = inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default;
 
+      froststrap = inputs."froststrap".packages.${pkgs.stdenv.hostPlatform.system}.default;
+
       inherit (pkgs.kdePackages) dolphin;
 
       inherit (pkgs)
@@ -38,6 +40,7 @@
         nodejs
         direnv
         bun
+        google-chrome
         ;
     };
   };

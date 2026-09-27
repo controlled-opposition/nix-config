@@ -43,6 +43,9 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    froststrap.url = "git+https://github.com/Froststrap/Froststrap?submodules=1";
+
   };
 
   outputs =
