@@ -6,6 +6,7 @@
     extraPackages = [
       pkgs.bun
       pkgs.nodejs
+      pkgs.uv
     ];
 
     settings = {
@@ -14,11 +15,20 @@
       defaultProvider = "openai-codex";
       defaultModel = "gpt-6-luna";
       packages = [
-        "npm:pi-web-search"
+        "npm:pi-web-access"
         "npm:@sting8k/pi-vcc"
+        "npm:pi-mcp-adapter"
       ];
       hideThinkingBlock = false;
       npmCommand = [ "bun" ];
+    };
+  };
+
+  home.file.".pi/agent/mcp.json".text = builtins.toJSON {
+    mcpServers.nixos = {
+      command = "uvx";
+      args = [ "mcp-nixos" ];
+      protocolVersion = "auto";
     };
   };
 }
