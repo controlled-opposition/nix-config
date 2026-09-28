@@ -78,7 +78,7 @@ Repeat after adding files.
 
 ## Commit and review
 
-Use short, lower-case, imperative commit subjects, such as `add chaotic nyx`. Keep commits focused.
+Use short, lower-case, imperative commit subjects, such as `add desktop packages`. Keep commits focused.
 
 In pull requests, name the affected hosts and users. Summarize behavior and pin changes. List evaluation or rebuild commands.
 Add screenshots only for visible desktop, editor, or wallpaper changes.

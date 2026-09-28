@@ -1,8 +1,6 @@
-{ inputs, ... }:
+{ ... }:
 {
   imports = [
-    inputs.chaotic.nixosModules.default
-
     ../../modules/system/common.nix
     ../../modules/system/cache
     ../../modules/system/fonts

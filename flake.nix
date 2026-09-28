@@ -23,8 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx";
-
     llm-agents.url = "github:numtide/llm-agents.nix";
 
     home-manager = {
