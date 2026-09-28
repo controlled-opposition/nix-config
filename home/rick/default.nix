@@ -38,7 +38,6 @@
         libtool
         python3
         nodejs
-        direnv
         bun
         google-chrome
         ;

@@ -28,7 +28,6 @@
         cmake
         stow
         helix
-        direnv
         ripgrep
         fd
         ;

@@ -8,5 +8,6 @@
     ./ai
     ./pi
     ./skills
+    ./direnv
   ];
 }
