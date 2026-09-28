@@ -152,11 +152,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1790602261,
-        "narHash": "sha256-bnE45jo6lpAyJ85VxqwyddLo4dblDhLi+Uofog8wb78=",
+        "lastModified": 1790609112,
+        "narHash": "sha256-a198Q/rDbs3KopdMPtCb4mvjTTdfVeHz2MudGFfN7W4=",
         "ref": "refs/heads/main",
-        "rev": "05213ae80b7ec132bb658089bd44d26095d541b9",
-        "revCount": 1866,
+        "rev": "b3c8bc595324388182366ddc315668ccf2f382b8",
+        "revCount": 1869,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Froststrap/Froststrap"
@@ -226,6 +226,22 @@
       "original": {
         "owner": "numtide",
         "repo": "llm-agents.nix",
+        "type": "github"
+      }
+    },
+    "mattpocock-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789726349,
+        "narHash": "sha256-L3CpIT2DeI+fUFl9fcygojtQo2DzEen69rMD1XqR1vM=",
+        "owner": "mattpocock",
+        "repo": "skills",
+        "rev": "c55ee46073ed923f86ce59a5eb3b6d895095d1b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mattpocock",
+        "repo": "skills",
         "type": "github"
       }
     },
@@ -411,6 +427,7 @@
         "helium-flake": "helium-flake",
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",
+        "mattpocock-skills": "mattpocock-skills",
         "nix-darwin": "nix-darwin",
         "nix-flatpak": "nix-flatpak",
         "nix-homebrew": "nix-homebrew",

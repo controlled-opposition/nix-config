@@ -13,7 +13,10 @@
       theme = "dark";
       defaultProvider = "openai-codex";
       defaultModel = "gpt-6-luna";
-      packages = [ "npm:pi-web-search" ];
+      packages = [
+        "npm:pi-web-search"
+        "npm:@sting8k/pi-vcc"
+      ];
       hideThinkingBlock = false;
       npmCommand = [ "bun" ];
     };

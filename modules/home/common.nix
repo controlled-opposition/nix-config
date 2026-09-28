@@ -9,5 +9,6 @@
     ./pi
     ./skills
     ./direnv
+    ./codex
   ];
 }

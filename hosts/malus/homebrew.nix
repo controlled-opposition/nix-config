@@ -31,7 +31,6 @@
       "google-chrome"
       "visual-studio-code"
       "finetune"
-      "codex"
       "zed"
       "spotify"
       "helium-browser"
