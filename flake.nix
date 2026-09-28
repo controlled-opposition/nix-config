@@ -4,13 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    noctalia.url = "github:noctalia-dev/noctalia";
-
-    umbriel = {
-      url = "github:noctalia-dev/umbriel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";

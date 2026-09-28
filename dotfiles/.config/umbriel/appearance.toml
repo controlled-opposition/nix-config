@@ -1,6 +1,0 @@
-# Colors and window appearance; unspecified settings use Umbriel defaults.
-# https://docs.noctalia.dev/umbriel/appearance/
-[appearance]
-prefer_no_csd = true
-border_width = 2
-corner_radius = 10

@@ -1,5 +1,0 @@
-# App templates remain opt-in.
-# https://docs.noctalia.dev/noctalia/theming/app-theming/
-[theme.templates]
-builtin_ids = []
-community_ids = []

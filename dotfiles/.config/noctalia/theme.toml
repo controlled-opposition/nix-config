@@ -1,9 +1,0 @@
-# Noctalia v5 reads all *.toml files in this directory, in alphabetical order.
-# These are the defaults from example.toml at the revision in flake.lock.
-# https://docs.noctalia.dev/noctalia/theming/
-[theme]
-mode = "dark"
-shell_mode = "follow"
-source = "wallpaper"
-builtin = "Noctalia"
-community_palette = "Ayu" 

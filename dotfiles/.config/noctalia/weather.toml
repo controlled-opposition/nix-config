@@ -1,5 +1,0 @@
-[weather]
-enabled         = true
-refresh_minutes = 30
-unit            = "imperial"      # metric | imperial
-effects         = true          # visual weather effects

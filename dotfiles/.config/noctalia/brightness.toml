@@ -1,8 +1,0 @@
-[brightness]
-enable_ddcutil     = true
-ignore_mmids       = []     # e.g. ["ACI-ROG_PG279Q-10220"] - skip in all ddcutil commands
-minimum_brightness = 0.0    # never let brightness drop below this floor (0.0 to 1.0)
-sync_all_monitors = false   # if set to true, makes every display have the same brightness
-
-[brightness.monitor.DP-1]
-backend = "ddcutil"

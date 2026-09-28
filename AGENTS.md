@@ -74,23 +74,7 @@ Review the `flake.lock` diff. [Check affected hosts](#check-changes) before acti
    stow --no-folding --dir=. --target="$HOME" dotfiles
    ```
 
-Repeat after adding files. On Citrus, follow [desktop setup](#citrus-desktop).
-
-## Citrus desktop
-
-From the repository root on Citrus, validate the dotfiles before linking them:
-
-```sh
-Hyprland --verify-config -c "$PWD/dotfiles/.config/hypr/hyprland.lua"
-umbriel validate -c dotfiles/.config/umbriel/config.toml
-noctalia config validate dotfiles/.config/noctalia
-```
-
-Fix validation errors, then [link the dotfiles](#link-dotfiles). If system packages or modules changed, [check changes](#check-changes) and [rebuild](#rebuild) Citrus. Start a Hyprland, Umbriel, or Plasma session in SDDM.
-
-To change shortcuts, edit [`hyprland.lua`](./dotfiles/.config/hypr/hyprland.lua) or [`umbriel/keybinds.toml`](./dotfiles/.config/umbriel/keybinds.toml). After changing startup commands or environment settings, start a new session.
-
-If a repository Noctalia setting has no effect, check `~/.local/state/noctalia/settings.toml` for a GUI override. Back up that file before removing overrides. Validate the active configuration with `noctalia config validate`.
+Repeat after adding files.
 
 ## Commit and review
 
