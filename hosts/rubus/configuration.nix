@@ -15,7 +15,6 @@
       cmake
       gcc
       gnumake
-      stow
       ;
 
   };

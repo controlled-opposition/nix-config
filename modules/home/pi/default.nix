@@ -18,6 +18,7 @@
         "npm:pi-web-access"
         "npm:@sting8k/pi-vcc"
         "npm:pi-mcp-adapter"
+        "npm:@juicesharp/rpiv-ask-user-question"
       ];
       hideThinkingBlock = false;
       npmCommand = [ "bun" ];

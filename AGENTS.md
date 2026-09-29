@@ -1,25 +1,18 @@
 # Repository instructions
 
-## Documentation
-
-Only edit or update `AGENTS.md` when appropriate. Do not edit `README.md` or add new documentation unless explicity asked.
-
-## Edit
+## Repository conventions
 
 - Preserve unrelated working-tree changes.
-- Keep machine settings in `hosts/<name>/` and user settings in `home/<user>/`.
-- Name host directories after exported configuration keys and user directories after `home-manager.users` keys.
+- Put machine settings in `hosts/<name>/` and user settings in `home/<user>/`. Name host directories after exported configuration keys and user directories after `home-manager.users` keys.
 - Assemble features and users in each host's `default.nix`, not `flake.nix`.
 - Put shared system modules in `modules/system/`, NixOS-only modules in `modules/nixos/`, and Home Manager modules in `modules/home/`. Import modules explicitly.
-- Use two-space indentation. Keep modules small. Group related options under namespaces such as `programs`, `services`, and `environment`.
-- Keep Stow and Home Manager file ownership separate. Manage Pi's `settings.json` with [`modules/home/pi/`](./modules/home/pi/). Keep credentials, sessions, and downloaded packages machine-local.
-- Add Pi extensions only when requested.
-- Update dependency pins with `nix flake update`.
-- Keep documentation minimal. Link to configuration files instead of copying option or shortcut lists.
+- Use two-space indentation, small modules, and related option namespaces such as `programs`, `services`, and `environment`.
+- Manage shell settings with [`modules/home/shell/`](./modules/home/shell/) and Pi's `settings.json` with [`modules/home/pi/`](./modules/home/pi/); keep credentials, sessions, and downloaded packages machine-local. Add Pi extensions only when requested.
+- Edit `AGENTS.md` when appropriate. Leave `README.md` unchanged and add documentation only when explicitly asked. Keep documentation minimal; link to configuration files instead of copying option or shortcut lists.
 
-## Check changes
+## Validate changes
 
-Run commands from the repository root. Format changed Nix files with `nixfmt path/to/file.nix`. Evaluate each affected host without activation:
+Run commands from the repository root. Format changed Nix files with `nixfmt path/to/file.nix`. Evaluate each affected host or standalone Home Manager configuration without activating it:
 
 ```sh
 nix eval .#nixosConfigurations.citrus.config.system.build.toplevel.drvPath
@@ -32,53 +25,34 @@ nix eval '.#homeConfigurations."everick@malus".activationPackage.drvPath'
 
 There is no separate test suite.
 
-## Rebuild
+## Activate on the matching machine
 
-Activate only on the matching machine. System and standalone Home Manager activations are separate; switch the system before the matching user configuration:
+System and standalone Home Manager activations are separate: switch the system before the matching user configuration. Use `--inputs-from .` to run rebuild tools from the flake's pinned inputs. Never activate a configuration on another machine.
 
 ```sh
-nh os switch . -H citrus
-HOME_MANAGER_BACKUP_EXT=backup nh home switch . -c rick@citrus
-nh os switch . -H rubus
-HOME_MANAGER_BACKUP_EXT=backup nh home switch . -c weasel@rubus
-nh darwin switch . -H malus
-HOME_MANAGER_BACKUP_EXT=backup nh home switch . -c everick@malus
+# citrus
+sudo nix run --inputs-from . nixpkgs#nixos-rebuild -- switch --flake .#citrus
+nix run --inputs-from . home-manager -- switch --flake '.#rick@citrus' -b backup
+
+# rubus
+sudo nix run --inputs-from . nixpkgs#nixos-rebuild -- switch --flake .#rubus
+nix run --inputs-from . home-manager -- switch --flake '.#weasel@rubus' -b backup
+
+# malus
+sudo nix run --inputs-from . nix-darwin -- switch --flake .#malus
+nix run --inputs-from . home-manager -- switch --flake '.#everick@malus' -b backup
 ```
 
-If flakes are disabled, add `--option experimental-features 'nix-command flakes'` after `switch`. Review the activation output for errors.
+If flakes are disabled, add `--extra-experimental-features 'nix-command flakes'` before `run`, or enable them in Nix configuration. Review activation output for errors.
 
 ## Update dependencies
 
-Inspect pins with `nix flake metadata`. Update all inputs or name selected inputs:
+Inspect pins with `nix flake metadata`. Update all inputs with `nix flake update`, or selected inputs with `nix flake update nixpkgs home-manager`. Review the `flake.lock` diff and [evaluate affected configurations](#validate-changes) before activation.
 
-```sh
-nix flake update
-nix flake update nixpkgs home-manager
-```
+## Migrate shell dotfiles
 
-Review the `flake.lock` diff. [Check affected hosts](#check-changes) before activation.
-
-## Link dotfiles
-
-1. Preview the links:
-
-   ```sh
-   stow --simulate --verbose --no-folding --dir=. --target="$HOME" dotfiles
-   ```
-
-2. Back up conflicting local files before replacing them. Do not use `--adopt` unless you intend to replace repository files with local content.
-
-3. Apply the links:
-
-   ```sh
-   stow --no-folding --dir=. --target="$HOME" dotfiles
-   ```
-
-Repeat after adding files.
+Before the first Home Manager switch on citrus or malus, remove old Stow-created links to `~/.config/fish/config.fish` and `~/.zshrc`; back up any local files at those paths. Home Manager then owns the shell configuration through [`modules/home/shell/`](./modules/home/shell/).
 
 ## Commit and review
 
-Use short, lower-case, imperative commit subjects, such as `add desktop packages`. Keep commits focused.
-
-In pull requests, name the affected hosts and users. Summarize behavior and pin changes. List evaluation or rebuild commands.
-Add screenshots only for visible desktop, editor, or wallpaper changes.
+Use short, lower-case, imperative commit subjects, such as `add desktop packages`. Keep commits focused. In pull requests, name affected hosts and users; summarize behavior and pin changes; list evaluation or rebuild commands. Add screenshots only for visible desktop, editor, or wallpaper changes.

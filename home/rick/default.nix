@@ -1,6 +1,10 @@
 { inputs, pkgs, ... }:
 {
-  imports = [ ../../modules/home/common.nix ];
+  imports = [
+    ../../modules/home/common.nix
+    ../../modules/home/shell
+    ../../modules/home/zoxide
+  ];
 
   home = {
     username = "rick";
@@ -24,9 +28,7 @@
         spotify
         tmux
         vscode
-        zoxide
         faugus-launcher
-        stow
         jujutsu
         brave-origin
         yazi
