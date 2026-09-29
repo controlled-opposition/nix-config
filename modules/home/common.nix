@@ -18,5 +18,6 @@
     pkgs.nodejs
     pkgs.uv
     pkgs.starship
+    pkgs.yazi
   ];
 }
