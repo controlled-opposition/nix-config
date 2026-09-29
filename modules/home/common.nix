@@ -10,5 +10,7 @@
     ./skills
     ./direnv
     ./codex
+    ./starship
+    ./helix
   ];
 }

@@ -29,7 +29,6 @@
         gcc
         gnumake
         cmake
-        helix
         ripgrep
         fd
         ;

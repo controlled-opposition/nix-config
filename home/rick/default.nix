@@ -23,7 +23,6 @@
         discord
         fastfetch
         git
-        helix
         obsidian
         spotify
         tmux
@@ -32,7 +31,6 @@
         jujutsu
         brave-origin
         yazi
-        fresh-editor
         gram
         clang
         gnumake
