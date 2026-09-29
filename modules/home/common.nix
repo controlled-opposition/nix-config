@@ -5,9 +5,9 @@
     ./language-tools
     ./nvf
     ./ai
-    ./skills
     ./direnv
     ./codex
+    ./zoxide
   ];
 
   home.packages = [
@@ -17,5 +17,6 @@
     pkgs.bun
     pkgs.nodejs
     pkgs.uv
+    pkgs.starship
   ];
 }

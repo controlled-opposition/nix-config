@@ -10,7 +10,8 @@
     "npm:pi-web-access",
     "npm:@sting8k/pi-vcc",
     "npm:pi-mcp-adapter",
-    "npm:@juicesharp/rpiv-ask-user-question"
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo"
   ],
   "theme": "dark"
 }
