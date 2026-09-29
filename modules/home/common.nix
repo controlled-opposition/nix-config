@@ -8,8 +8,6 @@
     ./skills
     ./direnv
     ./codex
-    ./starship
-    ./helix
   ];
 
   home.packages = [
