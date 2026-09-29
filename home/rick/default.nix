@@ -2,7 +2,6 @@
 {
   imports = [
     ../../modules/home/common.nix
-    ../../modules/home/shell
     ../../modules/home/zoxide
   ];
 
@@ -31,6 +30,7 @@
         jujutsu
         brave-origin
         yazi
+        zsh
         gram
         clang
         gnumake

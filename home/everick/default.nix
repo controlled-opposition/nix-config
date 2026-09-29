@@ -2,7 +2,6 @@
 {
   imports = [
     ../../modules/home/common.nix
-    ../../modules/home/shell
     ../../modules/home/zoxide
   ];
 
@@ -20,8 +19,8 @@
         obsidian
         tmux
         zellij
+        zsh
         zoom-us
-        mise
 
         nodejs
         bun

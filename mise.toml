@@ -1,0 +1,9 @@
+[settings]
+dotfiles.root = "./dotfiles"
+
+[dotfiles]
+"~/.config/fish/config.fish" = "dotfiles/fish/config.fish"
+"~/.zshrc" = "dotfiles/zsh/zshrc"
+"~/.pi/agent/settings.json" = "dotfiles/pi/agent/settings.json"
+"~/.pi/agent/mcp.json" = "dotfiles/pi/agent/mcp.json"
+"~/.config/kitty" = "dotfiles/kitty"

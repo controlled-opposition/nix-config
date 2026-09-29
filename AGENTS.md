@@ -7,7 +7,7 @@
 - Assemble features and users in each host's `default.nix`, not `flake.nix`.
 - Put shared system modules in `modules/system/`, NixOS-only modules in `modules/nixos/`, and Home Manager modules in `modules/home/`. Import modules explicitly.
 - Use two-space indentation, small modules, and related option namespaces such as `programs`, `services`, and `environment`.
-- Manage shell settings with [`modules/home/shell/`](./modules/home/shell/) and Pi's `settings.json` with [`modules/home/pi/`](./modules/home/pi/); keep credentials, sessions, and downloaded packages machine-local. Add Pi extensions only when requested.
+- Manage Fish, zsh, Kitty, and Pi configuration with [`mise.toml`](./mise.toml) and [`dotfiles/`](./dotfiles/). NixOS, nix-darwin, or Home Manager still installs their executables; keep credentials, sessions, and downloaded packages machine-local. Add Pi extensions only when requested.
 - Edit `AGENTS.md` when appropriate. Leave `README.md` unchanged and add documentation only when explicitly asked. Keep documentation minimal; link to configuration files instead of copying option or shortcut lists.
 
 ## Validate changes
@@ -43,15 +43,24 @@ sudo nix run --inputs-from . nix-darwin -- switch --flake .#malus
 nix run --inputs-from . home-manager -- switch --flake '.#everick@malus' -b backup
 ```
 
-If flakes are disabled, add `--extra-experimental-features 'nix-command flakes'` before `run`, or enable them in Nix configuration. Review activation output for errors.
+If flakes are disabled, add `--extra-experimental-features 'nix-command flakes'` before `run`, or enable them in Nix configuration. Review activation output for errors. Then [apply mise dotfiles](#apply-mise-dotfiles) for the matching user.
 
 ## Update dependencies
 
 Inspect pins with `nix flake metadata`. Update all inputs with `nix flake update`, or selected inputs with `nix flake update nixpkgs home-manager`. Review the `flake.lock` diff and [evaluate affected configurations](#validate-changes) before activation.
 
-## Migrate shell dotfiles
+## Apply mise dotfiles
 
-Before the first Home Manager switch on citrus or malus, remove old Stow-created links to `~/.config/fish/config.fish` and `~/.zshrc`; back up any local files at those paths. Home Manager then owns the shell configuration through [`modules/home/shell/`](./modules/home/shell/).
+From the repository root on the matching machine, switch Home Manager first so it releases any old links. Then run:
+
+```sh
+mise trust ./mise.toml
+mise bootstrap dotfiles apply --dry-run
+mise bootstrap dotfiles apply
+mise bootstrap dotfiles status
+```
+
+Inspect and back up conflicting targets before applying; avoid `--force` on unmanaged files. `mise install` alone does not apply dotfiles.
 
 ## Commit and review
 

@@ -1,0 +1,16 @@
+{
+  "defaultModel": "gpt-6-luna",
+  "defaultProvider": "openai-codex",
+  "hideThinkingBlock": false,
+  "lastChangelogVersion": "0.87.1",
+  "npmCommand": [
+    "bun"
+  ],
+  "packages": [
+    "npm:pi-web-access",
+    "npm:@sting8k/pi-vcc",
+    "npm:pi-mcp-adapter",
+    "npm:@juicesharp/rpiv-ask-user-question"
+  ],
+  "theme": "dark"
+}
