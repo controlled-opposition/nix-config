@@ -25,11 +25,6 @@
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
-    mattpocock-skills = {
-      url = "github:mattpocock/skills";
-      flake = false;
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
