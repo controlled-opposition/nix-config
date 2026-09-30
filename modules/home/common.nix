@@ -11,7 +11,7 @@
   ];
 
   home.packages = [
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.pi
+    inputs.pi.packages.${pkgs.stdenv.hostPlatform.system}.coding-agent
     pkgs.mise
     pkgs.kitty
     pkgs.bun

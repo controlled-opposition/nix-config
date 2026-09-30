@@ -4,8 +4,7 @@
       "args": [
         "mcp-nixos"
       ],
-      "command": "uvx",
-      "protocolVersion": "auto"
+      "command": "uvx"
     }
   }
 }
