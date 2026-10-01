@@ -2,7 +2,7 @@
   "defaultModel": "gpt-6.1-sol",
   "defaultProvider": "openai",
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "0.99.2",
+  "lastChangelogVersion": "1.0.0",
   "npmCommand": [
     "bun"
   ],
@@ -11,6 +11,5 @@
     "npm:@sting8k/pi-vcc"
   ],
   "theme": "system",
-  "tuiMode": "regular",
   "deviceId": "04183234-72b7-4526-b179-5f7aec7bfcf9"
 }
