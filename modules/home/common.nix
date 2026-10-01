@@ -1,9 +1,7 @@
 { inputs, pkgs, ... }:
 {
   imports = [
-    inputs.nvf.homeManagerModules.default
     ./language-tools
-    ./nvf
     ./ai
     ./direnv
     ./codex
