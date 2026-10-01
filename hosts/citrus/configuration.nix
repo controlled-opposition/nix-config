@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  programs.git.enable = true;
-
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
       nh

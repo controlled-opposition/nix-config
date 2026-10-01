@@ -21,7 +21,6 @@
         btop
         discord
         fastfetch
-        git
         obsidian
         spotify
         tmux
@@ -37,8 +36,6 @@
         cmake
         libtool
         python3
-        nodejs
-        bun
         google-chrome
         ;
     };

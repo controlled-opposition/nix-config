@@ -14,7 +14,6 @@
 
       inherit (pkgs)
         discord
-        git
         micro
         obsidian
         tmux
@@ -22,8 +21,6 @@
         zsh
         zoom-us
 
-        nodejs
-        bun
         python3
         gcc
         gnumake
