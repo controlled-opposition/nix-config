@@ -1,5 +1,7 @@
-{ ... }:
+{ inputs, ... }:
 {
+  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+
   imports = [
     ../../modules/system/common.nix
     ../../modules/system/cache
