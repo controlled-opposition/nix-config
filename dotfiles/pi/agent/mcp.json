@@ -1,5 +1,16 @@
 {
   "mcpServers": {
+    "mise": {
+      "command": "mise",
+      "args": [
+        "mcp"
+      ],
+      "cwd": ".",
+      "env": {
+        "MISE_EXPERIMENTAL": "1"
+      },
+      "description": "Inspect the current project's mise tools, tasks, environment, and configuration, and run mise tasks."
+    },
     "nixos": {
       "args": [
         "mcp-nixos"
