@@ -8,7 +8,8 @@
   ],
   "packages": [
     "npm:pi-web-access",
-    "npm:@sting8k/pi-vcc"
+    "npm:@sting8k/pi-vcc",
+    "git:github.com/michael-denyer/pstack-claude"
   ],
   "theme": "system",
   "deviceId": "04183234-72b7-4526-b179-5f7aec7bfcf9"
