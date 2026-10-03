@@ -12,4 +12,6 @@
     computerName = "malus";
   };
 
+  services.tailscale.enable = true;
+
 }
