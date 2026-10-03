@@ -7,6 +7,7 @@
     ./git
     ./codex
     ./zoxide
+    ./ghostty
   ];
 
   home.packages = [
