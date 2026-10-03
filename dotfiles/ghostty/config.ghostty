@@ -1,0 +1,4 @@
+font-family = "Ioskeley Mono"
+theme = "Flexoki Dark"
+
+command = fish --login
