@@ -25,8 +25,6 @@
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
-    pi.url = "github:lukasl-dev/pi.nix";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

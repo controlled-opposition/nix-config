@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./language-tools
@@ -11,7 +11,6 @@
   ];
 
   home.packages = [
-    inputs.pi.packages.${pkgs.stdenv.hostPlatform.system}.coding-agent-bun
     pkgs.mise
     pkgs.kitty
     pkgs.bun
