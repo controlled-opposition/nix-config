@@ -34,6 +34,8 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+    pi.url = "github:earendil-works/pi/stable";
+
   };
 
   outputs =

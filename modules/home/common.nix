@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ./language-tools
@@ -18,5 +18,6 @@
     pkgs.uv
     pkgs.starship
     pkgs.yazi
+    inputs.pi.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
