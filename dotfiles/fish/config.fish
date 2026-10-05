@@ -5,3 +5,4 @@ fish_vi_key_bindings
 direnv hook fish | source
 starship init fish | source
 zoxide init fish | source
+set -gx LOCAL_NOTEBOOK_DEV 1

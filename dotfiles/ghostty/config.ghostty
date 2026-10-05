@@ -1,4 +1,5 @@
 font-family = "Ioskeley Mono"
-theme = "Flexoki Dark"
+theme = dark:"Flexoki Dark",light:"Flexoki Light"
 
-command = fish --login
+background-opacity = 0.85
+background-blur = 20

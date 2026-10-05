@@ -170,11 +170,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1791086831,
-        "narHash": "sha256-shIDG9PPKoYulMQmms9xFem6Zh2aIb+UqMc1fghkLQ4=",
+        "lastModified": 1791187964,
+        "narHash": "sha256-dXxG7iO+mmLiJBEKrd/JJKT8vlhZeRXh95hnREVCvQ0=",
         "ref": "refs/heads/main",
-        "rev": "d58e769acd5ea6414fc925815ea1afa4e52d3b32",
-        "revCount": 1945,
+        "rev": "b89def07b16f7b7567661a3499719118124a2d3b",
+        "revCount": 1948,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Froststrap/Froststrap"
@@ -192,11 +192,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791138423,
-        "narHash": "sha256-U0RAn0/er05srJVYfcKvFWkIPLYVGLEVGDwhMxesfiI=",
+        "lastModified": 1791200822,
+        "narHash": "sha256-zJ/ezx6peOYU1gnjUtwVhuldWx9Tre6wzkrfZOBj3CQ=",
         "owner": "amaanq",
         "repo": "helium-flake",
-        "rev": "1158ac876441664d2877d3ac1e811a9bbc25e8f8",
+        "rev": "590e6fbb91105b44fb1d46debdee21fb266abfa7",
         "type": "github"
       },
       "original": {
@@ -234,11 +234,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1791159248,
-        "narHash": "sha256-ehhRufG37vDruU5yA7yuCLCW1hB9HO96khjD7/XBAqA=",
+        "lastModified": 1791175671,
+        "narHash": "sha256-1szYaEAFYPApOgy2HGLbqtVys8SIqk5mlvz9agPFLr0=",
         "owner": "numtide",
         "repo": "llm-agents.nix",
-        "rev": "8202284fa5c5aeec7f18d58d18ad2575e7c87b7e",
+        "rev": "ba24820b562c0e1ff95d283a2e2e1debcbcbad83",
         "type": "github"
       },
       "original": {
@@ -476,11 +476,11 @@
         "nixpkgs-darwin-x64": "nixpkgs-darwin-x64"
       },
       "locked": {
-        "lastModified": 1791074476,
-        "narHash": "sha256-DjWJE7KcCdNF/M3RrO76rKCSd6oFLo2dX9wFT0nwEXk=",
+        "lastModified": 1791188470,
+        "narHash": "sha256-2SfC8zEf6emG1sDG1J7hjjSBt+3hFIz1/TcwBLa/hRU=",
         "owner": "earendil-works",
         "repo": "pi",
-        "rev": "cd32f7725fdbddbaecdff5b1e68491563394e0ca",
+        "rev": "d78dc83d633229d12f8b79631384c4c2717c399f",
         "type": "github"
       },
       "original": {
