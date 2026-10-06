@@ -8,6 +8,7 @@
     ./codex
     ./zoxide
     ./ghostty
+    ./jujutsu
   ];
 
   home.packages = [
