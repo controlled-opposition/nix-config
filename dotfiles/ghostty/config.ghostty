@@ -1,5 +1,2 @@
 font-family = "Ioskeley Mono"
 theme = dark:"Flexoki Dark",light:"Flexoki Light"
-
-background-opacity = 0.85
-background-blur = 20
