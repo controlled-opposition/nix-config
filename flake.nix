@@ -36,6 +36,8 @@
 
     pi.url = "github:earendil-works/pi/stable";
 
+    jj-starship.url = "github:dmmulroy/jj-starship";
+
   };
 
   outputs =

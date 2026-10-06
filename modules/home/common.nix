@@ -20,5 +20,6 @@
     pkgs.starship
     pkgs.yazi
     inputs.pi.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.jj-starship.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
