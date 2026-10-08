@@ -34,7 +34,10 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
-    pi.url = "github:earendil-works/pi/stable";
+    pi = {
+      url = "github:earendil-works/pi/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     jj-starship.url = "github:dmmulroy/jj-starship";
 
