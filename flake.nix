@@ -38,6 +38,11 @@
 
     jj-starship.url = "github:dmmulroy/jj-starship";
 
+    spotifast = {
+      url = "github:crmne/spotifast";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
