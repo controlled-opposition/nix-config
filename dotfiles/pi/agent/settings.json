@@ -7,8 +7,7 @@
   ],
   "packages": [
     "npm:pi-web-access",
-    "npm:@sting8k/pi-vcc",
-    "npm:pi-subagents"
+    "npm:@sting8k/pi-vcc"
   ],
   "theme": "system",
   "lastChangelogVersion": "1.1.0"

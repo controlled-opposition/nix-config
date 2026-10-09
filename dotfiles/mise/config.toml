@@ -1,3 +1,6 @@
+[tools]
+pi = "latest"
+
 
 [settings]
 minimum_release_age = "0s"
