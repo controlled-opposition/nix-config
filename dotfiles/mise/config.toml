@@ -1,5 +1,8 @@
 [tools]
 pi = "latest"
+claude = "latest"
+herdr = "latest"
+codex = "latest"
 
 
 [settings]

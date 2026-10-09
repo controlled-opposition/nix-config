@@ -23,8 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    llm-agents.url = "github:numtide/llm-agents.nix";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,11 +31,6 @@
     froststrap.url = "git+https://github.com/Froststrap/Froststrap?submodules=1";
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-
-    #pi = {
-    #   url = "github:earendil-works/pi/stable";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     jj-starship = {
       url = "github:dmmulroy/jj-starship";

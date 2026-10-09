@@ -2,10 +2,8 @@
 {
   imports = [
     ./language-tools
-    ./ai
     ./direnv
     ./git
-    ./codex
     ./zoxide
     ./ghostty
     ./jujutsu
