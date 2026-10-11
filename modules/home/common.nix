@@ -18,6 +18,5 @@
     pkgs.starship
     pkgs.yazi
     inputs.jj-starship.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.spotifast.packages.${pkgs.stdenv.hostPlatform.system}.spotifast
   ];
 }
