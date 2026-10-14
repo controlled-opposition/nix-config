@@ -133,11 +133,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1791713993,
-        "narHash": "sha256-vGQH3lt7JPgO07Ig7cszG+tmBeoc6UPfAubq0buiS/c=",
+        "lastModified": 1791954570,
+        "narHash": "sha256-PE/yNdwxb8dpDZhrIucc8UoAwR5hx7HIwXgby0roSms=",
         "ref": "refs/heads/main",
-        "rev": "a893016e31393c1f8f30610b0a8415a54840716d",
-        "revCount": 2029,
+        "rev": "f774339004dced0a4ede6b7a867d210189c29914",
+        "revCount": 2094,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Froststrap/Froststrap"
@@ -155,11 +155,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791547762,
-        "narHash": "sha256-g/gDcjq6YxAdb12M+lAMJh4tByhkRd96rbDM1W5s1LQ=",
+        "lastModified": 1791807674,
+        "narHash": "sha256-QPBKvidB0hPHfrSX4QOGWmGW7yx60BWd/wW2Hs+cE74=",
         "owner": "amaanq",
         "repo": "helium-flake",
-        "rev": "3cb65fa7c6458510307f22643995c7b087425572",
+        "rev": "7cd154929ef9746b186237a0bf3e1fffb94cdb5b",
         "type": "github"
       },
       "original": {
@@ -175,11 +175,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791642191,
-        "narHash": "sha256-0bK0A59rVUn1SRZzo4cNi4VSqAe7vR1gL2/MZl53Frw=",
+        "lastModified": 1792000010,
+        "narHash": "sha256-4jtkwQlReQdXsKJJfB9yT7nIf0TlwgZOk2XtxjUgDS8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c58f54c733a7894d84fa2fdff26cc12088c4b78c",
+        "rev": "5a9d300bd619c03857521b50c8877a19dbad7078",
         "type": "github"
       },
       "original": {
@@ -370,11 +370,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1791594108,
-        "narHash": "sha256-XK4KceonkwD8LuMAt/vNrz982mXJM5jeHAxMwsUXXAQ=",
+        "lastModified": 1791734076,
+        "narHash": "sha256-i5qk1kLiit98rRbh1AXmWBNT9QXC/y4l5Wk/u5EdpDQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6510408d147d8c5e6d76043e899e9251756f6a75",
+        "rev": "7fd4004d0511991fff3a0524856a9be09e28c5f0",
         "type": "github"
       },
       "original": {
