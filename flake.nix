@@ -30,8 +30,6 @@
 
     froststrap.url = "git+https://github.com/Froststrap/Froststrap?submodules=1";
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-
     jj-starship = {
       url = "github:dmmulroy/jj-starship";
       inputs.nixpkgs.follows = "nixpkgs";
