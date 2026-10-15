@@ -2,7 +2,6 @@
 {
   imports = [
     ../../modules/system/common.nix
-    ../../modules/system/cache
     ../../modules/system/fonts
 
     ./configuration.nix
