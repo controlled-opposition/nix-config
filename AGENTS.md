@@ -9,6 +9,7 @@
 - Use two-space indentation, small modules, and related option namespaces such as `programs`, `services`, and `environment`.
 - Manage Fish, zsh, Kitty, and Pi configuration with [`mise.toml`](./mise.toml) and [`dotfiles/`](./dotfiles/). NixOS, nix-darwin, or Home Manager still installs their executables; keep credentials, sessions, and downloaded packages machine-local. Add Pi extensions only when requested.
 - Edit `AGENTS.md` when appropriate. Leave `README.md` unchanged and add documentation only when explicitly asked. Keep documentation minimal; link to configuration files instead of copying option or shortcut lists.
+- Before running version-control commands, check for .jj/. In a colocated Jujutsu repository, use jj, not Git, including for status, diffs, commits, and history changes.
 
 ## Validate changes
 
