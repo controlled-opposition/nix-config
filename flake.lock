@@ -175,6 +175,26 @@
         "type": "github"
       }
     },
+    "laminix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792199912,
+        "narHash": "sha256-GLCvjG946n3UmX2O8OziJegH5SJpTRBbb/GBxRIRghg=",
+        "owner": "jackboykin",
+        "repo": "laminix",
+        "rev": "a32adb584a6204a2bdf85c03fec34b1ee59298cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jackboykin",
+        "repo": "laminix",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -304,6 +324,7 @@
         "helium-flake": "helium-flake",
         "home-manager": "home-manager",
         "jj-starship": "jj-starship",
+        "laminix": "laminix",
         "nix-darwin": "nix-darwin",
         "nix-flatpak": "nix-flatpak",
         "nix-homebrew": "nix-homebrew",

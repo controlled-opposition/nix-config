@@ -30,6 +30,11 @@
 
     froststrap.url = "git+https://github.com/Froststrap/Froststrap?submodules=1";
 
+    laminix = {
+      url = "github:jackboykin/laminix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     jj-starship = {
       url = "github:dmmulroy/jj-starship";
       inputs.nixpkgs.follows = "nixpkgs";

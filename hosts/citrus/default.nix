@@ -1,5 +1,7 @@
+{ inputs, ... }:
 {
   imports = [
+    inputs.laminix.nixosModules.default
     ../../modules/system/common.nix
     ../../modules/system/fonts
 
