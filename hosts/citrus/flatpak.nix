@@ -8,5 +8,6 @@
 
   services.flatpak.packages = [
     "org.vinegarhq.Sober"
+    "io.github.TeamWheelWizard.WheelWizard"
   ];
 }
