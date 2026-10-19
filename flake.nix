@@ -28,7 +28,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    froststrap.url = "git+https://github.com/Froststrap/Froststrap?submodules=1";
+    froststrap = {
+      url = "git+https://github.com/Froststrap/Froststrap?submodules=1";
+      inputs.treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     laminix = {
       url = "github:jackboykin/laminix";
