@@ -8,6 +8,8 @@
     ./ghostty
     ./jujutsu
     ./zsh
+    ./starship
+    ./mise
   ];
 
   home.packages = [
