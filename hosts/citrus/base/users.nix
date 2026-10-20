@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   users.users."rick" = {
     isNormalUser = true;
@@ -8,4 +8,6 @@
       "wheel"
     ];
   };
+
+  users.users."rick".shell = pkgs.zsh;
 }

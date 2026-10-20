@@ -24,5 +24,6 @@
 
   hardware.i2c.enable = true;
   hardware.bluetooth.enable = true;
+  programs.zsh.enable = true;
 
 }
