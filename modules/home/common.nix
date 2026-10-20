@@ -7,6 +7,7 @@
     ./zoxide
     ./ghostty
     ./jujutsu
+    ./zsh
   ];
 
   home.packages = [
