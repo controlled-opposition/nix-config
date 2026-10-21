@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "dependencyDashboard": true,
+  "timezone": "America/New_York",
+  "schedule": ["before 6am"],
+  "nix": {
+    "enabled": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 6am"]
+  },
+  "packageRules": [
+    {
+      "description": "Group flake input updates so nixpkgs and home-manager move together",
+      "matchManagers": ["nix"],
+      "groupName": "nix flake inputs"
+    }
+  ]
+}
