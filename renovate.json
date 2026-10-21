@@ -4,6 +4,7 @@
   "dependencyDashboard": true,
   "timezone": "America/New_York",
   "schedule": ["before 6am"],
+  "automerge": true,
   "nix": {
     "enabled": true
   },
