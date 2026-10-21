@@ -7,7 +7,6 @@
     ./zoxide
     ./ghostty
     ./jujutsu
-    ./zsh
     ./starship
     ./mise
   ];
@@ -21,5 +20,6 @@
     pkgs.starship
     pkgs.yazi
     inputs.jj-starship.packages.${pkgs.stdenv.hostPlatform.system}.default
+    pkgs.sheldon
   ];
 }

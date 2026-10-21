@@ -1,0 +1,14 @@
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY HIST_IGNORE_DUPS
+
+autoload -Uz compinit
+compinit
+
+eval "$(sheldon source)"
+
+eval "$(mise activate zsh)"
+eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
+eval "$(starship init zsh)"
