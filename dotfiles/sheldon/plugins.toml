@@ -1,7 +1,24 @@
 shell = "zsh"
 
+[templates]
+fpath-src = 'fpath=( "{{ dir }}/src" $fpath )'
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+use = ["src/_*"]
+apply = ["fpath-src"]
+
+[plugins.ez-compinit]
+github = "mattmc3/ez-compinit"
+
+[plugins.zsh-no-ps2]
+github = "romkatv/zsh-no-ps2"
+
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 
-[plugins.zsh-syntax-highlighting]
-github = "zsh-users/zsh-syntax-highlighting"
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
