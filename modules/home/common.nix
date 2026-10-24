@@ -21,7 +21,6 @@
     pkgs.yazi
     inputs.jj-starship.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.sheldon
-    pkgs.unsloth-desktop
     pkgs.lmstudio
   ];
 }

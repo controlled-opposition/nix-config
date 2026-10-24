@@ -35,6 +35,7 @@
         libtool
         python3
         google-chrome
+        unsloth-studio
         ;
     };
   };
