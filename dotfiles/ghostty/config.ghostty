@@ -1,2 +1,3 @@
-font-family = "Ioskeley Mono"
+font-family = "Paper Mono"
 theme = dark:"Flexoki Dark",light:"Flexoki Light"
+font-feature = "ss01, zero"

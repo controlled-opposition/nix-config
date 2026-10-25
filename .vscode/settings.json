@@ -1,4 +1,5 @@
 {
     "editor.formatOnSave": true,
-    "editor.fontFamily": "'Ioskeley Mono', monospace"
+    "editor.fontFamily": "Paper Mono",
+    "editor.fontLigatures": "'cv01','ss01', 'ss02', 'ss03'",
 }

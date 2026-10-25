@@ -5,5 +5,6 @@
     pkgs.aporetic-bin
     pkgs.commit-mono
     pkgs.ioskeley-mono.standard
+    pkgs.paper-mono
   ];
 }
