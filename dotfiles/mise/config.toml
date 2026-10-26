@@ -1,7 +1,6 @@
 [tools]
 pi = "latest"
 claude = "latest"
-herdr = "latest"
 codex = "latest"
 "npm:pele" = "latest"
 

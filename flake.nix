@@ -63,6 +63,18 @@
       };
     in
     {
+      packages =
+        nixpkgs.lib.genAttrs
+          [
+            "x86_64-linux"
+            "aarch64-linux"
+            "x86_64-darwin"
+            "aarch64-darwin"
+          ]
+          (system: {
+            herdr-bin = nixpkgs.legacyPackages.${system}.callPackage ./packages/herdr-bin { };
+          });
+
       homeConfigurations = {
         "rick@citrus" = home-manager.lib.homeManagerConfiguration {
           pkgs = linuxPkgs;
