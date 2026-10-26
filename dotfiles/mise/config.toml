@@ -1,5 +1,4 @@
 [tools]
-pi = "latest"
 "npm:pele" = "latest"
 
 
