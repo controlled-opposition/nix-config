@@ -49,7 +49,7 @@ If flakes are disabled, add `--extra-experimental-features 'nix-command flakes'`
 
 ## Update dependencies
 
-Inspect pins with `nix flake metadata`. Update all inputs with `nix flake update`, or selected inputs with `nix flake update nixpkgs home-manager`. Review the `flake.lock` diff and [evaluate affected configurations](#validate-changes) before activation.
+Inspect pins with `nix flake metadata`. Run `mise run update` to update all flake inputs and the release-pinned packages in [`packages/`](./packages/), or update selected inputs with `nix flake update nixpkgs home-manager`. Give each package in `packages/` a `passthru.updateScript`; the `update` task in [`mise.toml`](./mise.toml) runs it. Review the `flake.lock` and `packages/` diffs and [evaluate affected configurations](#validate-changes) before activation.
 
 ## Apply mise dotfiles
 

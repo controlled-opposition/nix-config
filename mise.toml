@@ -13,3 +13,18 @@ dotfiles.root = "./dotfiles"
 "~/.config/mise" = "dotfiles/mise"
 "~/.zshrc" = "dotfiles/zsh/zshrc"
 "~/.config/sheldon/plugins.toml" = "dotfiles/sheldon/plugins.toml"
+
+[tasks.update]
+description = "Update flake inputs and packages"
+shell = "bash -c"
+run = '''
+set -euo pipefail
+nix flake update
+for dir in packages/*/; do
+  attr=$(basename "$dir")
+  cmd=()
+  while IFS= read -r arg; do cmd+=("$arg"); done < <(nix eval --raw ".#$attr.updateScript" --apply 'c: builtins.concatStringsSep "\n" c + "\n"')
+  nix build --no-link "${cmd[0]}"
+  UPDATE_NIX_ATTR_PATH=$attr "${cmd[@]}"
+done
+'''
