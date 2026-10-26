@@ -6,23 +6,23 @@
   installShellFiles,
 }:
 let
-  version = "2026.10.19";
+  version = "2026.10.20";
   sources = {
     x86_64-linux = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-linux-x64-musl.tar.gz";
-      hash = "sha256-goTfGAMZJJ1IAbRqNK/FupreXpxTgOzRTQFvGekLnOE=";
+      hash = "sha256-/tCd4bPMaKVOouQBQMKggY/nZhE3ILJwm/ZIU97MyxA=";
     };
     aarch64-linux = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-linux-arm64-musl.tar.gz";
-      hash = "sha256-6REdVgvAAU64OpSRYEgJu00DVp1hCx33AjafadNuP8A=";
+      hash = "sha256-M9OocRo0hCzmtiysEiOgXkhvi3hNjWTHAhvlfnAnNOU=";
     };
     x86_64-darwin = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-macos-x64.tar.gz";
-      hash = "sha256-aUllDtMh9sNkVb11XgZIfNHMIyFAxwJdYCpi20GJH0M=";
+      hash = "sha256-DPsLpaWGcCFL28okmMHCQVg9nmZtmX0w1CLGdVT3X1g=";
     };
     aarch64-darwin = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-macos-arm64.tar.gz";
-      hash = "sha256-qKWB4RX069vikxwjeUnbrHYkvYtAJL8+udp5gb3kkMk=";
+      hash = "sha256-xHYpcg/wLVofez5ZI9fNUjuqetlTHgq4bZFT7C+dJcc=";
     };
   };
   system = stdenvNoCC.hostPlatform.system;
