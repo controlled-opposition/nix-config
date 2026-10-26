@@ -3,6 +3,7 @@
   stdenvNoCC,
   fetchurl,
   autoPatchelfHook,
+  libxcb,
   writers,
 }:
 let
@@ -38,6 +39,8 @@ stdenvNoCC.mkDerivation {
   dontStrip = true;
 
   nativeBuildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
+
+  buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ libxcb ];
 
   installPhase = ''
     runHook preInstall
