@@ -71,10 +71,20 @@
             "x86_64-darwin"
             "aarch64-darwin"
           ]
-          (system: {
-            herdr-bin = nixpkgs.legacyPackages.${system}.callPackage ./packages/herdr-bin { };
-            mise-bin = nixpkgs.legacyPackages.${system}.callPackage ./packages/mise-bin { };
-          });
+          (
+            system:
+            let
+              pkgs = import nixpkgs {
+                inherit system;
+                config.allowUnfree = true;
+              };
+            in
+            {
+              claude-code-bin = pkgs.callPackage ./packages/claude-code-bin { };
+              herdr-bin = pkgs.callPackage ./packages/herdr-bin { };
+              mise-bin = pkgs.callPackage ./packages/mise-bin { };
+            }
+          );
 
       homeConfigurations = {
         "rick@citrus" = home-manager.lib.homeManagerConfiguration {
