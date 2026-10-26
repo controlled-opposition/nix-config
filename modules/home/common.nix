@@ -9,6 +9,7 @@
     ./jujutsu
     ./starship
     ./mise
+    ./nushell
   ];
 
   home.packages = [
