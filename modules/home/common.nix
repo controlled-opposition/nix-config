@@ -12,7 +12,6 @@
   ];
 
   home.packages = [
-    pkgs.mise
     pkgs.kitty
     pkgs.bun
     pkgs.nodejs

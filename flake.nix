@@ -73,6 +73,7 @@
           ]
           (system: {
             herdr-bin = nixpkgs.legacyPackages.${system}.callPackage ./packages/herdr-bin { };
+            mise-bin = nixpkgs.legacyPackages.${system}.callPackage ./packages/mise-bin { };
           });
 
       homeConfigurations = {
