@@ -24,7 +24,7 @@ for dir in packages/*/; do
   attr=$(basename "$dir")
   cmd=()
   while IFS= read -r arg; do cmd+=("$arg"); done < <(nix eval --raw ".#$attr.updateScript" --apply 'c: builtins.concatStringsSep "\n" c + "\n"')
-  nix build --no-link "${cmd[0]}"
+  nix build --no-link "$(nix eval --raw ".#$attr.updateScript" --apply 'c: (builtins.head c).drvPath')^*"
   UPDATE_NIX_ATTR_PATH=$attr "${cmd[@]}"
 done
 '''
