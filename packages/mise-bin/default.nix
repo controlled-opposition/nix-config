@@ -2,7 +2,7 @@
   lib,
   stdenvNoCC,
   fetchurl,
-  nix-update-script,
+  writers,
   installShellFiles,
 }:
 let
@@ -43,18 +43,11 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  passthru = lib.mapAttrs' (system: src: lib.nameValuePair "src-${system}" src) sources // {
-    updateScript = nix-update-script {
-      extraArgs = [
-        "--flake"
-        "--use-github-releases"
-      ]
-      ++ lib.concatMap (system: [
-        "--custom-dep"
-        "src-${system}"
-      ]) (lib.remove stdenvNoCC.hostPlatform.system (builtins.attrNames sources));
-    };
-  };
+  passthru.updateScript = [
+    (writers.writeNu "update-github-release" ../update-github-release.nu)
+    "packages/mise-bin/default.nix"
+    "jdx/mise"
+  ];
 
   meta = {
     description = "mise prebuilt binary";

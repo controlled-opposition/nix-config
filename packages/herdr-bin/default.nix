@@ -2,7 +2,7 @@
   lib,
   stdenvNoCC,
   fetchurl,
-  nix-update-script,
+  writers,
 }:
 let
   version = "0.9.5";
@@ -40,18 +40,11 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  passthru = lib.mapAttrs' (system: src: lib.nameValuePair "src-${system}" src) sources // {
-    updateScript = nix-update-script {
-      extraArgs = [
-        "--flake"
-        "--use-github-releases"
-      ]
-      ++ lib.concatMap (system: [
-        "--custom-dep"
-        "src-${system}"
-      ]) (lib.remove stdenvNoCC.hostPlatform.system (builtins.attrNames sources));
-    };
-  };
+  passthru.updateScript = [
+    (writers.writeNu "update-github-release" ../update-github-release.nu)
+    "packages/herdr-bin/default.nix"
+    "herdrdev/herdr"
+  ];
 
   meta = {
     description = "herdr prebuilt binary";
