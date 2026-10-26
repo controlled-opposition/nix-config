@@ -83,6 +83,7 @@
               claude-code-bin = pkgs.callPackage ./packages/claude-code-bin { };
               herdr-bin = pkgs.callPackage ./packages/herdr-bin { };
               mise-bin = pkgs.callPackage ./packages/mise-bin { };
+              pi-bin = pkgs.callPackage ./packages/pi-bin { };
             }
           );
 
