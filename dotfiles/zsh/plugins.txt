@@ -1,0 +1,6 @@
+zsh-users/zsh-completions path:src kind:fpath
+mattmc3/ez-compinit
+romkatv/zsh-no-ps2
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+zdharma-continuum/fast-syntax-highlighting

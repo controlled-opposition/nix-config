@@ -12,7 +12,7 @@ dotfiles.root = "./dotfiles"
 "~/.config/ghostty/config.ghostty" = "dotfiles/ghostty/config.ghostty"
 "~/.config/mise" = "dotfiles/mise"
 "~/.zshrc" = "dotfiles/zsh/zshrc"
-"~/.config/sheldon/plugins.toml" = "dotfiles/sheldon/plugins.toml"
+"~/.config/zsh/plugins.txt" = "dotfiles/zsh/plugins.txt"
 
 [tasks.update]
 description = "Update flake inputs and packages"

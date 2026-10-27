@@ -3,7 +3,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt SHARE_HISTORY HIST_IGNORE_DUPS
 
-eval "$(sheldon source)"
+source "$HOME/.nix-profile/share/antidote/antidote.zsh"
+antidote load "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/plugins.txt" "${XDG_CACHE_HOME:-$HOME/.cache}/antidote/plugins.zsh"
 
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
