@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.laminix.nixosModules.default
@@ -12,5 +12,10 @@
     ./hardware-configuration.nix
     ./peripherals.nix
     ./graphics.nix
+  ];
+
+  environment.systemPackages = [
+    inputs.butter.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nutmeg
   ];
 }

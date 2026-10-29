@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    butter.url = "github:microlift/butter";
+
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
@@ -83,6 +85,7 @@
               claude-code-bin = pkgs.callPackage ./packages/claude-code-bin { };
               herdr-bin = pkgs.callPackage ./packages/herdr-bin { };
               mise-bin = pkgs.callPackage ./packages/mise-bin { };
+              nutmeg = pkgs.callPackage ./packages/nutmeg { };
               pi-bin = pkgs.callPackage ./packages/pi-bin { };
             }
           );
