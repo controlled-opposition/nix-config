@@ -3,6 +3,7 @@
   imports = [
     ../../modules/home/common.nix
     ../../modules/home/zoxide
+    ../../modules/home/emacs
   ];
 
   home = {
