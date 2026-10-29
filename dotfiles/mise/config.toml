@@ -5,3 +5,4 @@ codex = "latest"
 
 [settings]
 minimum_release_age = "0s"
+all_compile = false
