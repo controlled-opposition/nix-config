@@ -8,7 +8,7 @@ antidote load "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/plugins.txt" "${XDG_CACHE_H
 
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 
 # Added by Unsloth setup
