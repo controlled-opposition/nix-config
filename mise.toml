@@ -13,6 +13,7 @@ dotfiles.root = "./dotfiles"
 "~/.config/mise" = "dotfiles/mise"
 "~/.zshrc" = "dotfiles/zsh/zshrc"
 "~/.config/zsh/plugins.txt" = "dotfiles/zsh/plugins.txt"
+"~/.emacs.d/init.el" = "dotfiles/emacs/init.el"
 
 [tasks.update]
 description = "Update flake inputs and packages"
