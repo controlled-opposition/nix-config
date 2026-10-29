@@ -96,14 +96,15 @@
         "fenix": "fenix",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1793194928,
-        "narHash": "sha256-a1fZuKIQOX7s9lKHD36pfbOygy37XbLs7NFNCfHFKNo=",
+        "lastModified": 1793286356,
+        "narHash": "sha256-l+I5Ht1N4qRlryRuiOOiNGCZOgF6qtD7CfvURx8m+nY=",
         "ref": "refs/heads/main",
-        "rev": "468eea5a0c24d7d35bc5b8ba1be79309dfaaef15",
-        "revCount": 2187,
+        "rev": "e326466a7824220dbe35f51245cf09ee1168f68e",
+        "revCount": 2206,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Froststrap/Froststrap"
@@ -121,11 +122,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793010284,
-        "narHash": "sha256-wMCQcg9MIDnYVLpfxrGq3972BXNHrGGaufeEKL/c/Xo=",
+        "lastModified": 1793233101,
+        "narHash": "sha256-JK7KcDzslwangCgo2n6UNPR5dEgtFIe9wx5qFZYcgfg=",
         "owner": "amaanq",
         "repo": "helium-flake",
-        "rev": "cd495e8607666e5bb4381be5aef2db0b171b4aa1",
+        "rev": "c81f2a0b0b62bd9ac63a4db382fc5d61263d1253",
         "type": "github"
       },
       "original": {
@@ -282,6 +283,22 @@
       "original": {
         "owner": "nixos",
         "ref": "26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1793225069,
+        "narHash": "sha256-sx1f99WGrDfJ83KKuQrqGPmot0rnDgmpLJDzpU2oHQQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e62746b0b472753ef019baceab6f1e2e52014980",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
