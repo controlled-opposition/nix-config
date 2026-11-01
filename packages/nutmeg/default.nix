@@ -13,12 +13,12 @@
 }:
 python3Packages.buildPythonApplication rec {
   pname = "nutmeg";
-  version = "1.2.0";
+  version = "1.2.1";
   pyproject = true;
 
   src = fetchurl {
     url = "https://github.com/frolleks/nutmeg/releases/download/v${version}/nutmeg-${version}.tar.gz";
-    hash = "sha256-ML7PfTJwC8aK0ZZBNisVL77eYADFtmsJjsIXAl8bQoM=";
+    hash = "sha256-TLC/6PZUjJdUKcouJV+y3ucwFPkZxMscMz6fJV0XeZU=";
   };
 
   build-system = [ python3Packages.setuptools ];
