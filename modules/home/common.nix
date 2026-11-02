@@ -13,6 +13,8 @@
     ./pi
   ];
 
+  home.backupFileExtension = "backup";
+
   home.packages = [
     pkgs.kitty
     pkgs.bun
