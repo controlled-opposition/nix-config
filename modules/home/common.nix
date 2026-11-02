@@ -25,5 +25,6 @@
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.herdr-bin
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.claude-code-bin
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.pi-bin
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.herdr-app-bin
   ];
 }

@@ -83,6 +83,7 @@
             in
             {
               claude-code-bin = pkgs.callPackage ./packages/claude-code-bin { };
+              herdr-app-bin = pkgs.callPackage ./packages/herdr-app-bin { };
               herdr-bin = pkgs.callPackage ./packages/herdr-bin { };
               mise-bin = pkgs.callPackage ./packages/mise-bin { };
               nutmeg = pkgs.callPackage ./packages/nutmeg { };
