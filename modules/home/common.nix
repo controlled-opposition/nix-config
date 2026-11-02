@@ -19,7 +19,6 @@
     pkgs.uv
     pkgs.starship
     pkgs.yazi
-    inputs.jj-starship.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.antidote
     pkgs.lmstudio
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.herdr-bin
