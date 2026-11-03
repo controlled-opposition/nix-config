@@ -2,7 +2,8 @@
   description = "NixOS, WSL, and nix-darwin configurations";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
+
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     nix-darwin = {
