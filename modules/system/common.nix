@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
+  nix.package = pkgs.nixVersions.latest;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
