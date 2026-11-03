@@ -11,7 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    butter.url = "github:microlift/butter";
+    butter = {
+      url = "github:microlift/butter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
@@ -34,6 +37,8 @@
 
     froststrap = {
       url = "git+https://github.com/Froststrap/Froststrap?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-unstable.follows = "nixpkgs";
       inputs.treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     };
 
