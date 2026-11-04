@@ -67,8 +67,6 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
         "aarch64-darwin"
       ];
 
@@ -82,7 +80,7 @@
             config.allowUnfree = true;
           };
 
-          packages = {
+          packages = pkgs.lib.filterAttrs (_: pkgs.lib.meta.availableOn pkgs.stdenv.hostPlatform) {
             claude-code-bin = pkgs.callPackage ./packages/claude-code-bin { };
             herdr-app-bin = pkgs.callPackage ./packages/herdr-app-bin { };
             herdr-bin = pkgs.callPackage ./packages/herdr-bin { };
