@@ -14,8 +14,6 @@
     packages = builtins.attrValues {
       helium-flake = inputs."helium-flake".packages.${pkgs.stdenv.hostPlatform.system}.default;
 
-      froststrap = inputs."froststrap".packages.${pkgs.stdenv.hostPlatform.system}.default;
-
       inherit (pkgs)
         btop
         discord

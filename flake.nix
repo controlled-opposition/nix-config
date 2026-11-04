@@ -37,9 +37,6 @@
 
     froststrap = {
       url = "git+https://github.com/Froststrap/Froststrap?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-unstable.follows = "nixpkgs";
-      inputs.treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     };
 
     laminix = {

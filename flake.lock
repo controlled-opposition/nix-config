@@ -148,12 +148,8 @@
       "inputs": {
         "fenix": "fenix",
         "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "nixpkgs-unstable": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
@@ -236,7 +232,7 @@
       "inputs": {
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1793745112,
@@ -330,16 +326,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1793724369,
-        "narHash": "sha256-Sji9qr1FFKDjy5TuJ3AYbx/Xihry2N6iThdD6X9FIGQ=",
-        "owner": "NixOS",
+        "lastModified": 1780145889,
+        "narHash": "sha256-md0zn0RnwNvPyASas1yG5YUuwQ4ALA6ucL50l0DvqCo=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "925d0c21b2827871792dca3e23117417378577d3",
+        "rev": "8c50a710ddca43d7a530fb805ad55bde8d0141c5",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable-small",
+        "owner": "nixos",
+        "ref": "26.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -359,7 +355,55 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1793225069,
+        "narHash": "sha256-sx1f99WGrDfJ83KKuQrqGPmot0rnDgmpLJDzpU2oHQQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e62746b0b472753ef019baceab6f1e2e52014980",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1770107345,
+        "narHash": "sha256-tbS0Ebx2PiA1FRW8mt8oejR0qMXmziJmPaU1d4kYY9g=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4533d9293756b63904b7238acb84ac8fe4c8c2c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1793724369,
+        "narHash": "sha256-Sji9qr1FFKDjy5TuJ3AYbx/Xihry2N6iThdD6X9FIGQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "925d0c21b2827871792dca3e23117417378577d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable-small",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1793540411,
         "narHash": "sha256-us2GRWGXbOQpN1blyJGvmdx+g4bv9GoFYq5iiOHRiZ8=",
@@ -384,7 +428,7 @@
         "nix-flatpak": "nix-flatpak",
         "nix-homebrew": "nix-homebrew",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_4"
       }
     },
     "rust-analyzer-src": {
@@ -442,9 +486,7 @@
     },
     "treefmt-nix": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1786901030,
