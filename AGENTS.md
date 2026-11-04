@@ -9,7 +9,7 @@
 - Put shared system modules in `modules/system/`, NixOS-only modules in `modules/nixos/`, and Home Manager modules in `modules/home/`. Import modules explicitly.
 - Use two-space indentation, small modules, and related option namespaces such as `programs`, `services`, and `environment`.
 - Manage zsh and Kitty configuration with [`mise.toml`](./mise.toml) and [`dotfiles/`](./dotfiles/). Manage Pi settings with Home Manager; Pi's `mcp.json` remains managed by mise. NixOS, nix-darwin, or Home Manager installs their executables; keep credentials, sessions, and downloaded packages machine-local. Add Pi extensions only when requested.
-- Edit `AGENTS.md` when appropriate. Leave `README.md` unchanged and add documentation only when explicitly asked. Keep documentation minimal; link to configuration files instead of copying option or shortcut lists.
+- Edit `AGENTS.md` when appropriate. Do not add content to `README.md`; formatting it is fine. Add documentation only when explicitly asked. Keep documentation minimal; link to configuration files instead of copying option or shortcut lists.
 - Before running version-control commands, check for .jj/. In a colocated Jujutsu repository, use jj, not Git, including for status, diffs, commits, and history changes.
 - Do not add comments to code unless asked.
 
