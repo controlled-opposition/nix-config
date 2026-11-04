@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 {
   imports = [ inputs.nix-homebrew.darwinModules.nix-homebrew ];
 
@@ -7,20 +7,21 @@
     enableRosetta = true;
     user = "everick";
     autoMigrate = true;
+    taps = {
+      "homebrew/homebrew-core" = inputs.homebrew-core;
+      "homebrew/homebrew-cask" = inputs.homebrew-cask;
+    };
   };
 
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
-    taps =
-      map
-        (name: {
-          inherit name;
-          trusted = true;
-        })
-        [
-          "specstoryai/tap"
-        ];
+    taps = builtins.attrNames config.nix-homebrew.taps ++ [
+      {
+        name = "specstoryai/tap";
+        trusted = true;
+      }
+    ];
     brews = [
       "libvterm"
       "libtool"
