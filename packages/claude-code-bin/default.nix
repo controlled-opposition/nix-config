@@ -14,14 +14,6 @@ let
       url = "${baseUrl}/${version}/linux-x64/claude";
       hash = "sha256-6yJEGeNEV1+qSh85spC2SUJaEM1e4u8dADSAzZrlfrA=";
     };
-    aarch64-linux = fetchurl {
-      url = "${baseUrl}/${version}/linux-arm64/claude";
-      hash = "sha256-VjoNYK0MIj2UFXaCEJl6yw9xNOpR3Dwjjoi8Lhjd7vo=";
-    };
-    x86_64-darwin = fetchurl {
-      url = "${baseUrl}/${version}/darwin-x64/claude";
-      hash = "sha256-AccUvH/r2wCPKOP2+ssdw35GpNj6jbWN8uKB7lHLMzw=";
-    };
     aarch64-darwin = fetchurl {
       url = "${baseUrl}/${version}/darwin-arm64/claude";
       hash = "sha256-CfFTtGtd+eizRUcW1oKpGQHeAgy8pjD2HewaAVsytek=";

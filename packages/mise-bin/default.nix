@@ -12,14 +12,6 @@ let
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-linux-x64-musl.tar.gz";
       hash = "sha256-TloICr560DKtLOZF76mbM5n9nIURt6O9qqb3HlRfKRo=";
     };
-    aarch64-linux = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-linux-arm64-musl.tar.gz";
-      hash = "sha256-9R3CSilbooGg/ZYm3YyvKxbYN8TZviQS2GyTPmDCAPg=";
-    };
-    x86_64-darwin = fetchurl {
-      url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-macos-x64.tar.gz";
-      hash = "sha256-jVyvGyoupgZHlSdMalLJ2PV8CSRIWlqXI4o6VxvUNWY=";
-    };
     aarch64-darwin = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-macos-arm64.tar.gz";
       hash = "sha256-nDZ4sgUV8JEgizoqmQC7xat/IoocWJOEnw8pObGCnfM=";

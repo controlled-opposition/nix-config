@@ -4,7 +4,7 @@ def main [file: path] {
   let version = http get $"($base)/latest" | str trim
   let manifest = http get $"($base)/($version)/manifest.json"
 
-  let updated = [linux-x64 linux-arm64 darwin-x64 darwin-arm64]
+  let updated = [linux-x64 darwin-arm64]
   | reduce --fold (open --raw $file) {|platform, text|
     let hash = $manifest.platforms
     | get $platform

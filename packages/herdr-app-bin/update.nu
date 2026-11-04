@@ -1,7 +1,7 @@
 def main [file: path] {
   let manifest = http get https://releases.herdr.dev/app/latest.json
   let version = $manifest.version
-  let updated = [linux-x86_64 linux-aarch64 macos-aarch64]
+  let updated = [linux-x86_64 macos-aarch64]
   | reduce --fold (open --raw $file) {|target, text|
     let release = $manifest.targets | get $target
     let expected = $"https://releases.herdr.dev/app/($version)/herdr-app-($target).tar.gz"
