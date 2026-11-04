@@ -16,7 +16,6 @@
   home.backupFileExtension = "backup";
 
   home.packages = [
-    pkgs.kitty
     pkgs.bun
     pkgs.nodejs
     pkgs.uv
