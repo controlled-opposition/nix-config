@@ -5,6 +5,7 @@
 - Preserve unrelated working-tree changes.
 - Put machine settings in `hosts/<name>/` and user settings in `home/<user>/`. Name host directories after exported configuration keys and user directories after `home-manager.users` keys.
 - Assemble features and users in each host's `default.nix`, not `flake.nix`.
+- Define flake outputs with flake-parts: per-system outputs in `perSystem`, configurations in `flake`.
 - Put shared system modules in `modules/system/`, NixOS-only modules in `modules/nixos/`, and Home Manager modules in `modules/home/`. Import modules explicitly.
 - Use two-space indentation, small modules, and related option namespaces such as `programs`, `services`, and `environment`.
 - Manage zsh and Kitty configuration with [`mise.toml`](./mise.toml) and [`dotfiles/`](./dotfiles/). Manage Pi settings with Home Manager; Pi's `mcp.json` remains managed by mise. NixOS, nix-darwin, or Home Manager installs their executables; keep credentials, sessions, and downloaded packages machine-local. Add Pi extensions only when requested.
@@ -14,7 +15,7 @@
 
 ## Validate changes
 
-Run commands from the repository root. Format changed Nix files with `nixfmt path/to/file.nix`. Evaluate each affected host or standalone Home Manager configuration without activating it:
+Run commands from the repository root. Format with `nix fmt`; [`flake.nix`](./flake.nix) configures treefmt-nix. Run `nix flake check` to verify formatting. Evaluate each affected host or standalone Home Manager configuration without activating it:
 
 ```sh
 nix eval .#nixosConfigurations.citrus.config.system.build.toplevel.drvPath
