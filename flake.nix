@@ -91,7 +91,11 @@
             pi-bin = pkgs.callPackage ./packages/pi-bin { };
           };
 
-          treefmt.programs.nixfmt.enable = true;
+          treefmt.programs = {
+            deadnix.enable = true;
+            nixfmt.enable = true;
+            statix.enable = true;
+          };
         };
 
       flake =
