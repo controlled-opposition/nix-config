@@ -76,6 +76,7 @@
 
       imports = [
         ./modules/flake/darwin.nix
+        ./modules/flake/devshell.nix
         ./modules/flake/formatter.nix
         ./modules/flake/home.nix
         ./modules/flake/nixos.nix
