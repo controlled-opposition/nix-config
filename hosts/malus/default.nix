@@ -1,6 +1,7 @@
-{ ... }:
+{ inputs, ... }:
 {
   imports = [
+    inputs.determinate.darwinModules.default
     ../../modules/system/common.nix
     ../../modules/system/fonts
 

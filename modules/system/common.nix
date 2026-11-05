@@ -1,11 +1,13 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
-  nix.package = pkgs.nixVersions.latest;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+    package = pkgs.nixVersions.latest;
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   environment = {
     systemPackages = [

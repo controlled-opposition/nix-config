@@ -6,10 +6,10 @@
         packages = [
           pkgs.bun
           pkgs.mise
-          pkgs.nix
           pkgs.nixd
           config.treefmt.build.wrapper
-        ];
+        ]
+        ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.nix ];
       };
     };
 }
