@@ -2,7 +2,7 @@
   lib,
   stdenvNoCC,
   fetchurl,
-  writers,
+  callPackage,
 }:
 let
   version = "0.9.5";
@@ -33,7 +33,8 @@ stdenvNoCC.mkDerivation {
   '';
 
   passthru.updateScript = [
-    (writers.writeNu "update-github-release" ../update-github-release.nu)
+    (callPackage ../update-script.nix { })
+    "github"
     "packages/herdr-bin/default.nix"
     "herdrdev/herdr"
   ];

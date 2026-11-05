@@ -10,7 +10,7 @@
   vulkan-loader,
   copyDesktopItems,
   makeDesktopItem,
-  writers,
+  callPackage,
 }:
 let
   version = "0.1.13";
@@ -82,7 +82,8 @@ stdenvNoCC.mkDerivation {
   ];
 
   passthru.updateScript = [
-    (writers.writeNu "update-herdr-app" ./update.nu)
+    (callPackage ../update-script.nix { })
+    "herdr-app"
     "packages/herdr-app-bin/default.nix"
   ];
 

@@ -4,7 +4,7 @@
   fetchurl,
   autoPatchelfHook,
   libxcb,
-  writers,
+  callPackage,
 }:
 let
   version = "1.5.0";
@@ -43,7 +43,8 @@ stdenvNoCC.mkDerivation {
   '';
 
   passthru.updateScript = [
-    (writers.writeNu "update-github-release" ../update-github-release.nu)
+    (callPackage ../update-script.nix { })
+    "github"
     "packages/pi-bin/default.nix"
     "earendil-works/pi"
   ];

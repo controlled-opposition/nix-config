@@ -9,7 +9,7 @@
   xdg-utils,
   copyDesktopItems,
   makeDesktopItem,
-  writers,
+  callPackage,
 }:
 python3Packages.buildPythonApplication rec {
   pname = "nutmeg";
@@ -70,7 +70,8 @@ python3Packages.buildPythonApplication rec {
   pythonImportsCheck = [ "nutmeg" ];
 
   passthru.updateScript = [
-    (writers.writeNu "update-github-release" ../update-github-release.nu)
+    (callPackage ../update-script.nix { })
+    "github"
     "packages/nutmeg/default.nix"
     "frolleks/nutmeg"
   ];

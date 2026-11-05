@@ -4,7 +4,7 @@
   fetchurl,
   autoPatchelfHook,
   makeBinaryWrapper,
-  writers,
+  callPackage,
 }:
 let
   version = "2.1.318";
@@ -45,7 +45,8 @@ stdenvNoCC.mkDerivation {
   '';
 
   passthru.updateScript = [
-    (writers.writeNu "claude-code-bin-update" ./update.nu)
+    (callPackage ../update-script.nix { })
+    "claude"
     "packages/claude-code-bin/default.nix"
   ];
 
