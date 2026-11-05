@@ -45,7 +45,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   passthru.updateScript = [
-    (callPackage ../../scripts/updater/update-script.nix { })
+    (lib.getExe (callPackage ../../scripts/updater/update-package.nix { }))
     "claude"
     "packages/claude-code-bin/default.nix"
   ];

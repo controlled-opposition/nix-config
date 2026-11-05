@@ -70,7 +70,7 @@ python3Packages.buildPythonApplication rec {
   pythonImportsCheck = [ "nutmeg" ];
 
   passthru.updateScript = [
-    (callPackage ../../scripts/updater/update-script.nix { })
+    (lib.getExe (callPackage ../../scripts/updater/update-package.nix { }))
     "github"
     "packages/nutmeg/default.nix"
     "frolleks/nutmeg"
