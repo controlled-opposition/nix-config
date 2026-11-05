@@ -27,12 +27,7 @@
         brave-origin
         yazi
         zsh
-        gram
-        clang
-        gnumake
-        cmake
         libtool
-        python3
         google-chrome
         unsloth-desktop
         ;

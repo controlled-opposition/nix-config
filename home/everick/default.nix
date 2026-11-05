@@ -15,19 +15,11 @@
 
       inherit (pkgs)
         discord
-        micro
         obsidian
         tmux
         zellij
         zsh
         zoom-us
-
-        python3
-        gcc
-        gnumake
-        cmake
-        ripgrep
-        fd
         ;
     };
   };
