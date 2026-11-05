@@ -67,123 +67,19 @@
   };
 
   outputs =
-    inputs@{
-      flake-parts,
-      nix-darwin,
-      nixpkgs,
-      home-manager,
-      ...
-    }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
         "aarch64-darwin"
       ];
 
-      imports = [ inputs.treefmt-nix.flakeModule ];
-
-      perSystem =
-        { pkgs, system, ... }:
-        let
-          inherit (pkgs) lib;
-          allPackages = {
-            claude-code-bin = pkgs.callPackage ./packages/claude-code-bin { };
-            herdr-app-bin = pkgs.callPackage ./packages/herdr-app-bin { };
-            herdr-bin = pkgs.callPackage ./packages/herdr-bin { };
-            mise-bin = pkgs.callPackage ./packages/mise-bin { };
-            nutmeg = pkgs.callPackage ./packages/nutmeg { };
-            pi-bin = pkgs.callPackage ./packages/pi-bin { };
-          };
-        in
-        {
-          _module.args.pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-
-          packages = lib.filterAttrs (_: lib.meta.availableOn pkgs.stdenv.hostPlatform) allPackages;
-
-          apps.update.program = pkgs.writeShellApplication {
-            name = "update-packages";
-            text = ''
-              pids=()
-              ${lib.concatLines (
-                lib.mapAttrsToList (attr: pkg: ''
-                  UPDATE_NIX_ATTR_PATH=${attr} ${lib.escapeShellArgs pkg.updateScript} &
-                  pids+=("$!")
-                '') allPackages
-              )}
-              status=0
-              for pid in "''${pids[@]}"; do
-                wait "$pid" || status=1
-              done
-              exit "$status"
-            '';
-          };
-
-          treefmt = {
-            programs = {
-              biome.enable = true;
-              deadnix.enable = true;
-              nixfmt.enable = true;
-              statix.enable = true;
-              taplo.enable = true;
-            };
-            settings.formatter.biome.options = [ "--error-on-warnings" ];
-          };
-        };
-
-      flake =
-        let
-          linuxPkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-          };
-          darwinPkgs = import nixpkgs {
-            system = "aarch64-darwin";
-            config.allowUnfree = true;
-          };
-        in
-        {
-          homeConfigurations = {
-            "rick@citrus" = home-manager.lib.homeManagerConfiguration {
-              pkgs = linuxPkgs;
-              extraSpecialArgs = { inherit inputs; };
-              modules = [ ./home/rick ];
-            };
-
-            "weasel@rubus" = home-manager.lib.homeManagerConfiguration {
-              pkgs = linuxPkgs;
-              extraSpecialArgs = { inherit inputs; };
-              modules = [ ./home/weasel ];
-            };
-
-            "everick@malus" = home-manager.lib.homeManagerConfiguration {
-              pkgs = darwinPkgs;
-              extraSpecialArgs = { inherit inputs; };
-              modules = [ ./home/everick ];
-            };
-          };
-
-          darwinConfigurations.malus = nix-darwin.lib.darwinSystem {
-            system = "aarch64-darwin";
-            specialArgs = { inherit inputs; };
-            modules = [ ./hosts/malus ];
-          };
-
-          nixosConfigurations = {
-            citrus = nixpkgs.lib.nixosSystem {
-              system = "x86_64-linux";
-              specialArgs = { inherit inputs; };
-              modules = [ ./hosts/citrus ];
-            };
-
-            rubus = nixpkgs.lib.nixosSystem {
-              system = "x86_64-linux";
-              specialArgs = { inherit inputs; };
-              modules = [ ./hosts/rubus ];
-            };
-          };
-        };
+      imports = [
+        ./modules/flake/darwin.nix
+        ./modules/flake/formatter.nix
+        ./modules/flake/home.nix
+        ./modules/flake/nixos.nix
+        ./modules/flake/packages.nix
+      ];
     };
 }

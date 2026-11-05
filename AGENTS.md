@@ -5,7 +5,7 @@
 - Preserve unrelated working-tree changes.
 - Put machine settings in `hosts/<name>/` and user settings in `home/<user>/`. Name host directories after exported configuration keys and user directories after `home-manager.users` keys.
 - Assemble features and users in each host's `default.nix`, not `flake.nix`.
-- Define flake outputs with flake-parts: per-system outputs in `perSystem`, configurations in `flake`.
+- Define flake outputs with flake-parts modules in `modules/flake/`, imported from `flake.nix`: per-system outputs in `perSystem`, configurations in `flake`.
 - Put shared system modules in `modules/system/`, NixOS-only modules in `modules/nixos/`, and Home Manager modules in `modules/home/`. Import modules explicitly.
 - Manage zsh configuration with [`mise.toml`](./mise.toml) and [`dotfiles/`](./dotfiles/). Manage Pi settings with Home Manager; Pi's `mcp.json` remains managed by mise. NixOS, nix-darwin, or Home Manager installs their executables; keep credentials, sessions, and downloaded packages machine-local. Add Pi extensions only when requested.
 - Edit `AGENTS.md` when appropriate. Do not add content to `README.md`; formatting it is fine. Add documentation only when explicitly asked. Keep documentation minimal; link to configuration files instead of copying option or shortcut lists.
