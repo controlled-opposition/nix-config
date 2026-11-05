@@ -15,15 +15,4 @@ dotfiles.root = "./dotfiles"
 
 [tasks.update]
 description = "Update flake inputs and packages"
-shell = "bash -c"
-run = '''
-set -euo pipefail
-nix flake update
-for dir in packages/*/; do
-  attr=$(basename "$dir")
-  cmd=()
-  while IFS= read -r arg; do cmd+=("$arg"); done < <(nix eval --raw ".#$attr.updateScript" --apply 'c: builtins.concatStringsSep "\n" c + "\n"')
-  nix build --no-link "$(nix eval --raw ".#$attr.updateScript" --apply 'c: (builtins.head c).drvPath')^*"
-  UPDATE_NIX_ATTR_PATH=$attr "${cmd[@]}"
-done
-'''
+run = ["nix flake update", "nix run .#update"]

@@ -179,9 +179,10 @@ function save(file: string, source: string) {
 	}
 }
 
+const args = process.argv.slice(2);
+const [provider, path, repo] = args;
+
 async function main() {
-	const args = process.argv.slice(2);
-	const [provider, path, repo] = args;
 	ensure(
 		path &&
 			((provider === "github" && repo && args.length === 3) ||
@@ -209,6 +210,7 @@ async function main() {
 }
 
 main().catch((error: unknown) => {
-	console.error(error instanceof Error ? error.message : String(error));
+	const message = error instanceof Error ? error.message : String(error);
+	console.error(path ? `${path}: ${message}` : message);
 	process.exitCode = 1;
 });
