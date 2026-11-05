@@ -2,7 +2,6 @@
 {
   nixpkgs.config.allowUnfree = true;
   nix = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
-    package = pkgs.nixVersions.latest;
     settings.experimental-features = [
       "nix-command"
       "flakes"
