@@ -33,7 +33,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   passthru.updateScript = [
-    (callPackage ../update-script.nix { })
+    (callPackage ../../scripts/updater/update-script.nix { })
     "github"
     "packages/herdr-bin/default.nix"
     "herdrdev/herdr"

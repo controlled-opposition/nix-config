@@ -36,7 +36,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   passthru.updateScript = [
-    (callPackage ../update-script.nix { })
+    (callPackage ../../scripts/updater/update-script.nix { })
     "github"
     "packages/mise-bin/default.nix"
     "jdx/mise"

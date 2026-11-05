@@ -82,7 +82,7 @@ stdenvNoCC.mkDerivation {
   ];
 
   passthru.updateScript = [
-    (callPackage ../update-script.nix { })
+    (callPackage ../../scripts/updater/update-script.nix { })
     "herdr-app"
     "packages/herdr-app-bin/default.nix"
   ];

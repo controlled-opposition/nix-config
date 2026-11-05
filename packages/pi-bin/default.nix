@@ -43,7 +43,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   passthru.updateScript = [
-    (callPackage ../update-script.nix { })
+    (callPackage ../../scripts/updater/update-script.nix { })
     "github"
     "packages/pi-bin/default.nix"
     "earendil-works/pi"
