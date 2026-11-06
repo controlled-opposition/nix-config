@@ -16,7 +16,7 @@
 
 ## Validate changes
 
-Run all commands from the repository root.
+Run all commands from the repository root. Prefer [`nh`](https://github.com/nix-community/nh) whenever it supports the operation; use Nix or mise directly otherwise.
 
 1. Run `nix fmt` to format the repository. [`flake.nix`](./flake.nix) configures treefmt-nix.
 2. Run `nix flake check` to verify formatting.
@@ -35,23 +35,23 @@ There is no separate test suite.
 
 ## Activate on the matching machine
 
-Never activate a configuration on another machine. System and standalone Home Manager activations are separate. Switch the system before the matching user configuration. Use `--inputs-from .` to run rebuild tools from the flake's pinned inputs.
+Never activate a configuration on another machine. System and standalone Home Manager activations are separate. Switch the system before the matching user configuration. Run `nh` without `sudo`; it handles privilege escalation.
 
 ```sh
 # citrus
-sudo nix run --inputs-from . nixpkgs#nixos-rebuild -- switch --flake .#citrus
-nix run --inputs-from . home-manager -- switch --flake '.#rick@citrus' -b backup
+nh os switch . -H citrus
+nh home switch . -c 'rick@citrus' -b backup
 
 # rubus
-sudo nix run --inputs-from . nixpkgs#nixos-rebuild -- switch --flake .#rubus
-nix run --inputs-from . home-manager -- switch --flake '.#weasel@rubus' -b backup
+nh os switch . -H rubus
+nh home switch . -c 'weasel@rubus' -b backup
 
 # malus
-sudo nix run --inputs-from . nix-darwin -- switch --flake .#malus
-nix run --inputs-from . home-manager -- switch --flake '.#everick@malus' -b backup
+nh darwin switch . -H malus
+nh home switch . -c 'everick@malus' -b backup
 ```
 
-If flakes are disabled, add `--extra-experimental-features 'nix-command flakes'` before `run`, or enable flakes in the Nix configuration. Review activation output for errors. Then [apply mise dotfiles](#apply-mise-dotfiles) for the matching user.
+Enable `nix-command` and `flakes` in the Nix configuration before using these commands. Review activation output for errors. Then [apply mise dotfiles](#apply-mise-dotfiles) for the matching user.
 
 ## Update dependencies
 
@@ -83,5 +83,5 @@ In pull requests:
 
 - Name the affected hosts and users.
 - Summarize behavior and pin changes.
-- List evaluation or rebuild commands.
+- List validation or rebuild commands.
 - Add screenshots only for visible desktop, editor, or wallpaper changes.

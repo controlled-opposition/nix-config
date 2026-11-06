@@ -1,6 +1,7 @@
 [tools]
 codex = "latest"
 "npm:pele" = "latest"
+tuios = "latest"
 
 
 [settings]
