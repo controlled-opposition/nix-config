@@ -24,7 +24,6 @@
         vscode
         faugus-launcher
         jujutsu
-        brave-origin
         yazi
         zsh
         libtool
