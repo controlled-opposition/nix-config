@@ -19,8 +19,9 @@
 Run all commands from the repository root. Prefer [`nh`](https://github.com/nix-community/nh) whenever it supports the operation; use Nix or mise directly otherwise.
 
 1. Run `nix fmt` to format the repository. [`flake.nix`](./flake.nix) configures treefmt-nix.
-2. Run `nix flake check` to verify formatting.
-3. Evaluate each affected host or standalone Home Manager configuration. Do not activate it during evaluation.
+2. Run `rg --files -0 -g '*.nix' | xargs -0 nil diagnostics --deny-warnings --` to check all Nix files for static errors and warnings.
+3. Run `nix flake check` to verify formatting.
+4. Evaluate each affected host or standalone Home Manager configuration. Do not activate it during evaluation.
 
 ```sh
 nix eval .#nixosConfigurations.citrus.config.system.build.toplevel.drvPath
