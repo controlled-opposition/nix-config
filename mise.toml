@@ -3,10 +3,7 @@ dotfiles.root = "./dotfiles"
 
 [dotfiles]
 "~/.pi/agent/mcp.json" = "dotfiles/pi/agent/mcp.json"
-"~/.agents/skills" = "dotfiles/agents/skills"
 "~/.config/starship.toml" = "dotfiles/starship/starship.toml"
-"~/.claude/skills/nh" = "dotfiles/agents/skills/nh"
-"~/.claude/skills/home-manager-rebuild" = "dotfiles/agents/skills/home-manager-rebuild"
 "~/.config/ghostty/config.ghostty" = "dotfiles/ghostty/config.ghostty"
 "~/.config/mise" = "dotfiles/mise"
 "~/.zshrc" = "dotfiles/zsh/zshrc"
