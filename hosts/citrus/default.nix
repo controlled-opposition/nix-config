@@ -6,7 +6,11 @@
     ../../modules/system/common.nix
     ../../modules/system/fonts
 
-    ./base
+    ./bootloader.nix
+    ./locale.nix
+    ./networking.nix
+    ./nix.nix
+    ./users.nix
     ./configuration.nix
     ./desktop.nix
     ./flatpak.nix
