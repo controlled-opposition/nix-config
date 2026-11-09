@@ -283,11 +283,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794071166,
-        "narHash": "sha256-P85OPkb5JbZXAc90lHRRDA7fYo4dstXO6yASKWnKKUA=",
+        "lastModified": 1794176040,
+        "narHash": "sha256-G1LyM0sgUpjll0bUXNaNR4nrj3gO1izCFbC07uCInEY=",
         "ref": "refs/heads/main",
-        "rev": "e4ce07dadd0b0f983e4046c34b4f35b6c40b1fd3",
-        "revCount": 2290,
+        "rev": "904e13f693e82e44a0dd1c1c99d67f3a96b88995",
+        "revCount": 2317,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Froststrap/Froststrap"
@@ -362,11 +362,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1794070403,
-        "narHash": "sha256-nZyI7z87RdKcnFP5c86XjGNMbgt9u8IrRm2VKEQrnsc=",
+        "lastModified": 1794178888,
+        "narHash": "sha256-5uOZgvzP8FJwZ8seNi0ExZ/V0mmU+HdGfbs9SvaAWRc=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "1f05a49ac1c43a9c520c7f30442e5d6f2e8c904f",
+        "rev": "f9f0c5bcf728f1018839a0136afe76890b9d1fab",
         "type": "github"
       },
       "original": {
@@ -378,11 +378,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1794069390,
-        "narHash": "sha256-6Hfgqv6R50YhvGqEFz9nM7Q8WoILJS2WRtqeagTQlPk=",
+        "lastModified": 1794184539,
+        "narHash": "sha256-8P0VvIPRI5WtaoMVS0JsmRbmPbFs+FjEp8cKV6i0BQg=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "a489f77fc246dc40c36996266056681efc8b34d7",
+        "rev": "89b96a131a493ce3407d3c82c6c13889b92b900a",
         "type": "github"
       },
       "original": {
@@ -667,11 +667,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1793876309,
-        "narHash": "sha256-Q62pssAT9r01POiSyXW0IPXBWhntiKqMhzlsp3bsl5I=",
-        "rev": "f9a75f41be3a74eab55d3a7679d34ad6cc0da977",
+        "lastModified": 1794042290,
+        "narHash": "sha256-VZ8WvA9m3XN36juXyg/GwbDRU2OezOHJlXpJCXkccv0=",
+        "rev": "f4a03c008967841f2a0b3cb7c436fc6fc31671f6",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1108983.f9a75f41be3a/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1113206.f4a03c008967/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
