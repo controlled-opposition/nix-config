@@ -23,8 +23,6 @@
       }
     ];
     brews = [
-      "libvterm"
-      "libtool"
       "specstory"
     ];
 
@@ -32,7 +30,6 @@
       "chatgpt"
       "google-chrome"
       "visual-studio-code"
-      "finetune"
       "zed"
       "spotify"
       "helium-browser"

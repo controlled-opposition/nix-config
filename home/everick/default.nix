@@ -17,9 +17,6 @@
       inherit (pkgs)
         discord
         obsidian
-        tmux
-        zellij
-        zsh
         zoom-us
         ;
     };
