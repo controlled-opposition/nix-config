@@ -1,0 +1,3 @@
+{
+  programs.omniwm.enable = true;
+}
