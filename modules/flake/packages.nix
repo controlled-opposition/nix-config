@@ -10,6 +10,7 @@
         herdr-bin = pkgs.callPackage ../../packages/herdr-bin { };
         mise-bin = pkgs.callPackage ../../packages/mise-bin { };
         nutmeg = pkgs.callPackage ../../packages/nutmeg { };
+        omniwm-bin = pkgs.callPackage ../../packages/omniwm-bin { };
         pi-bin = pkgs.callPackage ../../packages/pi-bin { };
       };
     in
