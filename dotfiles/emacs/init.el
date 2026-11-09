@@ -10,6 +10,11 @@
 
 (global-set-key (kbd "C-c r") #'reload-init-file)
 
+;; Save all backup and auto-save files to one folder
+(setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
+(setq auto-save-file-name-transforms `((".*" ,(expand-file-name "tmp/auto-saves/" user-emacs-directory) t)))
+
+
 (select-frame-set-input-focus (selected-frame))
 (setq inhibit-startup-screen t)
 (load-theme 'modus-vivendi t)
