@@ -283,11 +283,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794282300,
-        "narHash": "sha256-UsF+hqFYMQxM3Y0i1JslPN6gimO+IpToMkQqNfj0n5A=",
+        "lastModified": 1794326730,
+        "narHash": "sha256-wRiCd0Vv1A0zBVk8QFUD+0DCsdDwwNjp1Rvk9D7G2zY=",
         "ref": "refs/heads/main",
-        "rev": "7141047a7e429ff23aeb156cd58ae01d41bf3ac6",
-        "revCount": 2324,
+        "rev": "d2bd0f28a092e1f7be45a03b2579a38355ef5ea2",
+        "revCount": 2332,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Froststrap/Froststrap"
@@ -327,11 +327,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794230081,
-        "narHash": "sha256-DhKcqLTODYxr/mstPAgink4lTj1a1p3DAce41cfeWm4=",
+        "lastModified": 1794313532,
+        "narHash": "sha256-0dKSs9yz1zJ5Fr1ouWRoc3pCSm16Dq1NiGe0INkDKJc=",
         "owner": "amaanq",
         "repo": "helium-flake",
-        "rev": "72d88147285f4a2dd183460f6d06b1709823749c",
+        "rev": "20568958fc47239af0a4ac7441bc52357ca95f7d",
         "type": "github"
       },
       "original": {
@@ -362,11 +362,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1794283777,
-        "narHash": "sha256-h76D6I+8sTbE8xU+Y65mvWyV2ofT5NxQa+BIskB4mkE=",
+        "lastModified": 1794336678,
+        "narHash": "sha256-noe6AnAWEj6Rw5eQtCVwlcQPgfZoHmkK77B4+dUwrTc=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "537583104b7ae150431435208e3440f7c2bdd891",
+        "rev": "bf7e345653b27686cf6d2a989dd821a10e16f053",
         "type": "github"
       },
       "original": {
@@ -378,11 +378,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1794280996,
-        "narHash": "sha256-KRCxBTNfaRcHTB2d2bLM6wFdYyapwQLHVoVERQ6z5d8=",
+        "lastModified": 1794335063,
+        "narHash": "sha256-G+iaWw464n9DE3dbuacJp8vbva6E4SxMYFtTEDGt/R4=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "0bb5dc7f80258bf6d8479b48f15f8c4879648cd0",
+        "rev": "2d1aa69539be2c46a68b6f6752bb8b42c75337e0",
         "type": "github"
       },
       "original": {

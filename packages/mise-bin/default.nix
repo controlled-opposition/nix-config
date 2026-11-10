@@ -6,15 +6,15 @@
   installShellFiles,
 }:
 let
-  version = "2026.11.5";
+  version = "2026.11.6";
   sources = {
     x86_64-linux = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-linux-x64-musl.tar.gz";
-      hash = "sha256-XPN2hY4JHE8/5VsGP5S9PuKFq2Ec7AyxqdbXmGxJpDM=";
+      hash = "sha256-LMEVe511ocamOqcjGgR8M7Q/Jz/SvFRatRrp2090mTo=";
     };
     aarch64-darwin = fetchurl {
       url = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-macos-arm64.tar.gz";
-      hash = "sha256-9pyKT3wmXV8//dBtRBBKoVp//ZtlRah7d2j4k7cPD9g=";
+      hash = "sha256-dM9V6S9sax8WZ4HDbbNduUIKTL9A1i2FwbnV3HbgunI=";
     };
   };
   system = stdenvNoCC.hostPlatform.system;
