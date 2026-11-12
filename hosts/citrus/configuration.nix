@@ -5,6 +5,7 @@
       nh
       gh
       wl-clipboard
+      dolphin-emu
       ;
   };
 
@@ -24,5 +25,7 @@
   hardware.i2c.enable = true;
   hardware.bluetooth.enable = true;
   programs.zsh.enable = true;
+
+  services.udev.packages = [ pkgs.dolphin-emu ];
 
 }
