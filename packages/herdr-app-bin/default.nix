@@ -13,15 +13,15 @@
   callPackage,
 }:
 let
-  version = "0.1.14";
+  version = "0.1.15";
   sources = {
     x86_64-linux = fetchurl {
       url = "https://releases.herdr.dev/app/${version}/herdr-app-linux-x86_64.tar.gz";
-      hash = "sha256-R1o4P49DnjGRqGY1tcEobOTf0tn83x58vf3Wxxdvj/M=";
+      hash = "sha256-+Z4eBL6CwOELL2nudAPKNDhvSA2SUR31hlr0cD52Vd0=";
     };
     aarch64-darwin = fetchurl {
       url = "https://releases.herdr.dev/app/${version}/herdr-app-macos-aarch64.tar.gz";
-      hash = "sha256-DabKIUIUOJyjngX99lI/1uS+QjpL59/Tm2d9aKQQ+os=";
+      hash = "sha256-NjPqXYaOpBD4Tfu3eiYgXeMx9N9S/bP7AGsrOXhFhFk=";
     };
   };
   system = stdenvNoCC.hostPlatform.system;
