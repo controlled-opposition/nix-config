@@ -8,5 +8,7 @@
 
   nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
 
+  services.bootvine.enable = true;
+
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
 }

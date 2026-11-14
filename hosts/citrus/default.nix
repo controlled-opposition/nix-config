@@ -3,6 +3,7 @@
   imports = [
     inputs.determinate.nixosModules.default
     inputs.laminix.nixosModules.default
+    inputs.bootvine.nixosModules.default
     ../../modules/system/common.nix
     ../../modules/system/fonts
 
