@@ -321,11 +321,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794585739,
-        "narHash": "sha256-heybesvhHUyhRbVXXnV3uixoifOSsgfevEZrsB09RWs=",
+        "lastModified": 1794697448,
+        "narHash": "sha256-57y5p/L9D7vbYqa0gK/sBhtpmRSQ6zje0KhoOzwAmos=",
         "ref": "refs/heads/main",
-        "rev": "c68bbc048b7f44ffe8d4acb6185896419159ab8f",
-        "revCount": 2390,
+        "rev": "8c0634093271dd7cacfaf58f62e524ce334f55b7",
+        "revCount": 2397,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Froststrap/Froststrap"
@@ -400,11 +400,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1794613953,
-        "narHash": "sha256-RSEkDgz87DKBdllx/wxTOf2+YJC4FCBQVkLgA0bMZac=",
+        "lastModified": 1794695571,
+        "narHash": "sha256-/ghpq6SWyaEnFCCQkARFefjKSzhyW5lAHxpFoZjA4bw=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "c2037e1d0f4e2f87f03df772ed6d67c9f056b95f",
+        "rev": "2dec6db186fdf8654cff61c591a891b59fa7f96f",
         "type": "github"
       },
       "original": {
@@ -416,11 +416,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1794613723,
-        "narHash": "sha256-wQHGgJrvvbU5I9gH+5mRd0oSpGN9aVkUMu36wjFzirc=",
+        "lastModified": 1794695292,
+        "narHash": "sha256-UgFM7Y++r6AAG6tLL2VzUxA9U+4rEe3gHsAPlCkRjKU=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "148aa75dfcc6edc97b198e64e746d636b4c3a75f",
+        "rev": "0f7031ad952e45fcbd7fbd2b17d171ad282a6cbb",
         "type": "github"
       },
       "original": {
@@ -478,11 +478,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1794544161,
-        "narHash": "sha256-bwCxJCXCYEKEKYeNel621bXZLfOG/lSg5/05ugC5vp8=",
+        "lastModified": 1794692537,
+        "narHash": "sha256-VMug2jV6Ixb/rosbRpFdhwziuhC4h3uFfnJOKuo19sc=",
         "owner": "xddxdd",
         "repo": "nix-cachyos-kernel",
-        "rev": "3084b743b4a3e54840a0ff39ac3c2853ecb87c0c",
+        "rev": "c9620070e884d55c5b5566e3fd46611ee24c4d3b",
         "type": "github"
       },
       "original": {
@@ -689,11 +689,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1794493573,
-        "narHash": "sha256-IzdumBb69us47OjGzNjwqMM9mKw2042rqwOA0g9bJBA=",
+        "lastModified": 1794666816,
+        "narHash": "sha256-+0k232f2hL/ENytM0z48OY9BLdnJx1GVdW8lsyQ8lXU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3fe6b2e95f7304e16d6637199c6ae3b4382cbf89",
+        "rev": "82566dfe91ca5e12bc10b36272280628142f651d",
         "type": "github"
       },
       "original": {
