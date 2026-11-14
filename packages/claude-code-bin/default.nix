@@ -7,16 +7,16 @@
   callPackage,
 }:
 let
-  version = "2.1.322";
+  version = "2.1.325";
   baseUrl = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases";
   sources = {
     x86_64-linux = fetchurl {
       url = "${baseUrl}/${version}/linux-x64/claude";
-      hash = "sha256-v7NwOtU4AkIyhFm8Yq2kveiue6V8bh7q25wA4Ih0xHg=";
+      hash = "sha256-DcT0qaFl/GB0bXroSJcS5fw1Lx561Osi5xQb0IEusM8=";
     };
     aarch64-darwin = fetchurl {
       url = "${baseUrl}/${version}/darwin-arm64/claude";
-      hash = "sha256-qdI3lJ24FqC3r9iKmo4d82s6WXow9aQdHAU56xgKNFA=";
+      hash = "sha256-hFkP7+Yzi+kIf1gUth+aVMXyFSQWOkwSfLWoCOMQCfI=";
     };
   };
   system = stdenvNoCC.hostPlatform.system;

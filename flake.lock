@@ -284,11 +284,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794412959,
-        "narHash": "sha256-2XKlkCCr5k8FPh5ID4mC9GSQ91b80z2ZTXHPn0a7/s4=",
+        "lastModified": 1794585739,
+        "narHash": "sha256-heybesvhHUyhRbVXXnV3uixoifOSsgfevEZrsB09RWs=",
         "ref": "refs/heads/main",
-        "rev": "46340d80372c8f77cc9823e7e91e184e014dbaab",
-        "revCount": 2359,
+        "rev": "c68bbc048b7f44ffe8d4acb6185896419159ab8f",
+        "revCount": 2390,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Froststrap/Froststrap"
@@ -328,11 +328,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794313532,
-        "narHash": "sha256-0dKSs9yz1zJ5Fr1ouWRoc3pCSm16Dq1NiGe0INkDKJc=",
+        "lastModified": 1794597681,
+        "narHash": "sha256-dteS+YYEOrbYupP9U8EvYxBNTTlf4Lup0ji51ubGv+I=",
         "owner": "amaanq",
         "repo": "helium-flake",
-        "rev": "20568958fc47239af0a4ac7441bc52357ca95f7d",
+        "rev": "698f12b0a5b93aa2c6b582779bdb683f0d8692a3",
         "type": "github"
       },
       "original": {
@@ -363,11 +363,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1794447986,
-        "narHash": "sha256-xs5h8cFKwIVtyKE+01oeDpbPs3o9CM/2IT2g0Fi+7yw=",
+        "lastModified": 1794613953,
+        "narHash": "sha256-RSEkDgz87DKBdllx/wxTOf2+YJC4FCBQVkLgA0bMZac=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "f92af5361b502c1f8143710a75cdd030da1ee89f",
+        "rev": "c2037e1d0f4e2f87f03df772ed6d67c9f056b95f",
         "type": "github"
       },
       "original": {
@@ -379,11 +379,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1794448302,
-        "narHash": "sha256-pSaPpPPpQnmlRm9gShzsshkJq3ECNpXZfPttfO4f8LY=",
+        "lastModified": 1794613723,
+        "narHash": "sha256-wQHGgJrvvbU5I9gH+5mRd0oSpGN9aVkUMu36wjFzirc=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "41e47098a6ea437a1a828653b0d2f53cb1e8f7f6",
+        "rev": "148aa75dfcc6edc97b198e64e746d636b4c3a75f",
         "type": "github"
       },
       "original": {
@@ -441,11 +441,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1794003668,
-        "narHash": "sha256-znvxkrEOmW+CUHVOO/2uYbcTMzfjCcrfS2izPVBZhhU=",
+        "lastModified": 1794544161,
+        "narHash": "sha256-bwCxJCXCYEKEKYeNel621bXZLfOG/lSg5/05ugC5vp8=",
         "owner": "xddxdd",
         "repo": "nix-cachyos-kernel",
-        "rev": "53532f14476a597abeaa67bca19f2c009a043fb6",
+        "rev": "3084b743b4a3e54840a0ff39ac3c2853ecb87c0c",
         "type": "github"
       },
       "original": {
@@ -652,11 +652,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1793931523,
-        "narHash": "sha256-kyzSFmRVevj9lr2XVskwKnae/pXJEbQ+bHKc+mpjqFE=",
+        "lastModified": 1794493573,
+        "narHash": "sha256-IzdumBb69us47OjGzNjwqMM9mKw2042rqwOA0g9bJBA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7dd597af6a9776394693e4d0fed85dd5ea8d56da",
+        "rev": "3fe6b2e95f7304e16d6637199c6ae3b4382cbf89",
         "type": "github"
       },
       "original": {
@@ -668,11 +668,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1794192123,
-        "narHash": "sha256-YOhabADcIwaWo9992egosQF3iVpvWysmZAyhbGBzinY=",
-        "rev": "177d0540942fb205af6993b1d5fa0b57799e09f8",
+        "lastModified": 1794386569,
+        "narHash": "sha256-W60urNAgQVS8bhNWH0bQsYoiagds8m38oTDUjEOM9FE=",
+        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1114946.177d0540942f/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1117658.d4f25a3e5620/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",

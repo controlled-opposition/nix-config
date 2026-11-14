@@ -11,6 +11,7 @@ eval "$(zoxide init zsh)"
 export DIRENV_WARN_TIMEOUT=0
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
+export CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1
 
 # Added by Unsloth setup
 export PATH="/home/rick/.local/bin:$PATH"
