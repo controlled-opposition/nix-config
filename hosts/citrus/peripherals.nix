@@ -43,4 +43,12 @@
   '';
 
   hardware.wooting.enable = true;
+
+  services.crossmacro.enable = true;
+  services.crossmacro.users = [
+    "rick"
+  ];
+
+  hardware.i2c.enable = true;
+  hardware.bluetooth.enable = true;
 }

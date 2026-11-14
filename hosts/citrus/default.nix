@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.determinate.nixosModules.default
@@ -7,20 +7,16 @@
     ../../modules/system/fonts
 
     ./bootloader.nix
-    ./locale.nix
-    ./networking.nix
-    ./nix.nix
-    ./users.nix
     ./configuration.nix
     ./desktop.nix
     ./flatpak.nix
-    ./hardware-configuration.nix
-    ./peripherals.nix
+    ./gaming.nix
     ./graphics.nix
-  ];
-
-  environment.systemPackages = [
-    inputs.butter.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nutmeg
+    ./hardware-configuration.nix
+    ./locale.nix
+    ./networking.nix
+    ./nix.nix
+    ./peripherals.nix
+    ./users.nix
   ];
 }

@@ -7,9 +7,10 @@
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs.zsh;
   };
 
-  users.users."rick".shell = pkgs.zsh;
+  programs.zsh.enable = true;
 
   security.sudo.enable = true;
   security.sudo.extraRules = [

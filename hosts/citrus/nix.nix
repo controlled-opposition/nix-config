@@ -4,6 +4,9 @@
 
     fallback = true;
 
+    substituters = [ "https://cache.lantian.pub/lantian" ];
+    trusted-public-keys = [ "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ=" ];
+
     extra-substituters = [
       "https://nix-community.cachix.org"
       "https://invra.cachix.org"
@@ -14,7 +17,4 @@
       "invra.cachix.org-1:5lB/b5n5iQVLCbAYfnH5f5ASzqlVB6uKfINHge7lVvk="
     ];
   };
-
-  system.stateVersion = "26.05";
-
 }

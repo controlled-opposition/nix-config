@@ -4,10 +4,9 @@
 
   services.flatpak = {
     enable = true;
+    packages = [
+      "org.vinegarhq.Sober"
+      "io.github.TeamWheelWizard.WheelWizard"
+    ];
   };
-
-  services.flatpak.packages = [
-    "org.vinegarhq.Sober"
-    "io.github.TeamWheelWizard.WheelWizard"
-  ];
 }

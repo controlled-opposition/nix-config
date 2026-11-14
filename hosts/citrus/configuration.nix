@@ -1,31 +1,21 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
-      nh
-      gh
-      wl-clipboard
-      dolphin-emu
-      ;
-  };
-
-  services.crossmacro.enable = true;
-  services.crossmacro.users = [
-    "rick"
-  ];
+  environment.systemPackages =
+    builtins.attrValues {
+      inherit (pkgs)
+        nh
+        gh
+        wl-clipboard
+        ;
+    }
+    ++ [
+      inputs.butter.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nutmeg
+    ];
 
   programs.nix-ld.enable = true;
 
   programs.firefox.enable = true;
 
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
-  programs.gamemode.enable = true;
-
-  hardware.i2c.enable = true;
-  hardware.bluetooth.enable = true;
-  programs.zsh.enable = true;
-
-  services.udev.packages = [ pkgs.dolphin-emu ];
-
+  system.stateVersion = "26.05";
 }
