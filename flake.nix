@@ -28,6 +28,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    quadra = {
+      url = "github:quadrahq/quadra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-flatpak.url = "https://flakehub.com/f/gmodena/nix-flatpak/*";
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";

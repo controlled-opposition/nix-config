@@ -10,7 +10,7 @@
     }
     ++ [
       inputs.butter.packages.${pkgs.stdenv.hostPlatform.system}.default
-      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nutmeg
+      inputs.quadra.packages.${pkgs.stdenv.hostPlatform.system}.quadra
     ];
 
   programs.nix-ld.enable = true;
