@@ -23,11 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    butter = {
-      url = "github:microlift/butter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     quadra = {
       url = "github:quadrahq/quadra";
       inputs.nixpkgs.follows = "nixpkgs";

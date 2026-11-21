@@ -58,28 +58,6 @@
         "type": "github"
       }
     },
-    "butter": {
-      "inputs": {
-        "crane": "crane_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay_2"
-      },
-      "locked": {
-        "lastModified": 1793919621,
-        "narHash": "sha256-8hYF77wUrtW3wy5TDCeF/BB1rz2mnaUk0Mcu753Kw+Q=",
-        "owner": "microlift",
-        "repo": "butter",
-        "rev": "ececc9123e8951349c425eefc84f3db6bab924f5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "microlift",
-        "repo": "butter",
-        "type": "github"
-      }
-    },
     "crane": {
       "locked": {
         "lastModified": 1793836618,
@@ -87,21 +65,6 @@
         "owner": "ipetkov",
         "repo": "crane",
         "rev": "79fd63528501446749c09f08cad486a58c7d173e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
-    "crane_2": {
-      "locked": {
-        "lastModified": 1792350552,
-        "narHash": "sha256-292lvpvxTGKryKxh3/3tcIVi85CwYGdl4oOi113Sob8=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "e675a36b7377bebe41d548388a2501cbb16d380d",
         "type": "github"
       },
       "original": {
@@ -818,7 +781,6 @@
     "root": {
       "inputs": {
         "bootvine": "bootvine",
-        "butter": "butter",
         "determinate": "determinate",
         "flake-parts": "flake-parts_3",
         "froststrap": "froststrap",
@@ -867,27 +829,6 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "5b87ee0513c29127a01ad06e9cb362ea5ce91e78",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "rust-overlay_2": {
-      "inputs": {
-        "nixpkgs": [
-          "butter",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1792825530,
-        "narHash": "sha256-aphXA2IFNd3q48++TKmfuuvDDjkrgGdJDnDIhij9684=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "5b9f1198b59bcb31c5c3250b332e7d77590e6306",
         "type": "github"
       },
       "original": {

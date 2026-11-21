@@ -9,7 +9,6 @@
         ;
     }
     ++ [
-      inputs.butter.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.quadra.packages.${pkgs.stdenv.hostPlatform.system}.quadra
     ];
 
