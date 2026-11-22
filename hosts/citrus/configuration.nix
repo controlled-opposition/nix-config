@@ -5,6 +5,7 @@
       inherit (pkgs)
         nh
         gh
+        t3code
         wl-clipboard
         ;
     }
