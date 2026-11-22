@@ -8,7 +8,7 @@
 - Assemble features and users in each host's `default.nix`. Do not assemble them in `flake.nix`.
 - Define flake outputs in flake-parts modules under `modules/flake/`. Import those modules from `flake.nix`. Put per-system outputs in `perSystem` and configurations in `flake`.
 - Put shared system modules in `modules/system/`, NixOS-only modules in `modules/nixos/`, and Home Manager modules in `modules/home/`. Import modules explicitly.
-- Manage zsh configuration with [`mise.toml`](./mise.toml) and [`dotfiles/`](./dotfiles/).
+- Manage zsh and Emacs startup files with [`mise.toml`](./mise.toml) and [`dotfiles/`](./dotfiles/). Keep Emacs packages and runtime state machine-local.
 - Manage Pi settings with Home Manager. Manage Pi's `mcp.json` with mise. Install executables with NixOS, nix-darwin, or Home Manager. Keep credentials, sessions, and downloaded packages machine-local. Add Pi extensions only when requested.
 - Edit `AGENTS.md` when appropriate. Do not add content to `README.md`; formatting it is allowed. Add other documentation only when explicitly requested. Keep documentation minimal. Link to configuration files instead of copying option or shortcut lists.
 - Before running a version-control command, check for `.jj/`. In a colocated Jujutsu repository, use `jj`, not Git. This rule includes status, diffs, commits, and history changes.
