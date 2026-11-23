@@ -7,6 +7,7 @@
         gh
         t3code
         wl-clipboard
+        unrar
         ;
     }
     ++ [
