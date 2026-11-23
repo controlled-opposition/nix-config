@@ -1,4 +1,10 @@
+{ pkgs, ... }:
 {
+  services.udev.packages = [
+    (pkgs.writeTextDir "etc/udev/rules.d/69-qudelix-5k.rules" ''
+      SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0a12", ATTRS{idProduct}=="4007", TAG+="uaccess"
+    '')
+  ];
 
   services.udev.extraRules = ''
     # Pulsar Mice WebHID support
