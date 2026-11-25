@@ -4,6 +4,7 @@
     inputs.determinate.nixosModules.default
     inputs.laminix.nixosModules.default
     inputs.bootvine.nixosModules.default
+    inputs.flyline.nixosModules.default
     ../../modules/system/common.nix
     ../../modules/system/fonts
 

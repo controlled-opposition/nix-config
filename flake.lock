@@ -337,6 +337,26 @@
         "type": "github"
       }
     },
+    "flyline": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794862010,
+        "narHash": "sha256-ZK8qhsQ6FFCzGSQ/eaT/l3zSYe2UP/v/bmv8zPNwgTs=",
+        "owner": "HalFrgrd",
+        "repo": "flyline",
+        "rev": "bc658cff3919d6917986253be02ba1588a6843a3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HalFrgrd",
+        "repo": "flyline",
+        "type": "github"
+      }
+    },
     "froststrap": {
       "inputs": {
         "dotnix": "dotnix",
@@ -803,6 +823,7 @@
         "bootvine": "bootvine",
         "determinate": "determinate",
         "flake-parts": "flake-parts_3",
+        "flyline": "flyline",
         "froststrap": "froststrap",
         "helium-flake": "helium-flake",
         "home-manager": "home-manager",
