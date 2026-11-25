@@ -11,6 +11,7 @@ dotfiles.root = "./dotfiles"
 "~/.emacs.d/early-init.el" = "dotfiles/emacs/early-init.el"
 "~/.emacs.d/init.el" = "dotfiles/emacs/init.el"
 "~/.emacs.d/post-init.el" = "dotfiles/emacs/post-init.el"
+"~/.bashrc" = "dotfiles/bash/bashrc"
 
 [tasks.update]
 description = "Update flake inputs and packages"
