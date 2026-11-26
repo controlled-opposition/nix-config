@@ -7,7 +7,7 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.bash;
+    shell = pkgs.bashInteractive;
   };
 
   programs.zsh.enable = true;

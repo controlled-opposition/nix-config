@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   username = "everick";
 in
@@ -5,6 +6,7 @@ in
   users.users.${username} = {
     home = "/Users/${username}";
     uid = 501;
+    shell = pkgs.bashInteractive;
   };
 
   system.primaryUser = username;
